@@ -42,3 +42,18 @@ Try undoing or resetting with the buttons on the bottom left!"
 VisualGoalInfoOnGoalWithHyp above false "A" "B" show
   "We don't have any way of proving $A$ in this branch, so this is a dead end.
 Try undoing or resetting with the buttons on the bottom left!"
+
+-- Once the hypothesis is split, the goal still has to be reached in each branch. Said
+-- for these states themselves, so that it holds whichever branch was looked at last.
+VisualGoalInfoOnGoalWithHyp above false "B ∨ A" "A" show
+  "$∨$ hypotheses can be split by {pc: clicking | mobile: tapping} on them.
+In order to finish the proof, you'll have to show that the goal is reachable from both sides!"
+
+VisualGoalInfoOnGoalWithHyp above false "B ∨ A" "B" show
+  "$∨$ hypotheses can be split by {pc: clicking | mobile: tapping} on them.
+In order to finish the proof, you'll have to show that the goal is reachable from both sides!"
+
+-- The side this branch does have a proof of: nothing to warn about, whatever was said
+-- in the other branch.
+VisualGoalInfoOnGoalWithHyp above false "A" "A" show ""
+VisualGoalInfoOnGoalWithHyp above false "B" "B" show ""
