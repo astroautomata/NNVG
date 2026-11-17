@@ -75,7 +75,19 @@ example (add_comm : ∀ x y : ℕ, x + y = y + x)
 
 /-! ## Rewrite World bonus levels -/
 
--- A1: unfold `x` into `f x` twice, then follow the chain.
+-- A1: each click on `zero_add_zero` rewrites the first `0 + 0`, reading left to right.
+example (zero_add_zero : (0 : ℕ) + 0 = 0) :
+    (0 : ℕ) + 0 + 0 + 0 + 0 + 0 + 0 + 0 = 0 := by
+  drag_rw_lhs_at [zero_add_zero] [1, 1, 1, 1, 1, 1]
+  drag_rw_lhs_at [zero_add_zero] [1, 1, 1, 1, 1]
+  drag_rw_lhs_at [zero_add_zero] [1, 1, 1, 1]
+  drag_rw_lhs_at [zero_add_zero] [1, 1, 1]
+  drag_rw_lhs_at [zero_add_zero] [1, 1]
+  drag_rw_lhs_at [zero_add_zero] [1]
+  drag_rw_lhs [zero_add_zero]
+  click_goal
+
+-- B1: unfold `x` into `f x` twice, then follow the chain.
 example (f : ℕ → ℕ) (x a b c : ℕ) (fixed_point : f x = x) (hx : x = a)
     (fa : f a = b) (fb : f b = c) (fc : f c = 0) : f x = 0 := by
   drag_rw_lhs_at [← fixed_point] [1]
@@ -85,6 +97,22 @@ example (f : ℕ → ℕ) (x a b c : ℕ) (fixed_point : f x = x) (hx : x = a)
   drag_rw_lhs_at [fb] [1]
   drag_rw_lhs [fc]
   click_goal
+
+/-! ## Rewrite Mode: a rule whose source side is a lone variable -/
+
+-- `add_zero` backwards (`n ⇐ n + 0` on its card) rewrites exactly the chosen term, on a
+-- goal or a hypothesis, with no Mathlib tactic.
+example (a b : ℕ) (h : a + 0 + b = b + a) : a + b = b + a := by
+  drag_rw_lhs_at [← MyNat.add_zero] [1]
+  drag_goal h
+
+example (a b : ℕ) (h : a + b + 0 = b + a) : a + b = b + a := by
+  drag_rw_lhs [← MyNat.add_zero]
+  drag_goal h
+
+example (a b : ℕ) (h : a + b = b + a) : a + b = b + (a + 0) := by
+  drag_rw_hyp_rhs_at h [← MyNat.add_zero] [2]
+  drag_goal h
 
 /-! ## Proposition World -/
 
@@ -172,14 +200,37 @@ example (A : Prop) : A → ¬¬A := by
   drag_goal h1
   drag_goal h
 
--- Level 12: split the `∧`, then apply `¬A` to `A`.
-example (A : Prop) : ¬(A ∧ ¬A) := by
+-- Level 12: get `B` from `A → B`, then `False` from `¬B`.
+example (A B : Prop) : A → ¬B → ¬(A → B) := by
   click_goal
-  click_prop h
-  drag_to left right
+  click_goal
+  click_goal
+  drag_to h h2
+  drag_to h3 h1
+  drag_goal h4
+
+-- Level 12: premises go in order, so `¬B`'s card takes `B` and nothing else.
+example (A B : Prop) : A → ¬B → ¬(A → B) := by
+  click_goal
+  click_goal
+  click_goal
+  fail_if_success drag_to h h1
+  fail_if_success drag_to h2 h1
+  drag_goal h1
+  drag_goal h2
   drag_goal h
 
--- Level 13, the boss.
+-- Level 13: prove the `False` goal backwards with `¬(A ∧ B)`, as the hint says.
+example (A B : Prop) : A → ¬(A ∧ B) → ¬B := by
+  click_goal
+  click_goal
+  click_goal
+  drag_goal h1
+  click_goal
+  · drag_goal h
+  · drag_goal h2
+
+-- Level 14, the boss.
 example (A B : Prop) : ¬(A ∨ B) ↔ (¬A ∧ ¬B) := by
   click_goal
   · click_goal

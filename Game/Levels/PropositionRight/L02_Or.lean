@@ -33,3 +33,12 @@ So this is a dead end: try undoing or resetting with the buttons on the bottom l
 VisualGoalInfoOnGoalWithHyp above false "A" "A ∨ B" show
   "Whether to pick $A$ or $B$ will depend on which branch of the $∨$ hypothesis we're in.
 So this is a dead end: try undoing or resetting with the buttons on the bottom left!"
+
+-- Past the split of the hypothesis: the side this branch has no proof of.
+VisualGoalInfoOnGoalWithHyp above false "B" "A" show
+  "We don't have any way of proving $B$ in this branch, so this is a dead end.
+Try undoing or resetting with the buttons on the bottom left!"
+
+VisualGoalInfoOnGoalWithHyp above false "A" "B" show
+  "We don't have any way of proving $A$ in this branch, so this is a dead end.
+Try undoing or resetting with the buttons on the bottom left!"

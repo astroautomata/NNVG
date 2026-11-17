@@ -1,11 +1,11 @@
 import Game.Metadata
 
 World "PropositionRight"
-Level 7
+Level 8
 
 Title "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 
-VisualLevelNumber "13"
+VisualLevelNumber "14"
 VisualBossLevel
 
 Statement (A B : Prop) : ¬(A ∨ B) ↔ (¬A ∧ ¬B) := by

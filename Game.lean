@@ -1,6 +1,7 @@
 import Game.Levels.Intro
 import Game.Levels.Rewrite
 import Game.Levels.RewriteBonus
+import Game.Levels.RewriteBonusB
 import Game.Levels.Proposition
 import Game.Levels.PropositionRight
 import Game.Levels.PropositionBonus

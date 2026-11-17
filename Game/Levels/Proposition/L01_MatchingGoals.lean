@@ -12,4 +12,4 @@ Statement (A : Prop) (h : A) : A := by
 
 NewTactic exact
 
-VisualHypGoalInfo h "Goals can be proven by dragging over a proposition that matches it!"
+VisualHypGoalInfo h "Goals can be proven by dragging over a matching proposition!"

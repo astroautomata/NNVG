@@ -1,11 +1,11 @@
 import Game.Metadata
 
-World "RewriteBonus"
+World "RewriteBonusB"
 Level 1
 
 Title "Fixed Point"
 
-VisualLevelNumber "A1"
+VisualLevelNumber "B1"
 VisualRewriteOnly
 
 Statement (f : ℕ → ℕ) (x a b c : ℕ) (fixed_point : f x = x) (hx : x = a)

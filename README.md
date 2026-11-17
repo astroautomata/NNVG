@@ -8,9 +8,10 @@ features it uses. The spec lives in `../../NNVG_plans`.
 
 - `Game/Levels/Intro`: the welcome text (a `VisualTextLevel`) before the map splits.
 - `Game/Levels/Rewrite`: Rewrite World, played entirely in Rewrite Mode (`VisualRewriteOnly`).
-- `Game/Levels/RewriteBonus`: bonus level A1, branching off Rewrite World level 2 (`VisualBonusOf Rewrite 3`).
+- `Game/Levels/RewriteBonus`: bonus level A1 (Fast Rewriting), branching off Rewrite World level 2 (`VisualBonusOf Rewrite 3`).
+- `Game/Levels/RewriteBonusB`: bonus level B1 (Fixed Point), a second branch off the same level; neither bonus needs the other.
 - `Game/Levels/Proposition`: Proposition World up to level 6, played on the canvas.
-- `Game/Levels/PropositionRight`: Proposition World from level 7 to the boss, level 13, the right branch of its fork (`VisualContinues Proposition`).
+- `Game/Levels/PropositionRight`: Proposition World from level 7 to the boss, level 14, the right branch of its fork (`VisualContinues Proposition`).
 - `Game/Levels/PropositionBonus`: bonus level A1, branching off level 8.
 - `Game/Levels/PropositionBonusB`: bonus levels B1 to B3, branching off the boss.
 - `Game/Levels/Successor`: Successor World up to its first boss, in Rewrite Mode.

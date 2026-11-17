@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-12\n"
+"POT-Creation-Date: 2026-11-17\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -140,6 +140,7 @@ msgid "Splitting on §0 does all the work. If §1 is a successor then §2 is\n"
 msgstr ""
 
 #: Game.Levels.RewriteBonus
+#: Game.Levels.RewriteBonusB
 msgid "Rewrite World Bonus"
 msgstr ""
 
@@ -464,6 +465,10 @@ msgid "Very well done.\n"
 "\n"
 "A passing mathematician remarks that you've just proved that §0 is totally\n"
 "ordered."
+msgstr ""
+
+#: Game.Levels.RewriteBonus.L01_FastRewriting
+msgid "Fast Rewriting"
 msgstr ""
 
 #. §0: `add_comm`
@@ -958,7 +963,7 @@ msgid "If §0 and §1 are numbers, then §2 is a proof\n"
 "We will proceed by manipulating our hypothesis until it becomes the goal."
 msgstr ""
 
-#: Game.Levels.RewriteBonus.L01_FixedPoint
+#: Game.Levels.RewriteBonusB.L01_FixedPoint
 msgid "Fixed Point"
 msgstr ""
 
@@ -1149,16 +1154,12 @@ msgstr ""
 msgid "A bonus boss. You don't need it to continue."
 msgstr ""
 
-#: Game.Levels.PropositionRight.L07_DeMorgan
+#: Game.Levels.PropositionRight.L08_DeMorgan
 msgid "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 msgstr ""
 
 #: Game.Levels.PropositionRight.L05_Negation
 msgid "Negation (1)"
-msgstr ""
-
-#: Game.Levels.RewriteBonus
-msgid "Bonus puzzles. You don't need them to continue along Rewrite World."
 msgstr ""
 
 #. §0: `≤`
@@ -1288,7 +1289,7 @@ msgid "This level proves §0, the multiplicative analogue of Advanced Addition\n
 "lemma §3 from §4 World."
 msgstr ""
 
-#: Game.Levels.PropositionRight.L06_NegatedAnd
+#: Game.Levels.PropositionRight.L06_NegatedImplication
 msgid "Negation (2)"
 msgstr ""
 
@@ -1350,6 +1351,11 @@ msgstr ""
 #. §1: `h`
 #: Game.Metadata
 msgid "§0 closes the goal with §1, whose type must be exactly the goal."
+msgstr ""
+
+#: Game.Levels.RewriteBonus
+#: Game.Levels.RewriteBonusB
+msgid "A bonus puzzle. You don't need it to continue along Rewrite World."
 msgstr ""
 
 #. §0: `0 ^ 0 = 0`
@@ -1577,6 +1583,10 @@ msgstr ""
 #: Game.Levels.Multiplication.L04_MulComm
 msgid "§0 is the proof that multiplication is commutative. More precisely,\n"
 "§1 is the proof that §2."
+msgstr ""
+
+#: Game.Levels.PropositionRight.L07_NegatedAnd
+msgid "Negation (3)"
 msgstr ""
 
 #. §0: `zero_ne_succ a`

@@ -3,8 +3,9 @@ import Game.Levels.PropositionRight.L02_Or
 import Game.Levels.PropositionRight.L03_IffOr
 import Game.Levels.PropositionRight.L04_False
 import Game.Levels.PropositionRight.L05_Negation
-import Game.Levels.PropositionRight.L06_NegatedAnd
-import Game.Levels.PropositionRight.L07_DeMorgan
+import Game.Levels.PropositionRight.L06_NegatedImplication
+import Game.Levels.PropositionRight.L07_NegatedAnd
+import Game.Levels.PropositionRight.L08_DeMorgan
 
 World "PropositionRight"
 Title "Proposition World"
