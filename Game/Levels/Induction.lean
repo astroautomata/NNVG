@@ -12,6 +12,10 @@ VisualMapColumn -1
 -- Rewrite Mode's swap-sides button is hidden throughout this world.
 VisualHideSwapSides
 
+-- One induction per branch of a proof: the tactic shows `x1`, then `x0` in the base
+-- case, the inductive step and whatever comes from them.
+VisualTacticUses induction 1
+
 Introduction
 "
 Prove the basic properties of addition by induction.

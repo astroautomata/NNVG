@@ -19,5 +19,5 @@ VisualTransformRewriteInfoOnGoal hypothesis_1 "x" "x + y = 1 + 2" show
 Drag a hypothesis onto a term to make a substitution."
 
 VisualTransformCheckInfoOnGoal "1 + 2 = 1 + 2" show
-  "Both sides are now the same, so the expression is true by the definition of equality!
+  "Both sides are now the same, so the expression is true by the definition of equality.
 So {pc: click | mobile: tap} the check mark to complete the proof."

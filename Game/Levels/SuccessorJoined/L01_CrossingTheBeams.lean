@@ -3,32 +3,25 @@ import Game.Levels.Successor
 World "SuccessorJoined"
 Level 1
 
-Title "Crossing the Beams"
+Title "Crossing the Beams (1)"
 
 VisualLevelNumber "4"
+-- Rewrite Mode opens on `hx`.
+VisualStartTab "Hypotheses"
 
 namespace MyNat
 
--- The first level to use Rewriting Mode and Proposition Mode together: rewrite `hx`
--- into `x = 1`, go back, then rewrite the goal and close it with the check mark.
-Statement (x : ℕ) (hx : x = S 0) : S x = 2 := by
-  rw [← one_eq_succ_zero] at hx
-  rw [hx, two_eq_succ_one]
+-- The first level to use Rewriting Mode and Proposition Mode together: the goal is
+-- opened in Rewrite Mode, where `hx` is one of the rules.
+Statement (x : ℕ) (hx : x = 1) : x + 1 = 2 := by
+  rw [hx, add_one_eq_succ, ← two_eq_succ_one]
 
-VisualHypInfoOnHyp hx "x = S(0)" show
+VisualGoalInfoOnGoal above true "x + 1 = 2" show
   "We will now put Rewriting Mode and Proposition Mode together!
-Try {pc: double-clicking | mobile: double-tapping} `hx` to open it in Rewriting Mode."
+Try {pc: double-clicking | mobile: double-tapping} the goal to open it in Rewriting Mode."
 
-VisualTransformInfoOnHypothesis "x = S(0)" show
-  "Let's try rewriting this equation into `x = 1`."
+VisualTransformInfoOnGoal "x + 1 = 2" show
+  "We can use the hypothesis `hx` to substitute in for `x` here."
 
-VisualTransformBackInfoOnHypothesis "x = 1" show
-  "We can return back to Proposition Mode by {pc: clicking | mobile: tapping} ‘Back’."
-
-VisualGoalInfoOnGoalWithHyp above true "S(x) = 2" "x = 1" show
-  "Now we can make the substitution into the goal to complete the proof.
-{pc: Double-click | mobile: Double-tap} the goal to enter it in Rewriting Mode."
-
-VisualTransformInfoOnGoal "S(x) = 2" show
-  "We can finish the proof here as usual.
-Notice you can use `hx` as a substitution."
+VisualTransformInfoOnGoal "1 + 1 = 2" show
+  "Now we can just make both sides match as usual."

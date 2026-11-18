@@ -117,14 +117,10 @@ example (a b : ℕ) (h : a + b = b + a) : a + b = b + (a + 0) := by
 /-! ## Proposition World -/
 
 -- Level 4: drag `(A → B) → C` onto the goal `C` to prove it backwards.
-example (A B C : Prop) : B → ((A → B) → C) → C := by
-  intro hB
-  intro hABC
+example (A B C : Prop) (hB : B) (hABC : (A → B) → C) : C := by
   drag_goal hABC
   intro _
   drag_goal hB
-
-/-! ## Proposition World: the levels past the fork -/
 
 -- Level 7: the `↔` goal separates into its two directions with a click.
 example (A B C : Prop) : ((A ∧ B) ∧ C) ↔ (A ∧ (B ∧ C)) := by
@@ -146,9 +142,16 @@ example (A B C : Prop) : ((A ∧ B) ∧ C) ↔ (A ∧ (B ∧ C)) := by
       · drag_goal left1
     · drag_goal right1
 
--- Level 8: choose the right side, then split the `∨` hypothesis before the `∨` goal.
-example (Z A B : Prop) : Z ∨ ((A ∨ B) → (B ∨ A)) := by
+/-! ## Proposition World: the levels past the fork -/
+
+-- Level 8: the right side, then the left side of that.
+example (A B C : Prop) (hB : B) : A ∨ (B ∨ C) := by
   click_goal_right
+  click_goal_left
+  drag_goal hB
+
+-- Level 9: split the `∨` hypothesis before the `∨` goal.
+example (A B : Prop) : (A ∨ B) → (B ∨ A) := by
   intro h
   click_prop h
   · click_goal_right
@@ -156,7 +159,7 @@ example (Z A B : Prop) : Z ∨ ((A ∨ B) → (B ∨ A)) := by
   · click_goal_left
     drag_goal right
 
--- Level 9: both directions, splitting each `∨` hypothesis before choosing a side.
+-- Level 10: both directions, splitting each `∨` hypothesis before choosing a side.
 example (A B C : Prop) : ((A ∨ B) ∨ C) ↔ (A ∨ (B ∨ C)) := by
   click_goal
   · intro h
@@ -182,25 +185,23 @@ example (A B C : Prop) : ((A ∨ B) ∨ C) ↔ (A ∨ (B ∨ C)) := by
       · click_goal_right
         drag_goal right1
 
--- Level 10: a proof of `False` proves anything.
+-- Level 11: a proof of `False` proves anything.
 example (h : False) : (1 : ℕ) = 2 := by
   drag_goal_exfalso h
 
--- Level 11: `¬` goals introduce like implications, and `¬` cards apply like them.
-example (A : Prop) : A → ¬¬A := by
+-- Level 12: `¬` goals introduce like implications, and `¬` cards apply like them.
+example (A : Prop) (hA : A) : ¬¬A := by
   click_goal
-  click_goal
-  drag_to h h1
-  drag_goal h2
-
--- Level 11 again, proving the `False` goal backwards.
-example (A : Prop) : A → ¬¬A := by
-  click_goal
-  click_goal
+  drag_to hA h
   drag_goal h1
-  drag_goal h
 
--- Level 12: get `B` from `A → B`, then `False` from `¬B`.
+-- Level 12 again, proving the `False` goal backwards.
+example (A : Prop) (hA : A) : ¬¬A := by
+  click_goal
+  drag_goal h
+  drag_goal hA
+
+-- Level 13: get `B` from `A → B`, then `False` from `¬B`.
 example (A B : Prop) : A → ¬B → ¬(A → B) := by
   click_goal
   click_goal
@@ -209,7 +210,7 @@ example (A B : Prop) : A → ¬B → ¬(A → B) := by
   drag_to h3 h1
   drag_goal h4
 
--- Level 12: premises go in order, so `¬B`'s card takes `B` and nothing else.
+-- Level 13: premises go in order, so `¬B`'s card takes `B` and nothing else.
 example (A B : Prop) : A → ¬B → ¬(A → B) := by
   click_goal
   click_goal
@@ -220,7 +221,7 @@ example (A B : Prop) : A → ¬B → ¬(A → B) := by
   drag_goal h2
   drag_goal h
 
--- Level 13: prove the `False` goal backwards with `¬(A ∧ B)`, as the hint says.
+-- Level 14: prove the `False` goal backwards with `¬(A ∧ B)`, as the hint says.
 example (A B : Prop) : A → ¬(A ∧ B) → ¬B := by
   click_goal
   click_goal
@@ -230,7 +231,7 @@ example (A B : Prop) : A → ¬(A ∧ B) → ¬B := by
   · drag_goal h
   · drag_goal h2
 
--- Level 14, the boss.
+-- Level 15, the boss.
 example (A B : Prop) : ¬(A ∨ B) ↔ (¬A ∧ ¬B) := by
   click_goal
   · click_goal
@@ -327,6 +328,38 @@ example (A B : Prop) (hA : ¬A ∨ ¬¬A) (hB : ¬B ∨ ¬¬B) : ¬(A ∧ B) →
       · drag_goal h1
       · drag_goal h2
 
+-- C1: `¬(P ∨ ¬P)` proves the `False` goal backwards, twice: once to get to `¬P`, and
+-- once more with the `P` that gives.
+example : ∀ P : Prop, ¬¬(P ∨ ¬P) := by
+  click_goal
+  click_goal
+  drag_goal h
+  click_goal_right
+  click_goal
+  drag_goal h
+  click_goal_left
+  drag_goal h1
+
+/-! ## The specialization view on a `∀ P : Prop` hypothesis -/
+
+-- A proposition built from the context's propositions, `False` and the connectives is
+-- sent bracketed, as the view shows it. No level needs this yet.
+example (A : Prop) (dne : ∀ P : Prop, ¬¬P → P) : A ∨ ¬A := by
+  specialize_forall_as dne1 dne P (A ∨ (¬A))
+  drag_goal dne1
+  click_goal
+  drag_goal h
+  click_goal_right
+  click_goal
+  drag_goal h
+  click_goal_left
+  drag_goal h1
+
+example (A B : Prop) (h : ∀ P : Prop, P → P) (hAB : (A ∧ B) → (False ↔ A)) : (A ∧ B) → (False ↔ A) := by
+  specialize_forall_as h1 h P ((A ∧ B) → (False ↔ A))
+  drag_to hAB h1
+  exact h2
+
 /-! ## Successor World -/
 
 namespace MyNat
@@ -357,41 +390,45 @@ example : (1 : ℕ) + 1 + 1 + 1 = 4 := by
   drag_rw_rhs_at [two_eq_succ_one] [1, 1]
   click_goal
 
--- Level 4, Crossing the Beams: rewrite `hx` into `x = 1` in Rewriting Mode, go back,
--- then rewrite the goal and close it with the check mark.
-example (x : ℕ) (hx : x = S 0) : S x = 2 := by
-  drag_rw_hyp_rhs hx [← one_eq_succ_zero]
+-- Level 4, Crossing the Beams (1): the goal is opened in Rewriting Mode, where `hx` is
+-- a rule; the check mark closes it.
+example (x : ℕ) (hx : x = 1) : x + 1 = 2 := by
   drag_rw_lhs_at [hx] [1]
-  drag_rw_rhs [two_eq_succ_one]
+  drag_rw_lhs [add_one_eq_succ']
+  drag_rw_lhs [← two_eq_succ_one]
   click_goal
 
--- Level 5, the boss: tidy up the hypotheses, then the goal.
-example (a b c : ℕ) (ha : a = 0 + 1) (hb : S (0 + 0) = b) (hc : c = (a + 0) + (0 + b)) :
-    c + c = 4 := by
-  drag_rw_hyp_rhs_at ha [one_eq_succ_zero] [2]
-  drag_rw_hyp_rhs ha [add_succ]
-  drag_rw_hyp_rhs_at ha [add_zero] [1]
-  drag_rw_hyp_rhs ha [← one_eq_succ_zero]
+-- Level 5, Crossing the Beams (2): rewrite `hx` into `x = 2` in Rewriting Mode, go back,
+-- and drag it onto `hy`.
+example (x y : ℕ) (hx : x = 1 + 1) (hy : x = 2 → y = 0) : y = 0 := by
+  drag_rw_hyp_rhs hx [add_one_eq_succ']
+  drag_rw_hyp_rhs hx [← two_eq_succ_one]
+  drag_to hx hy
+  drag_goal h
+
+-- Level 6, the boss: tidy up the hypotheses, as the hint says, then the goal.
+example (a b c : ℕ) (ha : a = 0 + 0 + 0) (hb : S (0 + 0) = b) (hc : c = b + (a + a) + 0) :
+    c + c + c + c = 4 := by
+  drag_rw_hyp_rhs ha [add_zero]
+  drag_rw_hyp_rhs ha [add_zero]
   drag_rw_hyp_lhs_at hb [add_zero] [1]
   drag_rw_hyp_lhs hb [← one_eq_succ_zero]
-  drag_rw_hyp_rhs_at hc [add_zero] [1]
-  drag_rw_hyp_rhs_at hc [ha] [1]
-  drag_rw_hyp_rhs_at hc [← hb] [2, 2]
-  drag_rw_hyp_rhs_at hc [one_eq_succ_zero] [2, 2]
-  drag_rw_hyp_rhs_at hc [add_succ] [2]
-  drag_rw_hyp_rhs_at hc [add_zero] [2, 1]
-  drag_rw_hyp_rhs hc [add_succ]
-  drag_rw_hyp_rhs_at hc [add_zero] [1]
-  drag_rw_hyp_rhs hc [← two_eq_succ_one]
-  drag_rw_lhs_at [hc] [1]
+  drag_rw_hyp_rhs hc [add_zero]
+  drag_rw_hyp_rhs_at hc [ha] [2, 1]
+  drag_rw_hyp_rhs_at hc [ha] [2, 2]
+  drag_rw_hyp_rhs_at hc [add_zero] [2]
+  drag_rw_hyp_rhs hc [add_zero]
+  drag_rw_hyp_rhs hc [← hb]
+  drag_rw_lhs_at [hc] [1, 1, 1]
+  drag_rw_lhs_at [hc] [1, 1, 2]
+  drag_rw_lhs_at [hc] [1, 2]
   drag_rw_lhs_at [hc] [2]
-  drag_rw_lhs_at [two_eq_succ_one] [2]
-  drag_rw_lhs [add_succ]
-  drag_rw_lhs_at [one_eq_succ_zero] [1, 2]
-  drag_rw_lhs_at [add_succ] [1]
-  drag_rw_lhs_at [add_zero] [1, 1]
-  drag_rw_lhs_at [← three_eq_succ_two] [1]
-  drag_rw_lhs [← four_eq_succ_three]
+  drag_rw_lhs [add_one_eq_succ']
+  drag_rw_lhs_at [add_one_eq_succ'] [1]
+  drag_rw_lhs_at [add_one_eq_succ'] [1, 1]
+  drag_rw_rhs [four_eq_succ_three]
+  drag_rw_rhs_at [three_eq_succ_two] [1]
+  drag_rw_rhs_at [two_eq_succ_one] [1, 1]
   click_goal
 
 /-! ## Induction World -/

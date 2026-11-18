@@ -10,7 +10,10 @@ VisualLevelNumber "8"
 
 namespace MyNat
 
-Statement : ∀ n : ℕ, n = 0 ∨ n ≠ 0 := by
+/-- `eq_or_neq_zero n` is a proof of `n = 0 ∨ n ≠ 0`. -/
+TheoremDoc MyNat.eq_or_neq_zero as "eq_or_neq_zero" in "012"
+
+Statement eq_or_neq_zero : ∀ n : ℕ, n = 0 ∨ n ≠ 0 := by
   exact fun n => by
     induction n with d hd
     · exact .inl (reflection 0)

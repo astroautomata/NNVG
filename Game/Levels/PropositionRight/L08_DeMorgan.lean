@@ -5,7 +5,7 @@ Level 8
 
 Title "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 
-VisualLevelNumber "14"
+VisualLevelNumber "15"
 VisualBossLevel
 
 Statement (A B : Prop) : ¬(A ∨ B) ↔ (¬A ∧ ¬B) := by

@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-17\n"
+"POT-Creation-Date: 2026-11-18\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -72,6 +72,10 @@ msgid "In this level we prove that if §0 and §1 then §2. It is tricky, for\n"
 "because we now have the flexibility to change §11."
 msgstr ""
 
+#: Game.Levels.Successor.L03_Boss
+msgid "Counting to Four (Miniboss)"
+msgstr ""
+
 #. §0: `add_mul`
 #: Game.Levels.Multiplication.L08_AddMul
 msgid "§0 is just as fiddly to prove by induction; but there's a trick\n"
@@ -82,7 +86,7 @@ msgstr ""
 msgid "Basic Rewriting"
 msgstr ""
 
-#: Game.Levels.PropositionRight.L01_Iff
+#: Game.Levels.Proposition.L08_Iff
 msgid "If and Only If (Conjunctions)"
 msgstr ""
 
@@ -118,10 +122,6 @@ msgstr ""
 
 #: Game.Levels.Proposition.L06_And
 msgid "Conjunction (1)"
-msgstr ""
-
-#: Game.Levels.PropositionRight.L02_Or
-msgid "Disjunction"
 msgstr ""
 
 #: Game.Levels.Power.L05_PowTwo
@@ -242,6 +242,7 @@ msgstr ""
 #: Game.Levels.Induction.L03_AddComm
 #: Game.Levels.Neq.L07_ZeroNeOne
 #: Game.Levels.Neq.L08_TwoNeFour
+#: Game.Levels.NeqJoined.L01_ZeroOrNot
 #: Game.Levels.LessOrEqual.L05_LeZero
 msgid "§0 is a proof of §1."
 msgstr ""
@@ -289,17 +290,17 @@ msgid "§0 is *notation* for §1. This \"backwards E\"\n"
 "number that works. Let's see an example."
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L03_LeSuccSelf
-msgid "If you build the wrong number, you get stuck with a goal you can't prove.\n"
-"What number will you build here?"
-msgstr ""
-
 #. §0: `≤`
 #. §1: `≠ 0`
 #: Game.Levels.AdvMultiplication
 msgid "In this world we prove how multiplication interacts with §0 and with §1: a factor of\n"
 "a nonzero number is at most that number, a product is zero only if a factor is, and a\n"
 "nonzero factor can be cancelled."
+msgstr ""
+
+#: Game.Levels.LessOrEqual.L03_LeSuccSelf
+msgid "If you build the wrong number, you get stuck with a goal you can't prove.\n"
+"What number will you build here?"
 msgstr ""
 
 #. §0: `le_refl x`
@@ -309,6 +310,10 @@ msgstr ""
 msgid "§0 is a proof of §1.\n"
 "\n"
 "The reason for the name is that this lemma is \"reflexivity of §2\""
+msgstr ""
+
+#: Game.Levels.SuccessorJoined.L02_CrossingTheBeams2
+msgid "Crossing the Beams (2)"
 msgstr ""
 
 #: Game.Levels.LessOrEqual.L09_LeOne
@@ -493,6 +498,10 @@ msgstr ""
 msgid "Many Such Cases"
 msgstr ""
 
+#: Game
+msgid "Natural Numbers Video Game"
+msgstr ""
+
 #. §0: `a ^ b`
 #. §1: `pow_zero a : a ^ 0 = 1`
 #. §2: `pow_succ a b : a ^ S b = a ^ b * a`
@@ -504,12 +513,13 @@ msgid "In this world we define powers, §0, by two more axioms: §1\n"
 "these, by induction. The boss of this world is §3, the formula for §4."
 msgstr ""
 
-#: Game
-msgid "Natural Numbers Video Game"
-msgstr ""
-
 #: Game.Levels.Induction
 msgid "Induction World"
+msgstr ""
+
+#: Game.Levels.Outro.L01_ThankYou
+#: Game.Levels.Outro
+msgid "The End"
 msgstr ""
 
 #. §0: $x,y,z>0$
@@ -544,11 +554,6 @@ msgid "We now have enough to state a mathematically accurate, but slightly\n"
 "at [Mathematics In Lean](https://leanprover-community.github.io/mathematics_in_lean/),\n"
 "an interactive textbook which you can read in your browser,\n"
 "and which explains how to work with many more mathematical concepts in Lean."
-msgstr ""
-
-#: Game.Levels.Outro.L01_ThankYou
-#: Game.Levels.Outro
-msgid "The End"
 msgstr ""
 
 #: Game.Levels.Induction.L03_AddComm
@@ -823,6 +828,10 @@ msgid "A passing mathematician congratulates you on proving that the natural num
 "are an additive commutative monoid."
 msgstr ""
 
+#: Game.Levels.PropositionBonusC.L01_NotNotExcludedMiddle
+msgid "¬¬LEM"
+msgstr ""
+
 #. §0: `n`
 #. §1: `cases`
 #. §2: `n`
@@ -978,10 +987,6 @@ msgstr ""
 msgid "§0 means §1."
 msgstr ""
 
-#: Game.Levels.SuccessorJoined.L01_CrossingTheBeams
-msgid "Crossing the Beams"
-msgstr ""
-
 #. §0: `a`
 #. §1: `b`
 #: Game.Levels.Multiplication.L07_MulAdd
@@ -999,10 +1004,6 @@ msgstr ""
 #. §0: `y`
 #: Game.Levels.AdvAddition.L03_AddLeftEqSelf
 msgid "Did you use induction on §0?"
-msgstr ""
-
-#: Game.Levels.Successor.L03_Boss
-msgid "Counting to Four"
 msgstr ""
 
 #. §0: `mul_succ`
@@ -1158,6 +1159,10 @@ msgstr ""
 msgid "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 msgstr ""
 
+#: Game.Levels.PropositionBonusC
+msgid "A bonus puzzle about the Law of Excluded Middle. You don't need it to continue."
+msgstr ""
+
 #: Game.Levels.PropositionRight.L05_Negation
 msgid "Negation (1)"
 msgstr ""
@@ -1260,6 +1265,10 @@ msgstr ""
 
 #: Game.Levels.Rewrite
 msgid "Prove equalities by substituting equal things for each other until both sides match."
+msgstr ""
+
+#: Game.Levels.PropositionRight.L01_Or1
+msgid "Disjunction (1)"
 msgstr ""
 
 #: Game.Levels.NeqJoined.L01_ZeroOrNot
@@ -1421,8 +1430,13 @@ msgstr ""
 msgid "2 ≠ 4"
 msgstr ""
 
+#: Game.Levels.PropositionRight.L02_Or2
+msgid "Disjunction (2)"
+msgstr ""
+
 #: Game.Levels.PropositionBonus
 #: Game.Levels.PropositionBonusB
+#: Game.Levels.PropositionBonusC
 msgid "Proposition World Bonus"
 msgstr ""
 
@@ -1468,6 +1482,10 @@ msgid "The music gets ever more dramatic, as we explore\n"
 "If you're having trouble exchanging the right §0\n"
 "because §1 swaps the wrong multiplication,\n"
 "then read the documentation of §2 for tips on how to fix this."
+msgstr ""
+
+#: Game.Levels.SuccessorJoined.L01_CrossingTheBeams
+msgid "Crossing the Beams (1)"
 msgstr ""
 
 #. §0: `a ≤ b`
@@ -1567,7 +1585,7 @@ msgstr ""
 msgid "§0 (Multiplication World Boss)"
 msgstr ""
 
-#: Game.Levels.SuccessorJoined.L02_Boss
+#: Game.Levels.SuccessorJoined.L03_Boss
 msgid "Plug and Chug (Successor World Boss)"
 msgstr ""
 

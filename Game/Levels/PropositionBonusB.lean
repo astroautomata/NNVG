@@ -5,8 +5,10 @@ import Game.Levels.PropositionBonusB.L03_WeakExcludedMiddle
 World "PropositionBonusB"
 Title "Proposition World Bonus"
 
--- Sprouts off Proposition World's boss, level 14 (Lean level 8).
+-- Sprouts off Proposition World's boss, level 15 (Lean level 8). Bonus C
+-- (`PropositionBonusC`) leaves the same level.
 VisualBonusOf PropositionRight 8
+VisualHideSwapSides
 
 Introduction
 "

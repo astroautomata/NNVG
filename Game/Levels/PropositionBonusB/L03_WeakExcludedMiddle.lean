@@ -13,6 +13,6 @@ Statement (A B : Prop) (hA : ¬A ∨ ¬¬A) (hB : ¬B ∨ ¬¬B) : ¬(A ∧ B) �
       (fun nnb => (nna (fun a => nnb (fun b => h ⟨a, b⟩))).elim))
 
 VisualGoalInfo above false
-  "We can actually do better than requiring the Law of Excluded Middle!
+  "We can actually do better than requiring the Law of Excluded Middle.
 Try now with the Weak Law of Excluded Middle.
 ($∀ P, ¬P ∨ ¬¬P$)"

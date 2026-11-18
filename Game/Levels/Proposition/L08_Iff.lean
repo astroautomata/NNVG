@@ -1,7 +1,7 @@
 import Game.Metadata
 
-World "PropositionRight"
-Level 1
+World "Proposition"
+Level 8
 
 Title "If and Only If (Conjunctions)"
 

@@ -14,6 +14,9 @@ VisualMapColumn -1
 -- Rewrite Mode's swap-sides button is hidden throughout this world.
 VisualHideSwapSides
 
+-- No tabs under the rules: every rule of a level is in one list.
+VisualNoRewriteTabs
+
 Introduction
 "
 Prove equalities by substituting equal things for each other until both sides match.

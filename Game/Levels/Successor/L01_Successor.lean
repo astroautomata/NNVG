@@ -7,6 +7,8 @@ Title "Counting to Two"
 
 VisualLevelNumber "1"
 VisualRewriteOnly
+-- No tabs yet: the four rules are in one list.
+VisualNoRewriteTabs
 
 namespace MyNat
 

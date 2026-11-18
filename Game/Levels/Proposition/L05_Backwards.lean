@@ -7,8 +7,8 @@ Title "Backwards Implications"
 
 VisualLevelNumber "4"
 
-Statement (A B C : Prop) : B → ((A → B) → C) → C := by
-  exact fun hB hABC => hABC (fun _ => hB)
+Statement (A B C : Prop) (hB : B) (hABC : (A → B) → C) : C := by
+  exact hABC (fun _ => hB)
 
 VisualGoalInfo above false
   "You can also prove the goal backwards!

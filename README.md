@@ -10,12 +10,13 @@ features it uses. The spec lives in `../../NNVG_plans`.
 - `Game/Levels/Rewrite`: Rewrite World, played entirely in Rewrite Mode (`VisualRewriteOnly`).
 - `Game/Levels/RewriteBonus`: bonus level A1 (Fast Rewriting), branching off Rewrite World level 2 (`VisualBonusOf Rewrite 3`).
 - `Game/Levels/RewriteBonusB`: bonus level B1 (Fixed Point), a second branch off the same level; neither bonus needs the other.
-- `Game/Levels/Proposition`: Proposition World up to level 6, played on the canvas.
-- `Game/Levels/PropositionRight`: Proposition World from level 7 to the boss, level 14, the right branch of its fork (`VisualContinues Proposition`).
-- `Game/Levels/PropositionBonus`: bonus level A1, branching off level 8.
+- `Game/Levels/Proposition`: Proposition World up to level 7, played on the canvas.
+- `Game/Levels/PropositionRight`: Proposition World from level 8 to the boss, level 15, the right branch of its fork (`VisualContinues Proposition`).
+- `Game/Levels/PropositionBonus`: bonus level A1, branching off level 9.
 - `Game/Levels/PropositionBonusB`: bonus levels B1 to B3, branching off the boss.
+- `Game/Levels/PropositionBonusC`: bonus level C1 (¬¬LEM), a second branch off the boss; neither bonus needs the other.
 - `Game/Levels/Successor`: Successor World up to its first boss, in Rewrite Mode.
-- `Game/Levels/SuccessorJoined`: Successor World past the barrier, where Proposition World's left branch joins it (`VisualContinues Successor`): Crossing the Beams and the boss.
+- `Game/Levels/SuccessorJoined`: Successor World past the barrier, where Proposition World's left branch joins it (`VisualContinues Successor`): Crossing the Beams (1) and (2), and the boss, level 6.
 - `Game/Levels/Induction`: Induction World, after Successor World: `zero_add` to `add_assoc`, with `∀` goals.
 - `Game/Levels/Neq`: the ≠ World's levels 0 to 7, after Successor World and all of Proposition World.
 - `Game/Levels/NeqJoined`: the ≠ World's level 8, which also needs Induction World (`VisualContinues Neq`).
@@ -43,12 +44,15 @@ also why the player returns to the map at a fork: it's the end of a Lean world.
 - `VisualPersistentHints` in `Game.lean` keeps a hint up after the state it was written for, until the next hint; write `VisualGoalInfoOnGoal … while …` for one that leaves with its goal, or a hint with empty text to clear.
 - `VisualRewriteCheck` shows Rewrite Mode's check mark on goals in every level, not only Rewrite-only ones.
 - `VisualSuccessorName S` names the successor in the specialization view's term builder.
-- `VisualHideSwapSides` in a world file hides Rewrite Mode's swap-sides button (`a = b` to `b = a`) in all of that world's levels: Rewrite World and its bonus, Successor World and Induction World. The ≠ World has it.
+- `VisualHideSwapSides` in a world file hides Rewrite Mode's swap-sides button (`a = b` to `b = a`) in all of that world's levels: Rewrite World and its bonuses, Proposition World and its bonuses, Successor World and Induction World. The ≠ World has it.
+- Rewrite Mode's tabs: `VisualNoRewriteTabs` (a world or a level) leaves them out, so every rule is in one list (Rewrite World, its bonuses, and Successor World 1); `VisualNoHypothesesTab` leaves out the Hypotheses tab alone (Successor World 2 and 3, which have no hypotheses); `VisualStartTab "+"` picks the tab a level opens on (`"Hypotheses"` for that one).
+- `VisualTacticUses induction 1` in Induction World's file: the induction tactic shows `x1`, and once used on a branch shows `x0` and is greyed out there and in the branches that come from it. Other worlds have no limit (the ≠ World's boss needs two inductions).
+- A hint line `[Click to reveal: …]` or `[Click to show: …]` is a button with that label that shows the rest when pressed.
 - `VisualNoRewriteMode` in a level refuses Rewrite Mode on the goal with a warning, so the equality is proved like any proposition (the first ≠ World levels). Rewrite Mode on a hypothesis stays available.
 - `VisualTransformSwapInfoOnHypothesis "1 = x" show "…"` is a Rewrite Mode hint with an arrow to the swap button.
 - Every level shows its variables, like `A : Prop` and `x : ℕ`, as cards.
-- The inventory's tabs are NNG4's (`+`, `*`, `^`, `≤`, `012`, `Peano`): file a theorem with `TheoremDoc … in "+"`. There is no Axioms tab; `VisualAxioms` in `Game.lean` lists the theorems shown in the axiom colour in Rewrite Mode.
-- `VisualNoGoalRfl` in `Game.lean`: clicking a goal `a = a` doesn't close it. The player opens it in Rewrite Mode and uses the check mark.
+- The inventory's tabs are NNG4's (`+`, `*`, `^`, `≤`, `012`, `Peano`): file a theorem with `TheoremDoc … in "+"`. There is no Axioms tab; `VisualAxioms` in `Game.lean` lists the theorems shown with the axioms' double outline in Rewrite Mode. A level's own hypotheses are grey there, as on the canvas.
+- A click on a goal `a = a` closes it, as does the check mark in Rewrite Mode. (`VisualNoGoalRfl` in `Game.lean` would refuse the click; the game no longer uses it.)
 - A world's final boss has its world in its title, as in `Plug and Chug (Successor World Boss)`. Other boss levels (`VisualBossLevel`) keep a plain title. No title has a chili pepper.
 - A variable named `frac1over2` displays as a vertical fraction.
 - A name ending in `_inv`, like `a_inv`, displays with `⁻¹`.

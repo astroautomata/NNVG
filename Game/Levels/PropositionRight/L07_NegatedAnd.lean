@@ -5,7 +5,7 @@ Level 7
 
 Title "Negation (3)"
 
-VisualLevelNumber "13"
+VisualLevelNumber "14"
 
 Statement (A B : Prop) : A → ¬(A ∧ B) → ¬B := by
   exact fun hA hNotAB hB => hNotAB ⟨hA, hB⟩

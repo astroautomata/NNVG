@@ -5,7 +5,8 @@ Level 4
 
 Title "The Principle of Explosion"
 
-VisualLevelNumber "10"
+VisualLevelNumber "11"
+VisualHideRewriteDirection
 
 Statement (h : False) : (1 : ℕ) = 2 := by
   exact h.elim

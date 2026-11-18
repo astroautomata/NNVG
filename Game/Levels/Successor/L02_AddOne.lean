@@ -7,6 +7,8 @@ Title "`add_succ`"
 
 VisualLevelNumber "2"
 VisualRewriteOnly
+-- There are no hypotheses before level 4.
+VisualNoHypothesesTab
 
 namespace MyNat
 

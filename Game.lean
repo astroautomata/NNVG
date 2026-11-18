@@ -6,6 +6,7 @@ import Game.Levels.Proposition
 import Game.Levels.PropositionRight
 import Game.Levels.PropositionBonus
 import Game.Levels.PropositionBonusB
+import Game.Levels.PropositionBonusC
 import Game.Levels.Successor
 import Game.Levels.SuccessorJoined
 import Game.Levels.Induction
@@ -91,10 +92,6 @@ VisualRewriteCheck
 
 -- The successor function is `S`, also in the specialization view's term builder.
 VisualSuccessorName S
-
--- A goal `a = a` isn't closed by clicking it: the player opens it in Rewrite Mode and
--- uses the check mark.
-VisualNoGoalRfl
 
 -- The inventory's tabs are NNG4's. The axioms sit among the theorems of their tab, in
 -- their own colour.

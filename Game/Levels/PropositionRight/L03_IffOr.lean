@@ -5,7 +5,7 @@ Level 3
 
 Title "If and Only If (Disjunctions)"
 
-VisualLevelNumber "9"
+VisualLevelNumber "10"
 
 Statement (A B C : Prop) : ((A ∨ B) ∨ C) ↔ (A ∨ (B ∨ C)) := by
   exact ⟨

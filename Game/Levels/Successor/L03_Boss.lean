@@ -3,10 +3,13 @@ import Game.Levels.Successor.L02_AddOne
 World "Successor"
 Level 3
 
-Title "Counting to Four"
+Title "Counting to Four (Miniboss)"
 
 VisualLevelNumber "3"
 VisualRewriteOnly
+VisualNoHypothesesTab
+-- `add_one_eq_succ` is in the `+` tab.
+VisualStartTab "+"
 VisualBossLevel
 VisualEmphasize MyNat.add_one_eq_succ
 
