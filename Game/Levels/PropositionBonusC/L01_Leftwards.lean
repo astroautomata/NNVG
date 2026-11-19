@@ -1,11 +1,11 @@
 import Game.Metadata
 
-World "PropositionBonusB"
+World "PropositionBonusC"
 Level 1
 
 Title "The Other De Morgan's Law (Leftwards)"
 
-VisualLevelNumber "B1"
+VisualLevelNumber "C1"
 
 Statement (A B : Prop) : (¬A ∨ ¬B) → ¬(A ∧ B) := by
   exact fun h hAB => h.elim (fun hNotA => hNotA hAB.1) (fun hNotB => hNotB hAB.2)

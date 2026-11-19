@@ -3,7 +3,7 @@ import Game.Metadata
 World "PropositionRight"
 Level 7
 
-Title "Negation (3)"
+Title "Negation (2)"
 
 VisualLevelNumber "14"
 

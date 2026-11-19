@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-18\n"
+"POT-Creation-Date: 2026-11-19\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -120,8 +120,12 @@ msgid "§0 is the proof that §1.\n"
 "Note: §2 is a §3 lemma."
 msgstr ""
 
-#: Game.Levels.Proposition.L06_And
+#: Game.Levels.Proposition.L07_SplittingAnd
 msgid "Conjunction (1)"
+msgstr ""
+
+#: Game.Levels.PropositionRight.L05_Negation
+msgid "Negation (0)"
 msgstr ""
 
 #: Game.Levels.Power.L05_PowTwo
@@ -144,7 +148,7 @@ msgstr ""
 msgid "Rewrite World Bonus"
 msgstr ""
 
-#: Game.Levels.PropositionBonusB.L01_Leftwards
+#: Game.Levels.PropositionBonusC.L01_Leftwards
 msgid "The Other De Morgan's Law (Leftwards)"
 msgstr ""
 
@@ -158,7 +162,7 @@ msgid "This level asks you to prove *antisymmetry* of §0.\n"
 "It's the trickiest one so far. Good luck!"
 msgstr ""
 
-#: Game.Levels.PropositionBonusB.L02_ExcludedMiddle
+#: Game.Levels.PropositionBonusC.L02_ExcludedMiddle
 msgid "The Other De Morgan's Law (Rightwards with the Law of Excluded Middle)"
 msgstr ""
 
@@ -256,7 +260,7 @@ msgstr ""
 msgid "Counting to Two"
 msgstr ""
 
-#: Game.Levels.Proposition.L02_Implication
+#: Game.Levels.Proposition.L03_ModusPonens
 msgid "Implications (1)"
 msgstr ""
 
@@ -310,10 +314,6 @@ msgstr ""
 msgid "§0 is a proof of §1.\n"
 "\n"
 "The reason for the name is that this lemma is \"reflexivity of §2\""
-msgstr ""
-
-#: Game.Levels.SuccessorJoined.L02_CrossingTheBeams2
-msgid "Crossing the Beams (2)"
 msgstr ""
 
 #: Game.Levels.LessOrEqual.L09_LeOne
@@ -411,6 +411,10 @@ msgstr ""
 #. §1: $(a+b)^2=a^2+b^2+2ab.$
 #: Game.Levels.Power.L09_AddSq
 msgid "§0 is the statement that §1"
+msgstr ""
+
+#: Game.Levels.RewriteBonus.L02_FastReversing
+msgid "Fast Reversing"
 msgstr ""
 
 #. §0: `t = 0`
@@ -620,10 +624,6 @@ msgstr ""
 msgid "Fermat's Last Theorem ❌"
 msgstr ""
 
-#: Game.Levels.Proposition.L07_SplittingAnd
-msgid "Conjunction (2)"
-msgstr ""
-
 #: Game.Levels.Multiplication
 msgid "Multiplication World"
 msgstr ""
@@ -756,8 +756,8 @@ msgstr ""
 msgid "§0 is the proof that §1."
 msgstr ""
 
-#: Game.Levels.Proposition.L04_Chains
-msgid "Implications (3)"
+#: Game.Levels.PropositionBonusB.L02_DoubleElimination
+msgid "Double Elimination is Equivalent To LEM"
 msgstr ""
 
 #: Game.Levels.Induction.L04_AddAssoc
@@ -786,10 +786,6 @@ msgstr ""
 
 #: Game.Levels.LessOrEqual.L04_LeTrans
 msgid "Transitivity"
-msgstr ""
-
-#: Game.Levels.Neq.L03_EqualitiesArePropositions3
-msgid "Equalities are Propositions (3)"
 msgstr ""
 
 #: Game.Levels.AdvAddition
@@ -823,12 +819,16 @@ msgstr ""
 msgid "§0 is the proof §1."
 msgstr ""
 
+#: Game.Levels.PropositionBonusB.L03_PeirceLaw
+msgid "Peirce's Law is Equivalent To LEM"
+msgstr ""
+
 #: Game.Levels.Induction.L04_AddAssoc
 msgid "A passing mathematician congratulates you on proving that the natural numbers\n"
 "are an additive commutative monoid."
 msgstr ""
 
-#: Game.Levels.PropositionBonusC.L01_NotNotExcludedMiddle
+#: Game.Levels.PropositionBonusB.L01_NotNotExcludedMiddle
 msgid "¬¬LEM"
 msgstr ""
 
@@ -877,7 +877,7 @@ msgid "## Summary\n"
 "§21."
 msgstr ""
 
-#: Game.Levels.PropositionBonusB
+#: Game.Levels.PropositionBonusC
 msgid "Bonus puzzles about the other De Morgan's law. You don't need them to continue."
 msgstr ""
 
@@ -886,16 +886,16 @@ msgstr ""
 msgid "§0 (Power World Boss)"
 msgstr ""
 
+#: Game.Levels.PropositionBonusC.L03_WeakExcludedMiddle
+msgid "The Other De Morgan's Law (Rightwards with the Weak Law of Excluded Middle)"
+msgstr ""
+
 #: Game.Levels.Intro.L01_Welcome
 #: Game.Levels.Intro
 msgid "Welcome"
 msgstr ""
 
-#: Game.Levels.PropositionBonusB.L03_WeakExcludedMiddle
-msgid "The Other De Morgan's Law (Rightwards with the Weak Law of Excluded Middle)"
-msgstr ""
-
-#: Game.Levels.Neq.L02_EqualitiesArePropositions2
+#: Game.Levels.Neq.L03_EqualitiesArePropositions3
 msgid "Equalities are Propositions (2)"
 msgstr ""
 
@@ -930,6 +930,10 @@ msgid "§0 is a proof that §1.\n"
 "Note that §4 cannot be proved by \\\\\"pure thought\\\\\":\n"
 "for example subtraction is not associative, as §5 is not\n"
 "equal to §6."
+msgstr ""
+
+#: Game.Levels.PropositionBonusB
+msgid "Bonus puzzles about the Law of Excluded Middle. You don't need them to continue."
 msgstr ""
 
 #: GameServer.CompletionMessages
@@ -970,6 +974,14 @@ msgid "If §0 and §1 are numbers, then §2 is a proof\n"
 "\n"
 "Peano had this theorem as an axiom. Let's use it to prove §5.\n"
 "We will proceed by manipulating our hypothesis until it becomes the goal."
+msgstr ""
+
+#: Game.Levels.Neq.L01_EqualitiesArePropositions1
+msgid "Equalities are Propositions (0)"
+msgstr ""
+
+#: Game.Levels.SuccessorJoined.L01_CrossingTheBeams
+msgid "Crossing the Beams (0)"
 msgstr ""
 
 #: Game.Levels.RewriteBonusB.L01_FixedPoint
@@ -1159,12 +1171,12 @@ msgstr ""
 msgid "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 msgstr ""
 
-#: Game.Levels.PropositionBonusC
-msgid "A bonus puzzle about the Law of Excluded Middle. You don't need it to continue."
+#: Game.Levels.PropositionRight.L06_NegatedImplication
+msgid "Negation (1)"
 msgstr ""
 
-#: Game.Levels.PropositionRight.L05_Negation
-msgid "Negation (1)"
+#: Game.Levels.RewriteBonus
+msgid "Bonus puzzles. You don't need them to continue along Rewrite World."
 msgstr ""
 
 #. §0: `≤`
@@ -1255,6 +1267,10 @@ msgstr ""
 msgid "Proposition World"
 msgstr ""
 
+#: Game.Levels.PropositionRight.L01_Or1
+msgid "Disjunction (0)"
+msgstr ""
+
 #: Game.Levels.Power
 msgid "Power World"
 msgstr ""
@@ -1267,7 +1283,7 @@ msgstr ""
 msgid "Prove equalities by substituting equal things for each other until both sides match."
 msgstr ""
 
-#: Game.Levels.PropositionRight.L01_Or1
+#: Game.Levels.PropositionRight.L02_Or2
 msgid "Disjunction (1)"
 msgstr ""
 
@@ -1298,7 +1314,7 @@ msgid "This level proves §0, the multiplicative analogue of Advanced Addition\n
 "lemma §3 from §4 World."
 msgstr ""
 
-#: Game.Levels.PropositionRight.L06_NegatedImplication
+#: Game.Levels.PropositionRight.L07_NegatedAnd
 msgid "Negation (2)"
 msgstr ""
 
@@ -1333,6 +1349,13 @@ msgid "The Natural Numbers Video Game is a version of the Natural Number Game ma
 "Visual Lean's drag-and-drop interface."
 msgstr ""
 
+#. §0: `lem_iff_double_elimination`
+#. §1: `(∀ P, P ∨ ¬P) ↔ (∀ P, ¬¬P → P)`
+#: Game.Levels.PropositionBonusB.L02_DoubleElimination
+msgid "§0 is a proof of §1: the\n"
+"Law of Excluded Middle is equivalent to double negation elimination."
+msgstr ""
+
 #. §0: $a(b+c)=ab+ac$
 #. §1: $(b+c)a=ba+ca$
 #. §2: `mul_add a b c`
@@ -1347,7 +1370,7 @@ msgid "Our next goal is \"left and right distributivity\",\n"
 "and then an addition."
 msgstr ""
 
-#: Game.Levels.Proposition.L03_ModusPonens
+#: Game.Levels.Proposition.L04_Chains
 msgid "Implications (2)"
 msgstr ""
 
@@ -1362,7 +1385,6 @@ msgstr ""
 msgid "§0 closes the goal with §1, whose type must be exactly the goal."
 msgstr ""
 
-#: Game.Levels.RewriteBonus
 #: Game.Levels.RewriteBonusB
 msgid "A bonus puzzle. You don't need it to continue along Rewrite World."
 msgstr ""
@@ -1402,6 +1424,12 @@ msgid "The music dies down. Is that it?\n"
 "Suddenly the music starts up again. This really is the final boss."
 msgstr ""
 
+#: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
+msgid "We now have all the tools necessary to set up the basic theory of divisibility of naturals.\n"
+"\n"
+"One boss to go."
+msgstr ""
+
 #. §0: `le_one x`
 #. §1: `x ≤ 1`
 #. §2: `x = 0`
@@ -1420,18 +1448,12 @@ msgid "§0 is a proof that §1.\n"
 "has to be at most that number."
 msgstr ""
 
-#: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
-msgid "We now have all the tools necessary to set up the basic theory of divisibility of naturals.\n"
-"\n"
-"One boss to go."
-msgstr ""
-
 #: Game.Levels.Neq.L08_TwoNeFour
 msgid "2 ≠ 4"
 msgstr ""
 
-#: Game.Levels.PropositionRight.L02_Or2
-msgid "Disjunction (2)"
+#: Game.Levels.Proposition.L02_Implication
+msgid "Implications (0)"
 msgstr ""
 
 #: Game.Levels.PropositionBonus
@@ -1440,7 +1462,7 @@ msgstr ""
 msgid "Proposition World Bonus"
 msgstr ""
 
-#: Game.Levels.Neq.L01_EqualitiesArePropositions1
+#: Game.Levels.Neq.L02_EqualitiesArePropositions2
 msgid "Equalities are Propositions (1)"
 msgstr ""
 
@@ -1452,6 +1474,10 @@ msgstr ""
 
 #: Game.Levels.AdvMultiplication
 msgid "Advanced Multiplication World"
+msgstr ""
+
+#: Game.Levels.Proposition.L06_And
+msgid "Conjunction (0)"
 msgstr ""
 
 #. §0: `succ_mul a b`
@@ -1484,7 +1510,7 @@ msgid "The music gets ever more dramatic, as we explore\n"
 "then read the documentation of §2 for tips on how to fix this."
 msgstr ""
 
-#: Game.Levels.SuccessorJoined.L01_CrossingTheBeams
+#: Game.Levels.SuccessorJoined.L02_CrossingTheBeams2
 msgid "Crossing the Beams (1)"
 msgstr ""
 
@@ -1601,10 +1627,6 @@ msgstr ""
 #: Game.Levels.Multiplication.L04_MulComm
 msgid "§0 is the proof that multiplication is commutative. More precisely,\n"
 "§1 is the proof that §2."
-msgstr ""
-
-#: Game.Levels.PropositionRight.L07_NegatedAnd
-msgid "Negation (3)"
 msgstr ""
 
 #. §0: `zero_ne_succ a`

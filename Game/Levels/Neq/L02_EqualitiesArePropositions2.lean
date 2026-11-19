@@ -3,7 +3,7 @@ import Game.Levels.Neq.L01_EqualitiesArePropositions1
 World "Neq"
 Level 2
 
-Title "Equalities are Propositions (2)"
+Title "Equalities are Propositions (1)"
 
 VisualLevelNumber "1"
 

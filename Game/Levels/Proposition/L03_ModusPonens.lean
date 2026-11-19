@@ -3,7 +3,7 @@ import Game.Metadata
 World "Proposition"
 Level 3
 
-Title "Implications (2)"
+Title "Implications (1)"
 
 VisualLevelNumber "2"
 

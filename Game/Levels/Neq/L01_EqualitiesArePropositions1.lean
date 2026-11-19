@@ -4,7 +4,7 @@ import Game.Levels.PropositionRight
 World "Neq"
 Level 1
 
-Title "Equalities are Propositions (1)"
+Title "Equalities are Propositions (0)"
 
 VisualLevelNumber "0"
 

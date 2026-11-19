@@ -1,6 +1,8 @@
 import Game.Metadata
 -- The closing level imports every world, so the ported worlds' theorems are in scope.
 import Game.Levels.Outro
+-- Bonus B's theorem, which no later world needs.
+import Game.Levels.PropositionBonusB
 
 /-!
 Replays the moves a player makes in the game's levels with Visual Lean's own tactics, to
@@ -46,15 +48,19 @@ example (a b c : ℕ) (hx : a = 1) (hy : b = 2) (hz : c = 3)
   drag_rw_lhs_at [add_comm] [2]
   click_goal
 
--- Level 4: fractions; associate, then add up the fourths and the halves.
+-- Level 4: fractions; associate, add up the fourths and the halves, then associate
+-- the other way round to meet `h_three`.
 example (frac1over2 frac1over4 : ℚ)
     (h_fourths : frac1over2 = frac1over4 + frac1over4)
     (h_halves : (1 : ℚ) = frac1over2 + frac1over2)
+    (h_three : ((1 : ℚ) + 1) + 1 = 3)
     (add_assoc : ∀ x y z : ℚ, (x + y) + z = x + (y + z)) :
-    (frac1over2 + frac1over4) + frac1over4 = 1 := by
-  drag_rw_lhs [add_assoc]
-  drag_rw_lhs_at [← h_fourths] [2]
-  drag_rw_lhs [← h_halves]
+    ((frac1over2 + frac1over4) + frac1over4) + (1 + 1) = 3 := by
+  drag_rw_lhs_at [add_assoc] [1]
+  drag_rw_lhs_at [← h_fourths] [1, 2]
+  drag_rw_lhs_at [← h_halves] [1]
+  drag_rw_lhs [← add_assoc]
+  drag_rw_lhs [h_three]
   click_goal
 
 -- Level 5, the boss.
@@ -85,6 +91,15 @@ example (zero_add_zero : (0 : ℕ) + 0 = 0) :
   drag_rw_lhs_at [zero_add_zero] [1, 1]
   drag_rw_lhs_at [zero_add_zero] [1]
   drag_rw_lhs [zero_add_zero]
+  click_goal
+
+-- A2: forwards and backwards in turn; each click takes the first match.
+example (a b : ℕ) (a_plus_b : a + b = b) (b_plus_a : a = b + a) :
+    a + b + a + b + a = a := by
+  drag_rw_lhs_at [a_plus_b] [1, 1, 1]
+  drag_rw_lhs_at [← b_plus_a] [1, 1]
+  drag_rw_lhs_at [a_plus_b] [1]
+  drag_rw_lhs [← b_plus_a]
   click_goal
 
 -- B1: unfold `x` into `f x` twice, then follow the chain.
@@ -283,7 +298,71 @@ example (A B C : Prop) :
       · drag_goal right
         drag_goal right2
 
--- B1: the valid direction of the other law.
+-- B1: `¬(P ∨ ¬P)` proves the `False` goal backwards, twice: once to get to `¬P`, and
+-- once more with the `P` that gives.
+example : ∀ P : Prop, ¬¬(P ∨ ¬P) := by
+  click_goal
+  click_goal
+  drag_goal h
+  click_goal_right
+  click_goal
+  drag_goal h
+  click_goal_left
+  drag_goal h1
+
+-- B2: both directions. The first specializes excluded middle to `P` in the
+-- specialization view and splits it; the second specializes double negation
+-- elimination to `P ∨ ¬P`, which leaves B1's goal.
+example : (∀ P : Prop, P ∨ ¬P) ↔ (∀ P : Prop, ¬¬P → P) := by
+  click_goal
+  · click_goal
+    click_goal
+    click_goal
+    specialize_forall_as h2 h P (P)
+    click_prop h2
+    · drag_goal left
+    · drag_to right h1
+      drag_goal_exfalso h2
+  · click_goal
+    click_goal
+    specialize_forall_as h1 h P (P ∨ (¬P))
+    drag_goal h1
+    click_goal
+    drag_goal h2
+    click_goal_right
+    click_goal
+    drag_goal h2
+    click_goal_left
+    drag_goal h3
+
+-- B3: the first direction is as in B2. For the second, B2's theorem from the inventory
+-- turns the goal into double negation elimination, and Peirce's law, specialized to `P`
+-- and then to `False`, proves that backwards.
+example : (∀ P : Prop, P ∨ ¬P) ↔ (∀ P Q : Prop, ((P → Q) → P) → P) := by
+  click_goal
+  · click_goal
+    click_goal
+    click_goal
+    click_goal
+    specialize_forall_as h2 h P (P)
+    click_prop h2
+    · drag_goal left
+    · drag_goal h1
+      click_goal
+      drag_to right h2
+      drag_goal_exfalso h3
+  · click_goal
+    drag_goal lem_iff_double_elimination
+    click_goal
+    click_goal
+    specialize_forall_as h2 h P (P)
+    specialize_forall_as h3 h2 Q (False)
+    drag_goal h3
+    click_goal
+    drag_to h4 h1
+    drag_goal_exfalso h5
+
+-- C1: the valid direction of the other law.
 example (A B : Prop) : (¬A ∨ ¬B) → ¬(A ∧ B) := by
   click_goal
   click_goal
@@ -294,7 +373,7 @@ example (A B : Prop) : (¬A ∨ ¬B) → ¬(A ∧ B) := by
   · drag_to right1 right
     drag_goal h
 
--- B2: with the Law of Excluded Middle for both.
+-- C2: with the Law of Excluded Middle for both.
 example (A B : Prop) (hA : A ∨ ¬A) (hB : B ∨ ¬B) : ¬(A ∧ B) → (¬A ∨ ¬B) := by
   click_goal
   click_prop hA
@@ -310,7 +389,7 @@ example (A B : Prop) (hA : A ∨ ¬A) (hB : B ∨ ¬B) : ¬(A ∧ B) → (¬A �
   · click_goal_left
     drag_goal right
 
--- B3: with the Weak Law of Excluded Middle, the `False` goal needs both `¬¬` hypotheses.
+-- C3: with the Weak Law of Excluded Middle, the `False` goal needs both `¬¬` hypotheses.
 example (A B : Prop) (hA : ¬A ∨ ¬¬A) (hB : ¬B ∨ ¬¬B) : ¬(A ∧ B) → (¬A ∨ ¬B) := by
   click_goal
   click_prop hA
@@ -328,22 +407,10 @@ example (A B : Prop) (hA : ¬A ∨ ¬¬A) (hB : ¬B ∨ ¬¬B) : ¬(A ∧ B) →
       · drag_goal h1
       · drag_goal h2
 
--- C1: `¬(P ∨ ¬P)` proves the `False` goal backwards, twice: once to get to `¬P`, and
--- once more with the `P` that gives.
-example : ∀ P : Prop, ¬¬(P ∨ ¬P) := by
-  click_goal
-  click_goal
-  drag_goal h
-  click_goal_right
-  click_goal
-  drag_goal h
-  click_goal_left
-  drag_goal h1
-
 /-! ## The specialization view on a `∀ P : Prop` hypothesis -/
 
 -- A proposition built from the context's propositions, `False` and the connectives is
--- sent bracketed, as the view shows it. No level needs this yet.
+-- sent bracketed, as the view shows it (bonus levels B2 and B3 use it).
 example (A : Prop) (dne : ∀ P : Prop, ¬¬P → P) : A ∨ ¬A := by
   specialize_forall_as dne1 dne P (A ∨ (¬A))
   drag_goal dne1
@@ -359,6 +426,19 @@ example (A B : Prop) (h : ∀ P : Prop, P → P) (hAB : (A ∧ B) → (False ↔
   specialize_forall_as h1 h P ((A ∧ B) → (False ↔ A))
   drag_to hAB h1
   exact h2
+
+/-! ## Dragging a hypothesis onto an identical one merges the two -/
+
+-- The dragged card goes and the one it was dropped on stays. Variables of one type
+-- are not propositions, so they never merge.
+set_option linter.unusedVariables false in
+example (A B : Prop) (x y : ℕ) (h1 : A → B) (h2 : A → B) (hx : x = y) (hy : x = y) : A → B := by
+  drag_to h1 h2
+  fail_if_success exact h1
+  drag_to hy hx
+  fail_if_success exact absurd hy
+  fail_if_success drag_to x y
+  drag_goal h2
 
 /-! ## Successor World -/
 
@@ -390,7 +470,7 @@ example : (1 : ℕ) + 1 + 1 + 1 = 4 := by
   drag_rw_rhs_at [two_eq_succ_one] [1, 1]
   click_goal
 
--- Level 4, Crossing the Beams (1): the goal is opened in Rewriting Mode, where `hx` is
+-- Level 4, Crossing the Beams (0): the goal is opened in Rewriting Mode, where `hx` is
 -- a rule; the check mark closes it.
 example (x : ℕ) (hx : x = 1) : x + 1 = 2 := by
   drag_rw_lhs_at [hx] [1]
@@ -398,7 +478,7 @@ example (x : ℕ) (hx : x = 1) : x + 1 = 2 := by
   drag_rw_lhs [← two_eq_succ_one]
   click_goal
 
--- Level 5, Crossing the Beams (2): rewrite `hx` into `x = 2` in Rewriting Mode, go back,
+-- Level 5, Crossing the Beams (1): rewrite `hx` into `x = 2` in Rewriting Mode, go back,
 -- and drag it onto `hy`.
 example (x y : ℕ) (hx : x = 1 + 1) (hy : x = 2 → y = 0) : y = 0 := by
   drag_rw_hyp_rhs hx [add_one_eq_succ']

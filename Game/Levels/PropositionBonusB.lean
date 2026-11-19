@@ -1,6 +1,6 @@
-import Game.Levels.PropositionBonusB.L01_Leftwards
-import Game.Levels.PropositionBonusB.L02_ExcludedMiddle
-import Game.Levels.PropositionBonusB.L03_WeakExcludedMiddle
+import Game.Levels.PropositionBonusB.L01_NotNotExcludedMiddle
+import Game.Levels.PropositionBonusB.L02_DoubleElimination
+import Game.Levels.PropositionBonusB.L03_PeirceLaw
 
 World "PropositionBonusB"
 Title "Proposition World Bonus"
@@ -12,5 +12,5 @@ VisualHideSwapSides
 
 Introduction
 "
-Bonus puzzles about the other De Morgan's law. You don't need them to continue.
+Bonus puzzles about the Law of Excluded Middle. You don't need them to continue.
 "

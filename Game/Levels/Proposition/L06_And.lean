@@ -3,7 +3,7 @@ import Game.Metadata
 World "Proposition"
 Level 6
 
-Title "Conjunction (1)"
+Title "Conjunction (0)"
 
 VisualLevelNumber "5"
 

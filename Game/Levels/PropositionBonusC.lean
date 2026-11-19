@@ -1,4 +1,6 @@
-import Game.Levels.PropositionBonusC.L01_NotNotExcludedMiddle
+import Game.Levels.PropositionBonusC.L01_Leftwards
+import Game.Levels.PropositionBonusC.L02_ExcludedMiddle
+import Game.Levels.PropositionBonusC.L03_WeakExcludedMiddle
 
 World "PropositionBonusC"
 Title "Proposition World Bonus"
@@ -10,5 +12,5 @@ VisualHideSwapSides
 
 Introduction
 "
-A bonus puzzle about the Law of Excluded Middle. You don't need it to continue.
+Bonus puzzles about the other De Morgan's law. You don't need them to continue.
 "

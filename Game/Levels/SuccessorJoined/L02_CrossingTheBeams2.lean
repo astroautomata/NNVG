@@ -3,7 +3,7 @@ import Game.Levels.SuccessorJoined.L01_CrossingTheBeams
 World "SuccessorJoined"
 Level 2
 
-Title "Crossing the Beams (2)"
+Title "Crossing the Beams (1)"
 
 VisualLevelNumber "5"
 

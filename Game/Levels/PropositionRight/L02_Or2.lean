@@ -3,7 +3,7 @@ import Game.Metadata
 World "PropositionRight"
 Level 2
 
-Title "Disjunction (2)"
+Title "Disjunction (1)"
 
 VisualLevelNumber "9"
 

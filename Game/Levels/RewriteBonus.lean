@@ -1,4 +1,5 @@
 import Game.Levels.RewriteBonus.L01_FastRewriting
+import Game.Levels.RewriteBonus.L02_FastReversing
 
 World "RewriteBonus"
 Title "Rewrite World Bonus"
@@ -15,5 +16,5 @@ VisualNoRewriteTabs
 
 Introduction
 "
-A bonus puzzle. You don't need it to continue along Rewrite World.
+Bonus puzzles. You don't need them to continue along Rewrite World.
 "

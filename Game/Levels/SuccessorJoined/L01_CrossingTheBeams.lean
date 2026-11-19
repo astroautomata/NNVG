@@ -3,7 +3,7 @@ import Game.Levels.Successor
 World "SuccessorJoined"
 Level 1
 
-Title "Crossing the Beams (1)"
+Title "Crossing the Beams (0)"
 
 VisualLevelNumber "4"
 -- Rewrite Mode opens on `hx`.
