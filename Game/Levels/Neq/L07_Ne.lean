@@ -1,11 +1,11 @@
-import Game.Levels.Neq.L05_SuccInj
+import Game.Levels.Neq.L06_SuccInj
 
 World "Neq"
-Level 6
+Level 7
 
 Title "`≠`"
 
-VisualLevelNumber "5"
+VisualLevelNumber "6"
 
 namespace MyNat
 

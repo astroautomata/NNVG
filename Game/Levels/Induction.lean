@@ -6,7 +6,7 @@ import Game.Levels.Induction.L04_AddAssoc
 World "Induction"
 Title "Induction World"
 
-VisualWorldColor pink
+VisualWorldColor blossom
 VisualMapColumn -1
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.

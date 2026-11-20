@@ -10,7 +10,7 @@ import Game.Levels.Proposition.L08_Iff
 World "Proposition"
 Title "Proposition World"
 
-VisualWorldColor sky
+VisualWorldColor aqueduct
 VisualMapColumn 1
 
 -- No swapping an equation's sides anywhere in Proposition World.

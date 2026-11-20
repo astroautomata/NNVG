@@ -5,7 +5,7 @@ import Game.Levels.Successor.L03_Boss
 World "Successor"
 Title "Successor World"
 
-VisualWorldColor green
+VisualWorldColor signal
 VisualMapColumn 0
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.

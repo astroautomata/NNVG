@@ -8,7 +8,7 @@ import Game.Levels.Rewrite.L06_Boss
 World "Rewrite"
 Title "Rewrite World"
 
-VisualWorldColor amber
+VisualWorldColor lantern
 VisualMapColumn -1
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.

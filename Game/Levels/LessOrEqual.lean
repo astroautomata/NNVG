@@ -12,7 +12,7 @@ import Game.Levels.LessOrEqual.L10_LeTotal
 World "LessOrEqual"
 Title "≤ World"
 
-VisualWorldColor blue
+VisualWorldColor circuit
 VisualMapColumn 1
 
 Introduction

@@ -65,8 +65,8 @@ theorem succ_inj (a b : MyNat) (h : S a = S b) : a = b := MyNat.S.inj h
 /-- `zero_ne_succ a` is a proof of `0 ≠ S a`. -/
 theorem zero_ne_succ (a : MyNat) : 0 ≠ S a := fun h => MyNat.noConfusion h
 
-/-- `one_ne_zero` is a proof of `1 ≠ 0`. -/
-theorem one_ne_zero : (1 : MyNat) ≠ 0 := fun h => zero_ne_succ 0 h.symm
+/-- `zero_ne_one` is a proof of `0 ≠ 1`. -/
+theorem zero_ne_one : (0 : MyNat) ≠ 1 := zero_ne_succ 0
 
 /-- `peano_cases a` is a proof of `a = 0 ∨ ∃ b, a = S b`: every number is zero or a
 successor. -/

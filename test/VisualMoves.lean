@@ -1,8 +1,6 @@
 import Game.Metadata
 -- The closing level imports every world, so the ported worlds' theorems are in scope.
 import Game.Levels.Outro
--- Bonus B's theorem, which no later world needs.
-import Game.Levels.PropositionBonusB
 
 /-!
 Replays the moves a player makes in the game's levels with Visual Lean's own tactics, to
@@ -310,58 +308,6 @@ example : ∀ P : Prop, ¬¬(P ∨ ¬P) := by
   click_goal_left
   drag_goal h1
 
--- B2: both directions. The first specializes excluded middle to `P` in the
--- specialization view and splits it; the second specializes double negation
--- elimination to `P ∨ ¬P`, which leaves B1's goal.
-example : (∀ P : Prop, P ∨ ¬P) ↔ (∀ P : Prop, ¬¬P → P) := by
-  click_goal
-  · click_goal
-    click_goal
-    click_goal
-    specialize_forall_as h2 h P (P)
-    click_prop h2
-    · drag_goal left
-    · drag_to right h1
-      drag_goal_exfalso h2
-  · click_goal
-    click_goal
-    specialize_forall_as h1 h P (P ∨ (¬P))
-    drag_goal h1
-    click_goal
-    drag_goal h2
-    click_goal_right
-    click_goal
-    drag_goal h2
-    click_goal_left
-    drag_goal h3
-
--- B3: the first direction is as in B2. For the second, B2's theorem from the inventory
--- turns the goal into double negation elimination, and Peirce's law, specialized to `P`
--- and then to `False`, proves that backwards.
-example : (∀ P : Prop, P ∨ ¬P) ↔ (∀ P Q : Prop, ((P → Q) → P) → P) := by
-  click_goal
-  · click_goal
-    click_goal
-    click_goal
-    click_goal
-    specialize_forall_as h2 h P (P)
-    click_prop h2
-    · drag_goal left
-    · drag_goal h1
-      click_goal
-      drag_to right h2
-      drag_goal_exfalso h3
-  · click_goal
-    drag_goal lem_iff_double_elimination
-    click_goal
-    click_goal
-    specialize_forall_as h2 h P (P)
-    specialize_forall_as h3 h2 Q (False)
-    drag_goal h3
-    click_goal
-    drag_to h4 h1
-    drag_goal_exfalso h5
-
 -- C1: the valid direction of the other law.
 example (A B : Prop) : (¬A ∨ ¬B) → ¬(A ∧ B) := by
   click_goal
@@ -586,13 +532,11 @@ example (x : ℕ) : x = 1 → x = 1 := by
 
 -- Level 1: swap `1 = x` round in Rewriting Mode, feed it to the implication, swap the
 -- result round the same way, and drag it to the goal.
-example (x y : ℕ) : 1 = x → ((x = 1 → y = 2) → 2 = y) := by
-  click_goal
-  click_goal
+example (x y : ℕ) (hx : 1 = x) (hy : x = 1 → y = 2) : 2 = y := by
+  symm at hx
+  drag_to hx hy
   symm at h
-  drag_to h h1
-  symm at h2
-  drag_goal h2
+  drag_goal h
 
 -- Level 2: an equality hypothesis proves the matching goal by dragging.
 example (x : ℕ) : x = 1 → (x = 1 ∧ (S x = 2 ∨ (1 : ℕ) = 0)) := by
@@ -604,24 +548,29 @@ example (x : ℕ) : x = 1 → (x = 1 ∧ (S x = 2 ∨ (1 : ℕ) = 0)) := by
     drag_rw_rhs [two_eq_succ_one]
     click_goal
 
--- Level 3: specialize `reflection` by hand for the first goal, then drag it onto the
--- others, which specializes it automatically.
-example : S 0 = S 0 ∧ ((1 : ℕ) = 1 ∧ (2 : ℕ) = 2) := by
+-- Level 3, The Third Mode?: specialize `reflection` to `3 + 3` in Specialization Mode,
+-- which is what `hy` asks for.
+example (y : ℕ) (hy : (3 : ℕ) + 3 = 3 + 3 → y = 0) : y = 0 := by
+  specialize_forall_as thm_h reflection n ((3 : ℕ) + 3)
+  drag_to thm_h hy
+  drag_goal thm_h
+
+-- Level 4, Pattern Matching: `reflection` dragged onto a goal specializes itself.
+example : S 0 = S 0 ∧ ((1 : ℕ) = 1 ∧ ((2 : ℕ) + 2) + 2 = (2 + 2) + 2) := by
   click_goal
-  · specialize_forall_as thm_h reflection n (S 0)
-    drag_goal thm_h
+  · drag_goal reflection
   · click_goal
     · drag_goal reflection
     · drag_goal reflection
 
--- Level 4, `succ_inj`: rewrite `h` into `S x = S 3`, then drag it onto `succ_inj`.
+-- Level 5, `succ_inj`: rewrite `h` into `S x = S 3`, then drag it onto `succ_inj`.
 example (x : ℕ) (h : x + 1 = 4) : x = 3 := by
   drag_rw_hyp_rhs h [four_eq_succ_three]
   drag_rw_hyp_lhs h [add_one_eq_succ']
   drag_apply succ_inj h
   drag_goal thm_succ_inj
 
--- Level 5: `x ≠ y` applies to `x = y` like an implication.
+-- Level 6: `x ≠ y` applies to `x = y` like an implication.
 example (x y : ℕ) : (S x = S y ∧ x ≠ y) → False := by
   click_goal
   click_prop h
@@ -629,14 +578,15 @@ example (x y : ℕ) : (S x = S y ∧ x ≠ y) → False := by
   drag_to thm_succ_inj right
   drag_goal thm_succ_inj
 
--- Level 6, `zero_ne_one`.
-example : (0 : ℕ) ≠ 1 := by
+-- Level 7, `one_ne_zero`: swap `S 0 = 0` round in Rewriting Mode for `zero_ne_succ`.
+example : (1 : ℕ) ≠ 0 := by
   click_goal
-  drag_rw_hyp_rhs h [one_eq_succ_zero]
+  drag_rw_hyp_lhs h [one_eq_succ_zero]
+  symm at h
   drag_apply zero_ne_succ h
   drag_goal thm_zero_ne_succ
 
--- Level 7: `2 ≠ 4`, peeling off successors with `succ_inj`.
+-- Level 8: `2 ≠ 4`, peeling off successors with `succ_inj`.
 example : (2 : ℕ) ≠ 4 := by
   click_goal
   drag_rw_hyp_lhs h [two_eq_succ_one]
@@ -649,7 +599,7 @@ example : (2 : ℕ) ≠ 4 := by
   drag_apply zero_ne_succ thm_succ_inj1
   drag_goal thm_zero_ne_succ
 
--- Level 8, Zero or No Zero: by induction.
+-- Level 9, Zero or No Zero: by induction.
 example : ∀ n : ℕ, n = 0 ∨ n ≠ 0 := by
   click_goal
   induction n with d hd
@@ -663,7 +613,7 @@ example : ∀ n : ℕ, n = 0 ∨ n ≠ 0 := by
     drag_to thm_r thm_z
     drag_goal thm_z1
 
--- Level 9, the boss: induction on `a`, and inside each case, induction on `b`.
+-- Level 10, the boss: induction on `a`, and inside each case, induction on `b`.
 example : ∀ a b : ℕ, a = b ∨ a ≠ b := by
   click_goal
   induction a with d hd
@@ -703,7 +653,7 @@ example (m : ℕ) : m * 1 = m := by
   drag_rw_lhs [zero_add]
   click_goal
 
--- Level 9, the boss: induction on `c`.
+-- Level 10, the boss: induction on `c`.
 example (a b c : ℕ) : (a * b) * c = a * (b * c) := by
   induction c with d hd
   · drag_rw_lhs [mul_zero]

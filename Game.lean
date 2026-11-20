@@ -63,7 +63,7 @@ Dependency Induction → NeqJoined
 
 -- The worlds ported from NNG4. Multiplication World and Power World hang off Induction
 -- World on the far left. Advanced Addition World needs Induction World (through the ≠
--- World's level 8) and leads to ≤ World on the right. Advanced Multiplication World
+-- World's level 9) and leads to ≤ World on the right. Advanced Multiplication World
 -- carries on below ≤ World and needs only that and Multiplication World, whose path
 -- comes across from the far left. (MakeGame drops any edge a path already implies.)
 Dependency Induction → Multiplication
@@ -80,6 +80,13 @@ Dependency AdvMultiplication → Outro
 Dependency NeqBoss → Outro
 
 VisualPathMap
+
+-- A neutral look, with a few colours for each world (`VisualWorldColor` in the world
+-- files, after the spec's reference images). Worlds without one are grey.
+VisualNeutralPalette
+
+-- Variables like `n : ℕ` and `A : Prop` sit in a column of their own.
+VisualTypeColumn
 
 -- In this game, a proof of `False` closes any goal, with no `exfalso` step.
 VisualFastExfalso

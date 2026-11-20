@@ -7,7 +7,6 @@ import Game.Levels.AdvAddition.L05_AddRightEqZero
 World "AdvAddition"
 Title "Advanced Addition World"
 
-VisualWorldColor purple
 VisualMapColumn 0
 
 Introduction

@@ -11,10 +11,10 @@ VisualLevelNumber "1"
 
 namespace MyNat
 
-Statement (x y : ℕ) : 1 = x → ((x = 1 → y = 2) → 2 = y) := by
-  exact fun h h1 => (h1 h.symm).symm
+Statement (x y : ℕ) (hx : 1 = x) (hy : x = 1 → y = 2) : 2 = y := by
+  exact (hy hx.symm).symm
 
-VisualGoalInfoOnGoal above false "1 = x → (x = 1 → y = 2) → 2 = y" show
+VisualGoalInfoOnGoal above false "2 = y" show
   "You'll have to reverse the direction of an equality to solve this level.
 Try entering `1 = x` in Rewriting Mode."
 

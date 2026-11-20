@@ -11,7 +11,7 @@ import Game.Levels.Multiplication.L09_MulAssoc
 World "Multiplication"
 Title "Multiplication World"
 
-VisualWorldColor orange
+VisualWorldColor sandstone
 VisualMapColumn -2
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.

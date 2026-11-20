@@ -11,7 +11,6 @@ import Game.Levels.Power.L09_AddSq
 World "Power"
 Title "Power World"
 
-VisualWorldColor red
 VisualMapColumn -2
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.

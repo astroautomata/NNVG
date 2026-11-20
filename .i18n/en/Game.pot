@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19\n"
+"POT-Creation-Date: 2026-11-20\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -12,9 +12,13 @@ msgstr "Project-Id-Version: Game v4.28.0\n"
 msgid "Positivity"
 msgstr ""
 
-#. §0: `one_ne_zero`
-#. §1: `1 ≠ 0`
-#: Game.Levels.Neq.L07_ZeroNeOne
+#: Game.Levels.Neq.L04_ThirdMode
+msgid "The Third Mode?"
+msgstr ""
+
+#. §0: `zero_ne_one`
+#. §1: `0 ≠ 1`
+#: Game.Levels.Neq.L08_OneNeZero
 msgid "Completing this level also unlocks §0, a proof of §1."
 msgstr ""
 
@@ -244,8 +248,8 @@ msgstr ""
 #: Game.Levels.Successor.L02_AddOne
 #: Game.Levels.Successor.L02_AddOne
 #: Game.Levels.Induction.L03_AddComm
-#: Game.Levels.Neq.L07_ZeroNeOne
-#: Game.Levels.Neq.L08_TwoNeFour
+#: Game.Levels.Neq.L08_OneNeZero
+#: Game.Levels.Neq.L09_TwoNeFour
 #: Game.Levels.NeqJoined.L01_ZeroOrNot
 #: Game.Levels.LessOrEqual.L05_LeZero
 msgid "§0 is a proof of §1."
@@ -756,10 +760,6 @@ msgstr ""
 msgid "§0 is the proof that §1."
 msgstr ""
 
-#: Game.Levels.PropositionBonusB.L02_DoubleElimination
-msgid "Double Elimination is Equivalent To LEM"
-msgstr ""
-
 #: Game.Levels.Induction.L04_AddAssoc
 msgid "Associativity of Addition"
 msgstr ""
@@ -817,10 +817,6 @@ msgstr ""
 #. §1: `1 * m = m`
 #: Game.Levels.Multiplication.L05_OneMul
 msgid "§0 is the proof §1."
-msgstr ""
-
-#: Game.Levels.PropositionBonusB.L03_PeirceLaw
-msgid "Peirce's Law is Equivalent To LEM"
 msgstr ""
 
 #: Game.Levels.Induction.L04_AddAssoc
@@ -886,13 +882,13 @@ msgstr ""
 msgid "§0 (Power World Boss)"
 msgstr ""
 
-#: Game.Levels.PropositionBonusC.L03_WeakExcludedMiddle
-msgid "The Other De Morgan's Law (Rightwards with the Weak Law of Excluded Middle)"
-msgstr ""
-
 #: Game.Levels.Intro.L01_Welcome
 #: Game.Levels.Intro
 msgid "Welcome"
+msgstr ""
+
+#: Game.Levels.PropositionBonusC.L03_WeakExcludedMiddle
+msgid "The Other De Morgan's Law (Rightwards with the Weak Law of Excluded Middle)"
 msgstr ""
 
 #: Game.Levels.Neq.L03_EqualitiesArePropositions3
@@ -932,10 +928,6 @@ msgid "§0 is a proof that §1.\n"
 "equal to §6."
 msgstr ""
 
-#: Game.Levels.PropositionBonusB
-msgid "Bonus puzzles about the Law of Excluded Middle. You don't need them to continue."
-msgstr ""
-
 #: GameServer.CompletionMessages
 #: GameServer.RpcHandlers
 msgid "level completed with warnings… 🎭"
@@ -954,7 +946,7 @@ msgstr ""
 #. §0: `zero_ne_succ a`
 #. §1: `0 ≠ S a`
 #. §2: `0 = S a → False`
-#: Game.Levels.Neq.L07_ZeroNeOne
+#: Game.Levels.Neq.L08_OneNeZero
 msgid "§0 is a proof of §1, which means §2."
 msgstr ""
 
@@ -968,7 +960,7 @@ msgstr ""
 #. §3: `S a = S b`
 #. §4: `a = b`
 #. §5: $x + 1 = 4 → x = 3$
-#: Game.Levels.Neq.L05_SuccInj
+#: Game.Levels.Neq.L06_SuccInj
 msgid "If §0 and §1 are numbers, then §2 is a proof\n"
 "that §3 implies §4.\n"
 "\n"
@@ -995,7 +987,7 @@ msgstr ""
 
 #. §0: `a ≠ b`
 #. §1: `a = b → False`
-#: Game.Levels.Neq.L06_Ne
+#: Game.Levels.Neq.L07_Ne
 msgid "§0 means §1."
 msgstr ""
 
@@ -1057,10 +1049,9 @@ msgstr ""
 #: Game.Levels.Successor.L02_AddOne
 #: Game.Levels.Induction.L01_ZeroAdd
 #: Game.Levels.Induction.L02_SuccAdd
-#: Game.Levels.Neq.L04_Reflection
-#: Game.Levels.Neq.L05_SuccInj
-#: Game.Levels.Neq.L06_Ne
-#: Game.Levels.Neq.L07_ZeroNeOne
+#: Game.Levels.Neq.L06_SuccInj
+#: Game.Levels.Neq.L07_Ne
+#: Game.Levels.Neq.L08_OneNeZero
 #: Game.Levels.Multiplication.L01_MulOne
 #: Game.Levels.Multiplication.L02_ZeroMul
 #: Game.Levels.Multiplication.L03_SuccMul
@@ -1171,6 +1162,10 @@ msgstr ""
 msgid "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 msgstr ""
 
+#: Game.Levels.PropositionBonusB
+msgid "A bonus puzzle about the Law of Excluded Middle. You don't need it to continue."
+msgstr ""
+
 #: Game.Levels.PropositionRight.L06_NegatedImplication
 msgid "Negation (1)"
 msgstr ""
@@ -1245,7 +1240,7 @@ msgstr ""
 #. §1: `S a = S b`
 #. §2: `a = b`
 #. §3: `S`
-#: Game.Levels.Neq.L05_SuccInj
+#: Game.Levels.Neq.L06_SuccInj
 msgid "§0 is a proof that §1 implies §2.\n"
 "Peano had it as an axiom: §3 is an injective function."
 msgstr ""
@@ -1269,6 +1264,10 @@ msgstr ""
 
 #: Game.Levels.PropositionRight.L01_Or1
 msgid "Disjunction (0)"
+msgstr ""
+
+#: Game.Levels.Neq.L05_PatternMatching
+msgid "Pattern Matching"
 msgstr ""
 
 #: Game.Levels.Power
@@ -1347,13 +1346,6 @@ msgstr ""
 #: Game
 msgid "The Natural Numbers Video Game is a version of the Natural Number Game made for\n"
 "Visual Lean's drag-and-drop interface."
-msgstr ""
-
-#. §0: `lem_iff_double_elimination`
-#. §1: `(∀ P, P ∨ ¬P) ↔ (∀ P, ¬¬P → P)`
-#: Game.Levels.PropositionBonusB.L02_DoubleElimination
-msgid "§0 is a proof of §1: the\n"
-"Law of Excluded Middle is equivalent to double negation elimination."
 msgstr ""
 
 #. §0: $a(b+c)=ab+ac$
@@ -1448,7 +1440,7 @@ msgid "§0 is a proof that §1.\n"
 "has to be at most that number."
 msgstr ""
 
-#: Game.Levels.Neq.L08_TwoNeFour
+#: Game.Levels.Neq.L09_TwoNeFour
 msgid "2 ≠ 4"
 msgstr ""
 
@@ -1575,7 +1567,7 @@ msgstr ""
 
 #. §0: `reflection n`
 #. §1: `n = n`
-#: Game.Levels.Neq.L04_Reflection
+#: Game.Levels.Neq.L04_ThirdMode
 msgid "§0 is a proof of §1: every natural number is equal to itself."
 msgstr ""
 
@@ -1631,7 +1623,7 @@ msgstr ""
 
 #. §0: `zero_ne_succ a`
 #. §1: `0 ≠ S a`
-#: Game.Levels.Neq.L07_ZeroNeOne
+#: Game.Levels.Neq.L08_OneNeZero
 msgid "Peano's last axiom is §0, a proof that §1: zero is not the\n"
 "successor of any number."
 msgstr ""

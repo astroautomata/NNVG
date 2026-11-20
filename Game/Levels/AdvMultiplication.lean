@@ -12,7 +12,7 @@ import Game.Levels.AdvMultiplication.L10_MulLeftCancel
 World "AdvMultiplication"
 Title "Advanced Multiplication World"
 
-VisualWorldColor indigo
+VisualWorldColor canyon
 VisualMapColumn 1
 
 Introduction

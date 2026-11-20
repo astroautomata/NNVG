@@ -1,11 +1,11 @@
-import Game.Levels.Neq.L06_Ne
+import Game.Levels.Neq.L07_Ne
 
 World "Neq"
-Level 7
+Level 8
 
-Title "`zero_ne_one`"
+Title "`one_ne_zero`"
 
-VisualLevelNumber "6"
+VisualLevelNumber "7"
 
 namespace MyNat
 
@@ -21,14 +21,14 @@ TheoremDoc MyNat.zero_ne_succ as "zero_ne_succ" in "Peano"
 NewTheorem MyNat.zero_ne_succ
 VisualEmphasize MyNat.zero_ne_succ
 
-/-- `zero_ne_one` is a proof of `0 ≠ 1`. -/
-TheoremDoc MyNat.zero_ne_one as "zero_ne_one" in "012"
+/-- `one_ne_zero` is a proof of `1 ≠ 0`. -/
+TheoremDoc MyNat.one_ne_zero as "one_ne_zero" in "012"
 
-Statement zero_ne_one : (0 : ℕ) ≠ 1 := by
+Statement one_ne_zero : (1 : ℕ) ≠ 0 := by
   rw [one_eq_succ_zero]
-  exact zero_ne_succ 0
+  exact fun h => zero_ne_succ 0 h.symm
 
 Conclusion
 "
-Completing this level also unlocks `one_ne_zero`, a proof of `1 ≠ 0`.
+Completing this level also unlocks `zero_ne_one`, a proof of `0 ≠ 1`.
 "

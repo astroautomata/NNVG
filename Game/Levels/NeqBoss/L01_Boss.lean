@@ -5,7 +5,7 @@ Level 1
 
 Title "Equality in ℕ is Decidable (≠ World Boss)"
 
-VisualLevelNumber "9"
+VisualLevelNumber "10"
 VisualBossLevel
 
 -- The hint stays up (hints persist in this game) until induction has been done twice

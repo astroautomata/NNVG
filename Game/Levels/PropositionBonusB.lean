@@ -1,6 +1,4 @@
 import Game.Levels.PropositionBonusB.L01_NotNotExcludedMiddle
-import Game.Levels.PropositionBonusB.L02_DoubleElimination
-import Game.Levels.PropositionBonusB.L03_PeirceLaw
 
 World "PropositionBonusB"
 Title "Proposition World Bonus"
@@ -12,5 +10,5 @@ VisualHideSwapSides
 
 Introduction
 "
-Bonus puzzles about the Law of Excluded Middle. You don't need them to continue.
+A bonus puzzle about the Law of Excluded Middle. You don't need it to continue.
 "

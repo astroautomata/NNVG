@@ -1,11 +1,11 @@
-import Game.Levels.Neq.L04_Reflection
+import Game.Levels.Neq.L05_PatternMatching
 
 World "Neq"
-Level 5
+Level 6
 
 Title "`succ_inj`"
 
-VisualLevelNumber "4"
+VisualLevelNumber "5"
 
 namespace MyNat
 
