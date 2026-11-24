@@ -5,7 +5,7 @@ Level 8
 
 Title "`pow_pow`"
 
-VisualLevelNumber "8"
+VisualLevelNumber "15"
 
 namespace MyNat
 
@@ -19,17 +19,18 @@ else could there be to prove about powers after this?
 /-- `pow_pow a m n` is a proof that $(a^m)^n=a^{mn}.$ -/
 TheoremDoc MyNat.pow_pow as "pow_pow" in "^"
 
-Statement pow_pow (a m n : ℕ) : (a ^ m) ^ n = a ^ (m * n) := by
-  induction n with t ht
-  · rw [mul_zero, pow_zero, pow_zero]
-  · rw [pow_succ, ht, mul_succ, pow_add]
+Statement pow_pow : ∀ a m n : ℕ, (a ^ m) ^ n = a ^ (m * n) := by
+  exact fun a m n => by
+    induction n with t ht
+    · rw [mul_zero, pow_zero, pow_zero]
+    · rw [pow_succ, ht, mul_succ, pow_add]
 
 Conclusion
 "
 The music dies down. Is that it?
 
 Course it isn't, you can
-clearly see that there are two levels left.
+clearly see that there is a level left.
 
 A passing mathematician says that mathematicians don't have a name
 for the structure you just constructed. You feel cheated.

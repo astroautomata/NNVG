@@ -1,4 +1,4 @@
-import Game.Levels.LessOrEqual
+import Game.Levels.LessOrEqualBoss
 import Game.Levels.Multiplication
 
 World "AdvMultiplication"
@@ -6,7 +6,7 @@ Level 1
 
 Title "`mul_le_mul_right`"
 
-VisualLevelNumber "1"
+VisualLevelNumber "0"
 
 namespace MyNat
 
@@ -15,9 +15,9 @@ Introduction
 Let's warm up with an easy one, which works even if `t = 0`.
 "
 
-/-- `mul_le_mul_right a b t` is a proof that `a ≤ b → a * t ≤ b * t`. -/
+/-- `mul_le_mul_right a b h t` is a proof that `a * t ≤ b * t`, where `h` is a proof of `a ≤ b`. -/
 TheoremDoc MyNat.mul_le_mul_right as "mul_le_mul_right" in "*"
 
-Statement mul_le_mul_right (a b t : ℕ) (h : a ≤ b) : a * t ≤ b * t := by
-  cases h with
-  | intro d hd => exact (⟨d * t, by rw [hd, add_mul]⟩ : ∃ c, b * t = a * t + c)
+Statement mul_le_mul_right (a b : ℕ) (h : a ≤ b) : ∀ t : ℕ, a * t ≤ b * t := by
+  exact fun t => (h : ∃ c, b = a + c).elim (fun d hd =>
+    (⟨d * t, by rw [hd, add_mul]⟩ : ∃ c, b * t = a * t + c))

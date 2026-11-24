@@ -3,9 +3,9 @@ import Game.Levels.Power.L08_PowPow
 World "Power"
 Level 9
 
-Title "`add_sq` (Power World Boss)"
+Title "FOILed Again (Multiplication and Exponentiation World Boss)"
 
-VisualLevelNumber "9"
+VisualLevelNumber "16"
 VisualBossLevel
 
 namespace MyNat
@@ -18,9 +18,10 @@ Introduction
 /-- `add_sq a b` is the statement that $(a+b)^2=a^2+b^2+2ab.$ -/
 TheoremDoc MyNat.add_sq as "add_sq" in "^"
 
-Statement add_sq (a b : ℕ) : (a + b) ^ 2 = a ^ 2 + b ^ 2 + 2 * a * b := by
-  rw [pow_two, pow_two, pow_two, mul_add, add_mul, add_mul, two_mul, add_mul, mul_comm b a,
-    add_assoc, add_assoc, ← add_assoc (a * b) (a * b) (b * b), add_comm (a * b + a * b) (b * b)]
+Statement add_sq : ∀ a b : ℕ, (a + b) ^ 2 = a ^ 2 + b ^ 2 + 2 * a * b := by
+  exact fun a b => by
+    rw [pow_two, pow_two, pow_two, mul_add, add_mul, add_mul, two_mul, add_mul, mul_comm b a,
+      add_assoc, add_assoc, ← add_assoc (a * b) (a * b) (b * b), add_comm (a * b + a * b) (b * b)]
 
 Conclusion
 "

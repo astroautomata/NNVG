@@ -5,7 +5,7 @@ Level 3
 
 Title "`eq_succ_of_ne_zero`"
 
-VisualLevelNumber "3"
+VisualLevelNumber "2"
 
 namespace MyNat
 
@@ -20,6 +20,4 @@ hypothesis `a ≠ 0`. Here is a key lemma that enables us to use this hypothesis
 TheoremDoc MyNat.eq_succ_of_ne_zero as "eq_succ_of_ne_zero" in "≤"
 
 Statement eq_succ_of_ne_zero (a : ℕ) (ha : a ≠ 0) : ∃ n, a = S n := by
-  cases a with d
-  · exact (ha (reflection 0)).elim
-  · exact ⟨d, reflection _⟩
+  exact (peano_cases a).elim (fun h0 => (ha h0).elim) (fun h => h)

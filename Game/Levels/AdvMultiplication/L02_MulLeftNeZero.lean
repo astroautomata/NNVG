@@ -5,9 +5,9 @@ Level 2
 
 Title "`mul_left_ne_zero`"
 
-VisualLevelNumber "2"
+VisualLevelNumber "1"
 
-VisualGoalInfo below false "A new fundamental theorem, `peano_cases`, has been added to the Axioms tab. You may need it throughout this world."
+VisualGoalInfo below false "A new fundamental theorem, `peano_cases`, has been added to the Peano tab. You may need it throughout this world."
 
 namespace MyNat
 

@@ -5,7 +5,7 @@ Level 1
 
 Title "`zero_add`"
 
-VisualLevelNumber "1"
+VisualLevelNumber "0"
 
 namespace MyNat
 
@@ -21,7 +21,7 @@ The difficulty with proving `0 + n = n` is that we do not have a *formula* for
 we know whether `n` is `0` or a successor. The `induction` tactic splits into these two cases.
 
 The base case will require us to prove `0 + 0 = 0`, and the inductive step
-will ask us to show that if `0 + d = d` then `0 + S d = S d`. Because
+will ask us to show that if `0 + n1 = n1` then `0 + S n1 = S n1`. Because
 `0` and successor are the only way to make numbers, this will cover all the cases.
 
 See if you can do your first induction proof in Lean.

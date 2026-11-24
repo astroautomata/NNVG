@@ -5,7 +5,7 @@ Level 6
 
 Title "`two_mul`"
 
-VisualLevelNumber "6"
+VisualLevelNumber "5"
 
 namespace MyNat
 
@@ -20,5 +20,5 @@ a useful role when battling a big boss later on.
 -/
 TheoremDoc MyNat.two_mul as "two_mul" in "*"
 
-Statement two_mul (m : ℕ) : 2 * m = m + m := by
-  rw [two_eq_succ_one, succ_mul, one_mul]
+Statement two_mul : ∀ m : ℕ, 2 * m = m + m := by
+  exact fun m => by rw [two_eq_succ_one, succ_mul, one_mul]

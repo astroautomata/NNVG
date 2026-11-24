@@ -27,13 +27,10 @@ VisualSpecializeBrickInfo "_ + _" "?" onGoal "y = 0" show
 Our goal is `3 + 3 = 3 + 3`, so let's drag `_ + _` into the workspace."
 
 VisualSpecializeInfo "? + ?" onGoal "y = 0" show
-  "Now we can slot in the `3` terms!"
+  "Our goal is `3 + 3 = 3 + 3`, so now we can slot in the `3` terms!"
 
 VisualSpecializeInfo "3 + ?" onGoal "y = 0" show
-  "Now we can slot in the `3` terms!"
+  "Our goal is `3 + 3 = 3 + 3`, so now we can slot in the `3` terms!"
 
 VisualSpecializeDoneInfo "3 + 3" onGoal "y = 0" show
   "Finally, we can {pc: click | mobile: tap} ‘Done’ to return to Proposition Mode."
-
--- Back on the canvas with `3 + 3 = 3 + 3`: the opening hint is cleared.
-VisualGoalInfoOnGoalWithHyp above false "y = 0" "3 + 3 = 3 + 3" show ""

@@ -1,28 +1,28 @@
-import Game.Levels.NeqJoined
+import Game.Levels.InductionDouble.L01_DoubleInduction
 
-World "NeqBoss"
-Level 1
+World "InductionDouble"
+Level 2
 
-Title "Equality in ℕ is Decidable (≠ World Boss)"
+Title "Equality in ℕ is Decidable (Induction World Boss)"
 
-VisualLevelNumber "10"
+VisualLevelNumber "9"
 VisualBossLevel
 
 -- The hint stays up (hints persist in this game) until induction has been done twice
 -- the right way round: fix `a`, induct on it, fix `b`, induct on it. Each hint below
 -- with no text matches one of the four goals that leaves, and clears it. In the two
--- `S(d)` cases the inductive hypothesis has to hold for every `b`, which it doesn't if
+-- `S(a1)` cases the inductive hypothesis has to hold for every `b`, which it doesn't if
 -- `b` was fixed before the induction on `a`.
 VisualGoalInfoOnGoal above false "∀ (a b : ℕ), a = b ∨ a ≠ b" show
-  "You may want to revisit this level after you've learned to use double induction."
+  "Don’t forget to apply double induction properly!"
 VisualGoalInfoOnGoal above false "0 = 0 ∨ 0 ≠ 0" show ""
-VisualGoalInfoOnGoal above false "0 = S(d) ∨ 0 ≠ S(d)" show ""
-VisualGoalInfoOnGoalWithHyp above false "S(d) = 0 ∨ S(d) ≠ 0" "∀ (b : ℕ), d = b ∨ d ≠ b" show ""
-VisualGoalInfoOnGoalWithHyp above false "S(d) = S(d2) ∨ S(d) ≠ S(d2)" "∀ (b : ℕ), d = b ∨ d ≠ b" show ""
+VisualGoalInfoOnGoal above false "0 = S(b1) ∨ 0 ≠ S(b1)" show ""
+VisualGoalInfoOnGoalWithHyp above false "S(a1) = 0 ∨ S(a1) ≠ 0" "∀ (b : ℕ), a1 = b ∨ a1 ≠ b" show ""
+VisualGoalInfoOnGoalWithHyp above false "S(a1) = S(b1) ∨ S(a1) ≠ S(b1)" "∀ (b : ℕ), a1 = b ∨ a1 ≠ b" show ""
 -- If `b` was fixed first, the zero case can still be finished, which clears the hint, but
--- the `S(d)` case is stuck with a hypothesis about that one `b`: the hint comes back.
-VisualGoalInfoOnGoalWithHyp above false "S(d) = b ∨ S(d) ≠ b" "d = b ∨ d ≠ b" show
-  "You may want to revisit this level after you've learned to use double induction."
+-- the `S(a1)` case is stuck with a hypothesis about that one `b`: the hint comes back.
+VisualGoalInfoOnGoalWithHyp above false "S(a1) = b ∨ S(a1) ≠ b" "a1 = b ∨ a1 ≠ b" show
+  "Don’t forget to apply double induction properly!"
 
 namespace MyNat
 

@@ -9,16 +9,21 @@ import Game.Levels.Power.L08_PowPow
 import Game.Levels.Power.L09_AddSq
 
 World "Power"
-Title "Power World"
+Title "Multiplication and Exponentiation World"
 
+-- Multiplication and Exponentiation World's levels 8 to 16, the ones about powers.
+VisualContinues Multiplication
 VisualMapColumn -2
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.
 VisualHideSwapSides
 
+-- One induction per branch of a proof, in every level.
+VisualTacticUses induction 1
+
 Introduction
 "
-In this world we define powers, `a ^ b`, by two more axioms: `pow_zero a : a ^ 0 = 1`
+Now we define powers, `a ^ b`, by two more axioms: `pow_zero a : a ^ 0 = 1`
 and `pow_succ a b : a ^ S b = a ^ b * a`. Everything else about powers follows from
-these, by induction. The boss of this world is `add_sq`, the formula for $(a + b)^2$.
+these, by induction. The boss of this world is the formula for $(a + b)^2$.
 "

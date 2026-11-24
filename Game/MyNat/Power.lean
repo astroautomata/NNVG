@@ -18,10 +18,10 @@ instance instPow : Pow MyNat MyNat where
 -- `a ^ b` with numerals, such as `2 ^ 3`, elaborates with both sides in `MyNat`.
 macro_rules | `($x ^ $y) => `(HPow.hPow ($x : MyNat) ($y : MyNat))
 
-/-- `pow_zero m` is a proof of `m ^ 0 = 1`. -/
-axiom pow_zero (m : MyNat) : m ^ 0 = 1
+/-- `pow_zero a` is a proof of `a ^ 0 = 1`. -/
+axiom pow_zero (a : MyNat) : a ^ 0 = 1
 
-/-- `pow_succ m n` is a proof of `m ^ S n = m ^ n * m`. -/
-axiom pow_succ (m n : MyNat) : m ^ S n = m ^ n * m
+/-- `pow_succ a b` is a proof of `a ^ S b = a ^ b * a`. -/
+axiom pow_succ (a b : MyNat) : a ^ S b = a ^ b * a
 
 end MyNat

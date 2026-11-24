@@ -5,6 +5,7 @@ import Game.MyNat.Definition
 
 `a ≤ b` is notation for `∃ c, b = a + c`, as in NNG4. The definition is a `def`, not
 reducible, so Visual Lean's cards keep showing `≤` and only the tactics see the `∃`.
+`a > b` means `¬ a ≤ b`.
 -/
 
 namespace MyNat
@@ -13,5 +14,10 @@ namespace MyNat
 def le (a b : MyNat) := ∃ c : MyNat, b = a + c
 
 instance instLE : LE MyNat := ⟨MyNat.le⟩
+
+/-- `a < b` means `¬ b ≤ a`, so that `a > b` is `¬ a ≤ b`. -/
+def lt (a b : MyNat) := ¬ b ≤ a
+
+instance instLT : LT MyNat := ⟨MyNat.lt⟩
 
 end MyNat

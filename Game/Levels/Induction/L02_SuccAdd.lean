@@ -5,7 +5,7 @@ Level 2
 
 Title "`succ_add`"
 
-VisualLevelNumber "2"
+VisualLevelNumber "1"
 
 namespace MyNat
 

@@ -5,7 +5,7 @@ Level 4
 
 Title "`one_le_of_ne_zero`"
 
-VisualLevelNumber "4"
+VisualLevelNumber "3"
 
 namespace MyNat
 
@@ -18,5 +18,5 @@ The previous lemma can be used to prove this one.
 TheoremDoc MyNat.one_le_of_ne_zero as "one_le_of_ne_zero" in "≤"
 
 Statement one_le_of_ne_zero (a : ℕ) (ha : a ≠ 0) : 1 ≤ a := by
-  cases eq_succ_of_ne_zero a ha with
-  | intro n hn => exact (⟨n, by rw [hn, ← add_one_eq_succ, add_comm]⟩ : ∃ c, a = 1 + c)
+  exact (eq_succ_of_ne_zero a ha).elim (fun n hn =>
+    (⟨n, by rw [hn, ← add_one_eq_succ, add_comm]⟩ : ∃ c, a = 1 + c))

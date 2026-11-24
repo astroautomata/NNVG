@@ -1,18 +1,17 @@
-import Game.Levels.LessOrEqual.L03_LeSuccSelf
+import Game.Levels.LessOrEqual.L05_ExistsHyp
 
 World "LessOrEqual"
-Level 4
+Level 6
 
 Title "Transitivity"
 
-VisualLevelNumber "4"
+VisualLevelNumber "5"
 
 namespace MyNat
 
 Introduction
 "
-In this level, we see inequalities as *hypotheses*. We have not seen this before.
-{pc: Click | mobile: Tap} `hxy` to take it apart.
+Two inequalities as hypotheses. {pc: Click | mobile: Tap} `hxy` to take it apart.
 "
 
 /--
@@ -30,13 +29,9 @@ and $Q \implies R$.
 -/
 TheoremDoc MyNat.le_trans as "le_trans" in "≤"
 
-VisualHypInfoOnHyp hxy "x ≤ y" show "{pc: Click | mobile: Tap} there-exists hypotheses to name a variable fulfilling the condition."
-
 Statement le_trans (x y z : ℕ) (hxy : x ≤ y) (hyz : y ≤ z) : x ≤ z := by
-  cases hxy with
-  | intro a ha =>
-    cases hyz with
-    | intro b hb => exact (⟨a + b, by rw [hb, ha, add_assoc]⟩ : ∃ c, z = x + c)
+  exact (hxy : ∃ c, y = x + c).elim (fun a ha => (hyz : ∃ c, z = y + c).elim (fun b hb =>
+    (⟨a + b, by rw [hb, ha, add_assoc]⟩ : ∃ c, z = x + c)))
 
 Conclusion
 "

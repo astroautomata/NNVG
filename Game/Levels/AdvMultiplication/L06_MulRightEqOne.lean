@@ -5,13 +5,13 @@ Level 6
 
 Title "`mul_right_eq_one`"
 
-VisualLevelNumber "6"
+VisualLevelNumber "5"
 
 namespace MyNat
 
 Introduction
 "
-This level proves `x * y = 1 → x = 1`, the multiplicative analogue of Advanced Addition
+This level proves `x * y = 1 → x = 1`, the multiplicative analogue of Induction
 World's `x + y = 0 → x = 0`. The strategy is to prove that `x ≤ 1` and then use the
 lemma `le_one` from `≤` World.
 "

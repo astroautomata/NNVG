@@ -5,7 +5,7 @@ Level 5
 
 Title "`one_mul`"
 
-VisualLevelNumber "5"
+VisualLevelNumber "4"
 
 namespace MyNat
 
@@ -19,5 +19,5 @@ by using commutativity. Which do you think is quickest?
 /--  `one_mul m` is the proof `1 * m = m`. -/
 TheoremDoc MyNat.one_mul as "one_mul" in "*"
 
-Statement one_mul (m : ℕ) : 1 * m = m := by
-  rw [mul_comm, mul_one]
+Statement one_mul : ∀ m : ℕ, 1 * m = m := by
+  exact fun m => by rw [mul_comm, mul_one]

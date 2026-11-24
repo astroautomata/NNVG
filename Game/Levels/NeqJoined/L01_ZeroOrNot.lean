@@ -4,16 +4,17 @@ import Game.Levels.Induction
 World "NeqJoined"
 Level 1
 
-Title "Zero or No Zero"
+Title "Zero or No Zero (≠ World Boss)"
 
 VisualLevelNumber "9"
+VisualBossLevel
+
+-- One induction, as in Induction World.
+VisualTacticUses induction 1
 
 namespace MyNat
 
-/-- `eq_or_neq_zero n` is a proof of `n = 0 ∨ n ≠ 0`. -/
-TheoremDoc MyNat.eq_or_neq_zero as "eq_or_neq_zero" in "012"
-
-Statement eq_or_neq_zero : ∀ n : ℕ, n = 0 ∨ n ≠ 0 := by
+Statement : ∀ n : ℕ, n = 0 ∨ n ≠ 0 := by
   exact fun n => by
     induction n with d hd
     · exact .inl (reflection 0)

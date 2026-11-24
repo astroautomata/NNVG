@@ -5,7 +5,7 @@ Level 2
 
 Title "`zero_mul`"
 
-VisualLevelNumber "2"
+VisualLevelNumber "1"
 
 namespace MyNat
 
@@ -25,7 +25,8 @@ Note: `zero_mul` is a `simp` lemma.
 -/
 TheoremDoc MyNat.zero_mul as "zero_mul" in "*"
 
-Statement zero_mul (m : ℕ) : 0 * m = 0 := by
-  induction m with d hd
-  · rw [mul_zero]
-  · rw [mul_succ, hd, add_zero]
+Statement zero_mul : ∀ m : ℕ, 0 * m = 0 := by
+  exact fun m => by
+    induction m with d hd
+    · rw [mul_zero]
+    · rw [mul_succ, hd, add_zero]

@@ -21,7 +21,7 @@ VisualGoalInfoOnGoal above true "x + 1 = 2" show
 Try {pc: double-clicking | mobile: double-tapping} the goal to open it in Rewriting Mode."
 
 VisualTransformInfoOnGoal "x + 1 = 2" show
-  "We can use the hypothesis `hx` to substitute in for `x` here."
+  "We can use the hypothesis `hx` to substitute for `x` here."
 
 VisualTransformInfoOnGoal "1 + 1 = 2" show
   "Now we can just make both sides match as usual."

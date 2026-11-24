@@ -5,7 +5,7 @@ Level 2
 
 Title "`zero_pow_succ`"
 
-VisualLevelNumber "2"
+VisualLevelNumber "9"
 
 namespace MyNat
 
@@ -29,5 +29,5 @@ TheoremDoc MyNat.zero_pow_succ as "zero_pow_succ" in "^"
 NewTheorem MyNat.pow_succ
 VisualEmphasize MyNat.pow_succ
 
-Statement zero_pow_succ (m : ℕ) : (0 : ℕ) ^ S m = 0 := by
-  rw [pow_succ, mul_zero]
+Statement zero_pow_succ : ∀ m : ℕ, (0 : ℕ) ^ S m = 0 := by
+  exact fun m => by rw [pow_succ, mul_zero]

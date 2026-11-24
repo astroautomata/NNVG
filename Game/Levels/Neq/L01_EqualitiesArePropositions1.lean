@@ -13,9 +13,9 @@ VisualNoRewriteMode
 
 namespace MyNat
 
-Statement (x : ℕ) : x = 1 → x = 1 := by
-  exact fun h => h
+Statement : ∀ x : ℕ, x = 1 → x = 1 := by
+  exact fun _ h => h
 
-VisualGoalInfoOnGoal above false "x = 1 → x = 1" show
+VisualGoalInfoOnGoal above false "∀ (x : ℕ), x = 1 → x = 1" show
   "Equalities are propositions just like any other.
 When you have an equality hypothesis matching the goal, try dragging it to the goal instead of rewriting."

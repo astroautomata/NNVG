@@ -9,8 +9,8 @@ VisualLevelNumber "2"
 
 namespace MyNat
 
-Statement (x : ℕ) : x = 1 → (x = 1 ∧ (S x = 2 ∨ (1 : ℕ) = 0)) := by
-  exact fun h => ⟨h, .inl (by rw [h, two_eq_succ_one])⟩
+Statement : ∀ x : ℕ, x = 1 → (x = 1 ∧ (S x = 2 ∨ (1 : ℕ) = 0)) := by
+  exact fun _ h => ⟨h, .inl (by rw [h, two_eq_succ_one])⟩
 
 -- Only while the goal is `x = 1`: before and after that, no hint.
 VisualGoalInfoOnGoal above false "x = 1" while

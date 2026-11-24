@@ -1,14 +1,14 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-20\n"
+"POT-Creation-Date: 2026-11-24\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#: Game.Levels.LessOrEqual.L02_ZeroLe
+#: Game.Levels.LessOrEqual.L03_ZeroLe
 msgid "Positivity"
 msgstr ""
 
@@ -49,41 +49,70 @@ msgstr ""
 msgid "Successor World"
 msgstr ""
 
-#. §0: `a * b = a * c`
-#. §1: `a ≠ 0`
-#. §2: `b = c`
-#. §3: `b`
-#. §4: `a * d = a * c → d = c`
-#. §5: `a * S d = a * c`
-#. §6: `a ≠ 0`
-#. §7: `b`
-#. §8: `c`
-#. §9: `a * b = a * c`
-#. §10: `b = c`
-#. §11: `c`
-#: Game.Levels.AdvMultiplication.L10_MulLeftCancel
-msgid "In this level we prove that if §0 and §1 then §2. It is tricky, for\n"
-"several reasons. One of these is that\n"
-"we need to introduce a new idea: we will need to understand the concept of\n"
-"mathematical induction a little better.\n"
+#. §0: `∃ n, n + n = 0`
+#. §1: `n`
+#. §2: `n + n = 0`
+#: Game.Levels.LessOrEqual.L01_Exists
+msgid "§0 says that there exists a number §1 with §2.\n"
 "\n"
-"Inducting on §3 once everything is introduced is too naive, because in the inductive step\n"
-"the hypothesis is §4 but what we know is §5,\n"
-"so the induction hypothesis does not apply!\n"
-"\n"
-"Assume §6 is fixed. The actual statement we want to prove by induction on §7 is\n"
-"\"for all §8, if §9 then §10\". This *can* be proved by induction,\n"
-"because we now have the flexibility to change §11."
+"To *prove* an \"exists\" statement, {pc: click | mobile: tap} the goal and build the\n"
+"number that works."
 msgstr ""
 
 #: Game.Levels.Successor.L03_Boss
 msgid "Counting to Four (Miniboss)"
 msgstr ""
 
-#. §0: `add_mul`
-#: Game.Levels.Multiplication.L08_AddMul
-msgid "§0 is just as fiddly to prove by induction; but there's a trick\n"
-"which avoids it. Can you spot it?"
+#. §0: `0 ^ 3 + 0 ^ 3 = 0 ^ 3`
+#: Game.Levels.PowerBonus.L01_FLT
+msgid "Zero to any power above zero is zero, so §0. The real theorem is\n"
+"safe: it only speaks of positive numbers.\n"
+"\n"
+"## CONGRATULATIONS!\n"
+"\n"
+"If you would like to learn more about how to use Lean to\n"
+"prove theorems in mathematics, then take a look\n"
+"at [Mathematics In Lean](https://leanprover-community.github.io/mathematics_in_lean/),\n"
+"an interactive textbook which you can read in your browser,\n"
+"and which explains how to work with many more mathematical concepts in Lean."
+msgstr ""
+
+#: Game.Levels.Logic
+msgid "What the Law of Excluded Middle is worth: the statements it is equivalent to."
+msgstr ""
+
+#. §0: `a + a = b + b`
+#. §1: `a = b`
+#. §2: `a`
+#. §3: `S a`
+#. §4: `b`
+#. §5: `b`
+#: Game.Levels.InductionDouble.L01_DoubleInduction
+msgid "If §0 then §1. Induction on §2 alone is not enough: the step for\n"
+"§3 needs the inductive hypothesis at the number before §4, so it has to hold for\n"
+"every §5."
+msgstr ""
+
+#. §0: `a ≠ 0`
+#. §1: `a * b = a * c`
+#. §2: `b = c`
+#. §3: `≤`
+#. §4: `b ≤ c`
+#. §5: `c ≤ b`
+#. §6: `d`
+#. §7: `a * d = 0`
+#: Game.Levels.AdvMultiplication.L10_MulLeftCancel
+msgid "In this level we prove that if §0 and §1 then §2. There is no\n"
+"induction to lean on here, but §3 World's boss says that §4 or §5. Either\n"
+"way one of the two numbers is the other plus some §6, and then §7."
+msgstr ""
+
+#. §0: `add_left_cancel`
+#. §1: `n + a = n + b`
+#. §2: `a = b`
+#: Game.Levels.InductionJoined.L01_AddRightCancel
+msgid "Swapping the sides of each sum gives the mirror image, §0:\n"
+"if §1 then §2. You have both from now on."
 msgstr ""
 
 #: Game.Levels.Rewrite.L01_Substitution
@@ -114,6 +143,10 @@ msgid "We've just seen that §0, but if §1\n"
 "is a successor, then §2. We prove that here."
 msgstr ""
 
+#: Game.Levels.Proposition.L07_SplittingAnd
+msgid "Conjunction (1)"
+msgstr ""
+
 #. §0: `zero_mul x`
 #. §1: `0 * x = 0`
 #. §2: `zero_mul`
@@ -124,27 +157,12 @@ msgid "§0 is the proof that §1.\n"
 "Note: §2 is a §3 lemma."
 msgstr ""
 
-#: Game.Levels.Proposition.L07_SplittingAnd
-msgid "Conjunction (1)"
-msgstr ""
-
 #: Game.Levels.PropositionRight.L05_Negation
 msgid "Negation (0)"
 msgstr ""
 
 #: Game.Levels.Power.L05_PowTwo
 msgid "Note: this lemma will be useful for the final boss!"
-msgstr ""
-
-#. §0: `b`
-#. §1: `b`
-#. §2: `a * b`
-#. §3: `a * e + a`
-#. §4: `a * b = 0`
-#. §5: `a = 0`
-#: Game.Levels.AdvMultiplication.L08_MulEqZero
-msgid "Splitting on §0 does all the work. If §1 is a successor then §2 is\n"
-"§3, so §4 forces §5 and the left hand side is the true one."
 msgstr ""
 
 #: Game.Levels.RewriteBonus
@@ -160,7 +178,7 @@ msgstr ""
 #. §1: $x \\leq y$
 #. §2: $y \\leq x$
 #. §3: $x = y$
-#: Game.Levels.LessOrEqual.L06_LeAntisymm
+#: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
 msgid "This level asks you to prove *antisymmetry* of §0.\n"
 "In other words, if §1 and §2 then §3.\n"
 "It's the trickiest one so far. Good luck!"
@@ -170,27 +188,11 @@ msgstr ""
 msgid "The Other De Morgan's Law (Rightwards with the Law of Excluded Middle)"
 msgstr ""
 
-#: Game.Levels.Multiplication.L09_MulAssoc
-msgid "A passing mathematician notes that you've proved\n"
-"that the natural numbers are a commutative semiring.\n"
-"\n"
-"If you want to begin your journey to the final boss, head for Power World."
-msgstr ""
-
 #. §0: `pow_pow`
 #: Game.Levels.Power.L08_PowPow
 msgid "One of the best named levels in the game, a savage §0\n"
 "sub-boss appears as the music reaches a frenzy. What\n"
 "else could there be to prove about powers after this?"
-msgstr ""
-
-#. §0: `add_left_cancel a b n`
-#. §1: $n+a=n+b\\implies a=b$
-#. §2: `n`
-#. §3: `add_right_cancel`
-#: Game.Levels.AdvAddition.L02_AddLeftCancel
-msgid "§0 is the theorem that §1.\n"
-"You can prove it by induction on §2 or you can deduce it from §3."
 msgstr ""
 
 #. §0: $0+n=n$
@@ -206,8 +208,8 @@ msgstr ""
 #. §10: `0`
 #. §11: `induction`
 #. §12: `0 + 0 = 0`
-#. §13: `0 + d = d`
-#. §14: `0 + S d = S d`
+#. §13: `0 + n1 = n1`
+#. §14: `0 + S n1 = S n1`
 #. §15: `0`
 #: Game.Levels.Induction.L01_ZeroAdd
 msgid "In this level we're going to prove that §0 for every natural number §1.\n"
@@ -226,18 +228,6 @@ msgid "In this level we're going to prove that §0 for every natural number §1.
 "See if you can do your first induction proof in Lean."
 msgstr ""
 
-#. §0: `mul_comm x y : x * y = y * x`
-#. §1: `zero_mul`
-#. §2: `mul_zero`
-#: Game.Levels.Multiplication.L04_MulComm
-msgid "The first sub-boss of Multiplication World is §0.\n"
-"\n"
-"When you've proved this theorem we will have \"spare\" proofs\n"
-"such as §1, which is now easily deducible from §2.\n"
-"But we'll keep hold of these proofs anyway, because it's convenient\n"
-"to have exactly the right tool for a job."
-msgstr ""
-
 #. §0: `one_eq_succ_zero`
 #. §1: `1 = S 0`
 #: Game.Levels.Successor.L01_Successor
@@ -249,9 +239,8 @@ msgstr ""
 #: Game.Levels.Successor.L02_AddOne
 #: Game.Levels.Induction.L03_AddComm
 #: Game.Levels.Neq.L08_OneNeZero
-#: Game.Levels.Neq.L09_TwoNeFour
-#: Game.Levels.NeqJoined.L01_ZeroOrNot
-#: Game.Levels.LessOrEqual.L05_LeZero
+#: Game.Levels.Neq.L09_TwoNeThree
+#: Game.Levels.LessOrEqualJoined.L01_LeZero
 msgid "§0 is a proof of §1."
 msgstr ""
 
@@ -272,7 +261,7 @@ msgstr ""
 #. §1: `x ≤ y`
 #. §2: `y ≤ x`
 #. §3: `x = y`
-#: Game.Levels.LessOrEqual.L06_LeAntisymm
+#: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
 #: Game.Levels.AdvMultiplication.L07_MulNeZero
 #: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
 #: Game.Levels.AdvMultiplication.L10_MulLeftCancel
@@ -283,21 +272,6 @@ msgstr ""
 msgid "Basic Propositions"
 msgstr ""
 
-#. §0: `a ≤ b`
-#. §1: `∃ c, b = a + c`
-#. §2: `a ≤ b`
-#. §3: `c`
-#. §4: `b = a + c`
-#: Game.Levels.LessOrEqual.L01_LeRefl
-msgid "§0 is *notation* for §1. This \"backwards E\"\n"
-"means \"there exists\". So §2 means that there exists\n"
-"a number §3 such that §4. This definition works\n"
-"because there are no negative numbers in this game.\n"
-"\n"
-"To *prove* an \"exists\" statement, {pc: click | mobile: tap} the goal and build the\n"
-"number that works. Let's see an example."
-msgstr ""
-
 #. §0: `≤`
 #. §1: `≠ 0`
 #: Game.Levels.AdvMultiplication
@@ -306,7 +280,7 @@ msgid "In this world we prove how multiplication interacts with §0 and with §1
 "nonzero factor can be cancelled."
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L03_LeSuccSelf
+#: Game.Levels.LessOrEqual.L04_LeSuccSelf
 msgid "If you build the wrong number, you get stuck with a goal you can't prove.\n"
 "What number will you build here?"
 msgstr ""
@@ -314,23 +288,19 @@ msgstr ""
 #. §0: `le_refl x`
 #. §1: `x ≤ x`
 #. §2: $\\le$
-#: Game.Levels.LessOrEqual.L01_LeRefl
+#: Game.Levels.LessOrEqual.L02_LeRefl
 msgid "§0 is a proof of §1.\n"
 "\n"
 "The reason for the name is that this lemma is \"reflexivity of §2\""
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L09_LeOne
-msgid "If you solved this level then you are ready for the boss!"
+#. §0: `≤`
+#: Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
+msgid "§0 Add Right Cancel"
 msgstr ""
 
-#. §0: `a + b = 0`
-#. §1: `a = 0`
-#. §2: `≤`
-#: Game.Levels.AdvAddition
-msgid "In this world we prove some basic facts about addition that involve implications:\n"
-"cancellation, and that §0 forces §1. These are the facts that §2 World\n"
-"is built on."
+#: Game.Levels.LessOrEqualJoined.L04_LeOne
+msgid "If you solved this level then you are ready for the boss!"
 msgstr ""
 
 #. §0: `mul_comm x y : x * y = y * x`
@@ -342,6 +312,14 @@ msgid "Our first challenge is §0,\n"
 "case will need §1 (which we have)\n"
 "and §2 (which we don't), so let's\n"
 "start with this."
+msgstr ""
+
+#: Game.Levels.LessOrEqualJoined.L01_LeZero
+msgid "Nothing Smaller than Zero"
+msgstr ""
+
+#: Game.Levels.InductionJoined.L03_ZeroOrNot
+msgid "Zero or No Zero?"
 msgstr ""
 
 #. §0: `b ≠ 0`
@@ -358,42 +336,40 @@ msgstr ""
 msgid "Rewrite World"
 msgstr ""
 
-#: Game.Levels.Multiplication.L09_MulAssoc
-msgid "We now have enough to prove that multiplication is associative,\n"
-"the boss level of multiplication world. Good luck!"
+#: Game.Levels.Multiplication.L08_MulAssoc
+msgid "We now have enough to prove that multiplication is associative. Good luck!"
 msgstr ""
 
-#. §0: `≤`
-#. §1: `a + b = 0`
-#. §2: `a = 0`
-#. §3: `b = 0`
-#. §4: `a`
-#. §5: `b`
-#. §6: `cases`
-#. §7: `cases`
-#. §8: `b = 0`
-#. §9: `b = S d`
-#. §10: `hd`
-#. §11: `b`
-#. §12: `cases`
-#. §13: `b`
-#. §14: `b = 0`
-#. §15: `b = S d`
-#: Game.Levels.AdvAddition.L05_AddRightEqZero
-msgid "The next result we'll need in §0 World is that if §1 then §2 and §3.\n"
-"Let's prove the first of these facts in this level. The second follows from it by\n"
-"swapping §4 and §5, so you'll get that one for free.\n"
+#: Game.Levels.Power.L09_AddSq
+msgid "FOILed Again (Multiplication and Exponentiation World Boss)"
+msgstr ""
+
+#: Game.Levels.Multiplication.L08_MulAssoc
+msgid "A passing mathematician notes that you've proved\n"
+"that the natural numbers are a commutative semiring.\n"
 "\n"
-"## A new tactic: §6\n"
+"Powers are next, on the way to the final boss."
+msgstr ""
+
+#: Game.Levels.PowerBonus
+msgid "Multiplication and Exponentiation World Bonus"
+msgstr ""
+
+#. §0: $x,y,z>0$
+#. §1: $n > 2$
+#. §2: $x^n+y^n\\not =z^n$
+#. §3: $x,y,z>0$
+#. §4: `≤`
+#. §5: `n > 2`
+#. §6: `¬ n ≤ 2`
+#: Game.Levels.PowerBonus.L01_FLT
+msgid "Fermat's Last Theorem states that if §0 and §1 then §2.\n"
+"Its shortest known proof would translate into many millions of lines of Lean code.\n"
 "\n"
-"The §7 tactic will split an object or hypothesis up into the possible ways\n"
-"that it could have been created.\n"
+"The statement in this level forgot to ask for §3. That makes all the difference:\n"
+"it is false, and a few well-chosen numbers show it.\n"
 "\n"
-"For example, sometimes you want to deal with the two cases §8 and §9 separately,\n"
-"but don't need the inductive hypothesis §10 that comes with induction on §11.\n"
-"In this situation you can drag §12 onto §13 instead. There are two ways to make\n"
-"a number: it's either zero or a successor. So you will end up with two goals, one\n"
-"with §14 and one with §15."
+"With §4 World behind us, §5 means §6."
 msgstr ""
 
 #. §0: `a ≠ 0`
@@ -417,6 +393,11 @@ msgstr ""
 msgid "§0 is the statement that §1"
 msgstr ""
 
+#. §0: `hxy`
+#: Game.Levels.LessOrEqual.L06_LeTrans
+msgid "Two inequalities as hypotheses. {pc: Click | mobile: Tap} §0 to take it apart."
+msgstr ""
+
 #: Game.Levels.RewriteBonus.L02_FastReversing
 msgid "Fast Reversing"
 msgstr ""
@@ -437,15 +418,7 @@ msgstr ""
 msgid "If and Only If (Disjunctions)"
 msgstr ""
 
-#. §0: `add_right_cancel a b n`
-#. §1: $a+n=b+n\\implies a=b$
-#: Game.Levels.AdvAddition.L01_AddRightCancel
-msgid "In this world I will mostly leave you on your own.\n"
-"\n"
-"§0 is the theorem that §1."
-msgstr ""
-
-#: Game.Levels.LessOrEqual.L03_LeSuccSelf
+#: Game.Levels.LessOrEqual.L04_LeSuccSelf
 msgid "Successor is Increasing"
 msgstr ""
 
@@ -454,17 +427,11 @@ msgid "Let's now begin our approach to the final boss,\n"
 "by proving some more subtle facts about powers."
 msgstr ""
 
-#. §0: `succ_le_succ x y`
-#. §1: `S x ≤ S y`
+#. §0: `leq_add_right_cancel x y n`
+#. §1: `x + n ≤ y + n`
 #. §2: `x ≤ y`
-#: Game.Levels.LessOrEqual.L08_SuccLeSucc
+#: Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
 msgid "§0 is a proof that if §1 then §2."
-msgstr ""
-
-#. §0: `b`
-#: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
-msgid "The lemma proved in this level will be helpful in Divisibility World, one day.\n"
-"Splitting §0 into its two forms does most of the work."
 msgstr ""
 
 #: Game.Levels.Neq
@@ -472,8 +439,15 @@ msgstr ""
 msgid "Equalities are propositions too. Prove some, and prove that some numbers are different."
 msgstr ""
 
+#. §0: `x + n ≤ y + n`
+#. §1: `x ≤ y`
+#: Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
+msgid "Adding the same number to both sides of an inequality changes nothing, so it can be\n"
+"taken away again: if §0 then §1."
+msgstr ""
+
 #. §0: `ℕ`
-#: Game.Levels.LessOrEqual.L10_LeTotal
+#: Game.Levels.LessOrEqualBoss.L01_LeTotal
 msgid "Very well done.\n"
 "\n"
 "A passing mathematician remarks that you've just proved that §0 is totally\n"
@@ -482,6 +456,18 @@ msgstr ""
 
 #: Game.Levels.RewriteBonus.L01_FastRewriting
 msgid "Fast Rewriting"
+msgstr ""
+
+#. §0: `mul_comm x y : x * y = y * x`
+#. §1: `zero_mul`
+#. §2: `mul_zero`
+#: Game.Levels.Multiplication.L04_MulComm
+msgid "The first sub-boss of this world is §0.\n"
+"\n"
+"When you've proved this theorem we will have \"spare\" proofs\n"
+"such as §1, which is now easily deducible from §2.\n"
+"But we'll keep hold of these proofs anyway, because it's convenient\n"
+"to have exactly the right tool for a job."
 msgstr ""
 
 #. §0: `add_comm`
@@ -510,18 +496,27 @@ msgstr ""
 msgid "Natural Numbers Video Game"
 msgstr ""
 
-#. §0: `a ^ b`
-#. §1: `pow_zero a : a ^ 0 = 1`
-#. §2: `pow_succ a b : a ^ S b = a ^ b * a`
-#. §3: `add_sq`
-#. §4: $(a + b)^2$
-#: Game.Levels.Power
-msgid "In this world we define powers, §0, by two more axioms: §1\n"
-"and §2. Everything else about powers follows from\n"
-"these, by induction. The boss of this world is §3, the formula for §4."
+#. §0: `x * y = 1 → x = 1`
+#. §1: `x + y = 0 → x = 0`
+#. §2: `x ≤ 1`
+#. §3: `le_one`
+#. §4: `≤`
+#: Game.Levels.AdvMultiplication.L06_MulRightEqOne
+msgid "This level proves §0, the multiplicative analogue of Induction\n"
+"World's §1. The strategy is to prove that §2 and then use the\n"
+"lemma §3 from §4 World."
+msgstr ""
+
+#. §0: `b`
+#. §1: `peano_cases`
+#: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
+msgid "The lemma proved in this level will be helpful in Divisibility World, one day.\n"
+"The two forms of §0 that §1 gives do most of the work."
 msgstr ""
 
 #: Game.Levels.Induction
+#: Game.Levels.InductionJoined
+#: Game.Levels.InductionDouble
 msgid "Induction World"
 msgstr ""
 
@@ -530,38 +525,16 @@ msgstr ""
 msgid "The End"
 msgstr ""
 
-#. §0: $x,y,z>0$
-#. §1: $m \\geq 3$
-#. §2: $x^m+y^m\\not =z^m$
-#. §3: $m \\geq 3$
-#. §4: `n + 3`
-#. §5: `m`
-#. §6: `x > 0`
-#. §7: `a + 1`
-#: Game.Levels.PowerBonus.L01_FLT
-msgid "We now have enough to state a mathematically accurate, but slightly\n"
-"clunky, version of Fermat's Last Theorem.\n"
+#. §0: `mul_zero`
+#. §1: `mul_succ`
+#. §2: `1`
+#: Game.Levels.Multiplication.L01_MulOne
+msgid "See the two new axioms in your inventory, §0 and §1.\n"
+"Right now these are the only facts we know about multiplication.\n"
+"Let's prove eight more.\n"
 "\n"
-"Fermat's Last Theorem states that if §0 and §1 then §2.\n"
-"If you didn't do inequality world yet then we can't talk about §3,\n"
-"so we have to resort to the hack of using §4 for §5,\n"
-"which guarantees it's big enough. Similarly instead of §6 we\n"
-"use §7.\n"
-"\n"
-"This level looks superficially like other levels we have seen,\n"
-"but the shortest solution known to humans would translate into\n"
-"many millions of lines of Lean code. The author of this game,\n"
-"Kevin Buzzard, is working on translating the proof by Wiles\n"
-"and Taylor into Lean, although this task will take many years.\n"
-"\n"
-"## CONGRATULATIONS!\n"
-"\n"
-"You've finished the main quest of the natural number game!\n"
-"If you would like to learn more about how to use Lean to\n"
-"prove theorems in mathematics, then take a look\n"
-"at [Mathematics In Lean](https://leanprover-community.github.io/mathematics_in_lean/),\n"
-"an interactive textbook which you can read in your browser,\n"
-"and which explains how to work with many more mathematical concepts in Lean."
+"Let's start with a warm-up: no induction needed for this one,\n"
+"because we know §2 is a successor."
 msgstr ""
 
 #: Game.Levels.Induction.L03_AddComm
@@ -576,15 +549,14 @@ msgid "§0 is a proof that §1: every number is\n"
 "either zero or a successor."
 msgstr ""
 
-#. §0: `cases`
-#. §1: `a`
-#. §2: `a = 0`
-#. §3: `a = S b`
-#. §4: `∨`
-#: Game.Levels.LessOrEqual.L10_LeTotal
-msgid "This is I think the toughest level yet. Tips: dragging §0 onto a number §1\n"
-"splits into the cases §2 and §3. And don't choose a side of an §4 goal\n"
-"until your hypotheses guarantee that you can prove it!"
+#. §0: `≤`
+#. §1: `ℕ`
+#. §2: `≤`
+#: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
+msgid "A passing mathematician remarks that with antisymmetry as well,\n"
+"you have proved that §0 is a *partial order* on §1.\n"
+"\n"
+"The boss level of this world is to prove that §2 is a total order."
 msgstr ""
 
 #. §0: `le_trans x y z`
@@ -604,7 +576,7 @@ msgstr ""
 #. §14: $P \\implies Q \\implies R$
 #. §15: $P \\implies Q$
 #. §16: $Q \\implies R$
-#: Game.Levels.LessOrEqual.L04_LeTrans
+#: Game.Levels.LessOrEqual.L06_LeTrans
 msgid "§0 is a proof that if §1 and §2 then §3.\n"
 "More precisely, it is a proof that §4. In words,\n"
 "If §5 then (pause) if §6 then §7.\n"
@@ -618,18 +590,9 @@ msgid "§0 is a proof that if §1 and §2 then §3.\n"
 "and §16."
 msgstr ""
 
-#. §0: `hxy`
-#: Game.Levels.LessOrEqual.L04_LeTrans
-msgid "In this level, we see inequalities as *hypotheses*. We have not seen this before.\n"
-"{pc: Click | mobile: Tap} §0 to take it apart."
-msgstr ""
-
-#: Game.Levels.PowerBonus.L01_FLT
-msgid "Fermat's Last Theorem ❌"
-msgstr ""
-
-#: Game.Levels.Multiplication
-msgid "Multiplication World"
+#. §0: `≤`
+#: Game.Levels.LessOrEqualJoined
+msgid "More facts about §0, with the cancellation theorems of Induction World."
 msgstr ""
 
 #. §0: `le_zero`
@@ -638,7 +601,7 @@ msgstr ""
 #. §3: `x ≤ 1`
 #. §4: `x = 0`
 #. §5: `x = 1`
-#: Game.Levels.LessOrEqual.L09_LeOne
+#: Game.Levels.LessOrEqualJoined.L04_LeOne
 msgid "We've seen §0, the proof that if §1 then §2.\n"
 "Now we'll prove that if §3 then §4 or §5."
 msgstr ""
@@ -647,11 +610,10 @@ msgstr ""
 #. §1: `S a + b = S (a + b)`
 #: Game.Levels.Induction.L02_SuccAdd
 #: Game.Levels.Induction.L04_AddAssoc
-#: Game.Levels.Multiplication.L08_AddMul
+#: Game.Levels.Multiplication.L07_MulAdd
 #: Game.Levels.Power.L04_OnePow
-#: Game.Levels.LessOrEqual.L02_ZeroLe
-#: Game.Levels.LessOrEqual.L03_LeSuccSelf
-#: Game.Levels.AdvMultiplication.L01_MulLeMulRight
+#: Game.Levels.LessOrEqual.L03_ZeroLe
+#: Game.Levels.LessOrEqual.L04_LeSuccSelf
 #: Game.Levels.AdvMultiplication.L02_MulLeftNeZero
 #: Game.Levels.AdvMultiplication.L03_EqSuccOfNeZero
 #: Game.Levels.AdvMultiplication.L04_OneLeOfNeZero
@@ -665,9 +627,17 @@ msgstr ""
 
 #. §0: `≤`
 #. §1: `ℕ`
-#: Game.Levels.LessOrEqual.L04_LeTrans
+#: Game.Levels.LessOrEqual.L06_LeTrans
 msgid "A passing mathematician remarks that with reflexivity and transitivity out of the way,\n"
 "you have proved that §0 is a *preorder* on §1."
+msgstr ""
+
+#. §0: `mul_le_mul_right a b h t`
+#. §1: `a * t ≤ b * t`
+#. §2: `h`
+#. §3: `a ≤ b`
+#: Game.Levels.AdvMultiplication.L01_MulLeMulRight
+msgid "§0 is a proof that §1, where §2 is a proof of §3."
 msgstr ""
 
 #. §0: `x + y = y + x`
@@ -696,17 +666,20 @@ msgid "In this world we define §0 and prove standard facts\n"
 "how to prove \"exists\" statements, and how to use \"exists\" hypotheses."
 msgstr ""
 
-#. §0: `a`
-#. §1: `b`
-#. §2: `add_left_eq_zero`
-#. §3: `a + b = 0`
-#. §4: `b = 0`
-#. §5: `≤`
-#: Game.Levels.AdvAddition.L05_AddRightEqZero
-msgid "That's the end of Advanced Addition World!\n"
+#. §0: `∃`
+#: Game.Levels.LessOrEqual.L05_ExistsHyp
+msgid "§0 Hypotheses"
+msgstr ""
+
+#. §0: `mul_succ`
+#. §1: `succ_mul`
+#. §2: `add_assoc`
+#: Game.Levels.Multiplication.L03_SuccMul
+msgid "Similarly we have §0\n"
+"but we're going to need §1 (guess what it says -- maybe you\n"
+"are getting the hang of Lean's naming conventions).\n"
 "\n"
-"Swapping §0 and §1 gives the mirror image of this theorem, §2:\n"
-"if §3 then §4. You'll have both from the next world on, §5 World."
+"§2 from Induction World might help you in this level."
 msgstr ""
 
 #: Game.Levels.Induction
@@ -738,10 +711,6 @@ msgid "One day this game will have a Prime Number World, with a final boss\n"
 "§6."
 msgstr ""
 
-#: Game.Levels.NeqBoss
-msgid "The ≠ World's boss. No other world needs it, but The End does."
-msgstr ""
-
 #: Game.Levels.Power.L09_AddSq
 msgid "[final boss music]"
 msgstr ""
@@ -749,6 +718,10 @@ msgstr ""
 #: Game
 msgid "A Natural Number Game built for Visual Lean. Start with substitutions and\n"
 "propositions, then go wherever the map leads."
+msgstr ""
+
+#: Game.Levels.Logic.L01_DoubleElimination
+msgid "Double Elimination is Equivalent To LEM"
 msgstr ""
 
 #. §0: `mul_zero m`
@@ -772,11 +745,11 @@ msgstr ""
 
 #. §0: `add_right_cancel a b n`
 #. §1: $a+n=b+n \\implies a=b.$
-#: Game.Levels.AdvAddition.L01_AddRightCancel
-#: Game.Levels.AdvAddition.L02_AddLeftCancel
-#: Game.Levels.AdvAddition.L03_AddLeftEqSelf
-#: Game.Levels.AdvAddition.L03_AddLeftEqSelf
-#: Game.Levels.AdvAddition.L04_AddRightEqSelf
+#: Game.Levels.InductionJoined.L01_AddRightCancel
+#: Game.Levels.InductionJoined.L01_AddRightCancel
+#: Game.Levels.InductionJoined.L02_AddRightEqSelf
+#: Game.Levels.InductionJoined.L02_AddRightEqSelf
+#: Game.Levels.InductionJoined.L02_AddRightEqSelf
 msgid "§0 is the theorem that §1"
 msgstr ""
 
@@ -784,12 +757,8 @@ msgstr ""
 msgid "General Rewriting (Associativity)"
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L04_LeTrans
+#: Game.Levels.LessOrEqual.L06_LeTrans
 msgid "Transitivity"
-msgstr ""
-
-#: Game.Levels.AdvAddition
-msgid "Advanced Addition World"
 msgstr ""
 
 #. §0: `pow_succ a b : a ^ (S b) = a ^ b * a`
@@ -809,14 +778,20 @@ msgid "It's all over! You have proved a theorem which has tripped up\n"
 "But wait! This boss is stirring...and mutating into a second more powerful form!"
 msgstr ""
 
-#: Game.Levels.AdvAddition.L01_AddRightCancel
-msgid "Nice!"
-msgstr ""
-
 #. §0: `one_mul m`
 #. §1: `1 * m = m`
 #: Game.Levels.Multiplication.L05_OneMul
 msgid "§0 is the proof §1."
+msgstr ""
+
+#. §0: `a`
+#. §1: `b`
+#. §2: `add_mul`
+#. §3: `(a + b) * c = a * c + b * c`
+#: Game.Levels.Multiplication.L07_MulAdd
+msgid "Inducting on §0 or §1 also works, but might take longer.\n"
+"\n"
+"Its mirror image comes with it: §2, the proof of §3."
 msgstr ""
 
 #: Game.Levels.Induction.L04_AddAssoc
@@ -824,15 +799,11 @@ msgid "A passing mathematician congratulates you on proving that the natural num
 "are an additive commutative monoid."
 msgstr ""
 
-#: Game.Levels.PropositionBonusB.L01_NotNotExcludedMiddle
-msgid "¬¬LEM"
-msgstr ""
-
 #. §0: `n`
 #. §1: `cases`
 #. §2: `n`
 #. §3: `n = 0`
-#. §4: `n = S d`
+#. §4: `n = S n1`
 #. §5: `h`
 #. §6: `cases`
 #. §7: `h`
@@ -841,16 +812,16 @@ msgstr ""
 #. §10: `n`
 #. §11: `n`
 #. §12: `n`
-#. §13: `S d`
+#. §13: `S n1`
 #. §14: `0`
 #. §15: `h : a ≤ b`
 #. §16: `cases`
 #. §17: `h`
-#. §18: `c`
-#. §19: `hc : b = a + c`
+#. §18: `c1`
+#. §19: `h : b = a + c1`
 #. §20: `a ≤ b`
 #. §21: `∃ c, b = a + c`
-#: Game.Levels.AdvAddition.L05_AddRightEqZero
+#: Game.Levels.InductionJoined.L03_ZeroOrNot
 msgid "## Summary\n"
 "\n"
 "If §0 is a number, then dragging §1 onto §2 will break the goal into two goals,\n"
@@ -873,13 +844,12 @@ msgid "## Summary\n"
 "§21."
 msgstr ""
 
-#: Game.Levels.PropositionBonusC
-msgid "Bonus puzzles about the other De Morgan's law. You don't need them to continue."
+#: Game.Levels.PropositionBonusB.L01_NotNotExcludedMiddle
+msgid "¬¬LEM"
 msgstr ""
 
-#. §0: `add_sq`
-#: Game.Levels.Power.L09_AddSq
-msgid "§0 (Power World Boss)"
+#: Game.Levels.PropositionBonusC
+msgid "Bonus puzzles about the other De Morgan's law. You don't need them to continue."
 msgstr ""
 
 #: Game.Levels.Intro.L01_Welcome
@@ -907,7 +877,7 @@ msgstr ""
 
 #. §0: `c`
 #. §1: `x = 0 + c`
-#: Game.Levels.LessOrEqual.L02_ZeroLe
+#: Game.Levels.LessOrEqual.L03_ZeroLe
 msgid "To solve this level, you need to build a number §0 such that §1."
 msgstr ""
 
@@ -918,7 +888,7 @@ msgstr ""
 #. §4: `(a * b) * c = a * (b * c)`
 #. §5: `(6 - 2) - 1`
 #. §6: `6 - (2 - 1)`
-#: Game.Levels.Multiplication.L09_MulAssoc
+#: Game.Levels.Multiplication.L08_MulAssoc
 msgid "§0 is a proof that §1.\n"
 "\n"
 "Note that when Lean says §2 it means §3.\n"
@@ -934,8 +904,8 @@ msgid "level completed with warnings… 🎭"
 msgstr ""
 
 #. §0: $a+b=0 \\implies a=0$
-#: Game.Levels.AdvAddition.L05_AddRightEqZero
-#: Game.Levels.AdvAddition.L05_AddRightEqZero
+#: Game.Levels.InductionJoined.L04_AddRightEqZero
+#: Game.Levels.LessOrEqual.L02_LeRefl
 msgid "A proof that §0."
 msgstr ""
 
@@ -943,11 +913,27 @@ msgstr ""
 msgid "General Rewriting (Commutativity)"
 msgstr ""
 
+#. §0: `add_right_eq_zero`
+#: Game.Levels.LessOrEqualJoined.L01_LeZero
+msgid "It's \"intuitively obvious\" that there are no numbers less than zero,\n"
+"but to prove it you will need §0 from Induction World."
+msgstr ""
+
 #. §0: `zero_ne_succ a`
 #. §1: `0 ≠ S a`
 #. §2: `0 = S a → False`
 #: Game.Levels.Neq.L08_OneNeZero
 msgid "§0 is a proof of §1, which means §2."
+msgstr ""
+
+#. §0: `a ^ b`
+#. §1: `pow_zero a : a ^ 0 = 1`
+#. §2: `pow_succ a b : a ^ S b = a ^ b * a`
+#. §3: $(a + b)^2$
+#: Game.Levels.Power
+msgid "Now we define powers, §0, by two more axioms: §1\n"
+"and §2. Everything else about powers follows from\n"
+"these, by induction. The boss of this world is the formula for §3."
 msgstr ""
 
 #: Game.Levels.AdvMultiplication.L04_OneLeOfNeZero
@@ -960,7 +946,7 @@ msgstr ""
 #. §3: `S a = S b`
 #. §4: `a = b`
 #. §5: $x + 1 = 4 → x = 3$
-#: Game.Levels.Neq.L06_SuccInj
+#: Game.Levels.Neq.L05_SuccInj
 msgid "If §0 and §1 are numbers, then §2 is a proof\n"
 "that §3 implies §4.\n"
 "\n"
@@ -980,6 +966,18 @@ msgstr ""
 msgid "Fixed Point"
 msgstr ""
 
+#. §0: `induction`
+#. §1: `a`
+#. §2: `a = 0`
+#. §3: `a = S a1`
+#. §4: `∨`
+#: Game.Levels.LessOrEqualBoss.L01_LeTotal
+msgid "This is I think the toughest level yet. Tips: dragging §0 onto a number §1\n"
+"splits into the cases §2 and §3, whether or not you need the inductive\n"
+"hypothesis. And don't choose a side of an §4 goal until your hypotheses guarantee that\n"
+"you can prove it!"
+msgstr ""
+
 #: Game.Levels.Successor
 #: Game.Levels.SuccessorJoined
 msgid "Build the natural numbers from scratch, one successor at a time."
@@ -991,36 +989,20 @@ msgstr ""
 msgid "§0 means §1."
 msgstr ""
 
-#. §0: `a`
-#. §1: `b`
-#: Game.Levels.Multiplication.L07_MulAdd
-msgid "Inducting on §0 or §1 also works, but might take longer."
-msgstr ""
-
 #: Game.Levels.Rewrite.L02_ManySubstitutions
 msgid "Lots of Rewriting"
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L07_OrSymm
-msgid "Two more levels, then the boss."
+#: Game.Levels.Logic
+msgid "Logic World"
 msgstr ""
 
-#. §0: `y`
-#: Game.Levels.AdvAddition.L03_AddLeftEqSelf
-msgid "Did you use induction on §0?"
+#: Game.Levels.NeqJoined.L01_ZeroOrNot
+msgid "Zero or No Zero (≠ World Boss)"
 msgstr ""
 
-#. §0: `mul_succ`
-#. §1: `succ_mul`
-#: Game.Levels.Multiplication.L03_SuccMul
-msgid "Similarly we have §0\n"
-"but we're going to need §1 (guess what it says -- maybe you\n"
-"are getting the hang of Lean's naming conventions).\n"
-"\n"
-"The last level from addition world might help you in this level.\n"
-"If you can't remember what it is, you can go back to the\n"
-"home screen by clicking the house icon and then taking a look.\n"
-"You won't lose any progress."
+#: Game.Levels.InductionDouble.L02_Decidable
+msgid "Equality in ℕ is Decidable (Induction World Boss)"
 msgstr ""
 
 #. §0: `Pow a b`
@@ -1041,7 +1023,7 @@ msgstr ""
 
 #. §0: `add_one_eq_succ x`
 #. §1: `x + 1 = S x`
-#: Game.Levels.LessOrEqual.L03_LeSuccSelf
+#: Game.Levels.LessOrEqual.L04_LeSuccSelf
 msgid "This works because §0 is a proof of §1."
 msgstr ""
 
@@ -1049,9 +1031,11 @@ msgstr ""
 #: Game.Levels.Successor.L02_AddOne
 #: Game.Levels.Induction.L01_ZeroAdd
 #: Game.Levels.Induction.L02_SuccAdd
-#: Game.Levels.Neq.L06_SuccInj
+#: Game.Levels.Neq.L05_SuccInj
 #: Game.Levels.Neq.L07_Ne
 #: Game.Levels.Neq.L08_OneNeZero
+#: Game.Levels.InductionJoined.L01_AddRightCancel
+#: Game.Levels.InductionJoined.L02_AddRightEqSelf
 #: Game.Levels.Multiplication.L01_MulOne
 #: Game.Levels.Multiplication.L02_ZeroMul
 #: Game.Levels.Multiplication.L03_SuccMul
@@ -1059,7 +1043,6 @@ msgstr ""
 #: Game.Levels.Multiplication.L05_OneMul
 #: Game.Levels.Multiplication.L06_TwoMul
 #: Game.Levels.Multiplication.L07_MulAdd
-#: Game.Levels.Multiplication.L08_AddMul
 #: Game.Levels.Power.L01_ZeroPowZero
 #: Game.Levels.Power.L02_ZeroPowSucc
 #: Game.Levels.Power.L03_PowOne
@@ -1068,15 +1051,9 @@ msgstr ""
 #: Game.Levels.Power.L06_PowAdd
 #: Game.Levels.Power.L07_MulPow
 #: Game.Levels.Power.L08_PowPow
-#: Game.Levels.AdvAddition.L01_AddRightCancel
-#: Game.Levels.AdvAddition.L02_AddLeftCancel
-#: Game.Levels.AdvAddition.L03_AddLeftEqSelf
-#: Game.Levels.AdvAddition.L04_AddRightEqSelf
-#: Game.Levels.LessOrEqual.L01_LeRefl
-#: Game.Levels.LessOrEqual.L05_LeZero
-#: Game.Levels.LessOrEqual.L07_OrSymm
-#: Game.Levels.LessOrEqual.L08_SuccLeSucc
-#: Game.Levels.LessOrEqual.L09_LeOne
+#: Game.Levels.LessOrEqual.L01_Exists
+#: Game.Levels.LessOrEqual.L02_LeRefl
+#: Game.Levels.LessOrEqualJoined.L04_LeOne
 #: Game.Levels.AdvMultiplication.L01_MulLeMulRight
 #: Game.Levels.AdvMultiplication.L02_MulLeftNeZero
 #: Game.Levels.AdvMultiplication.L03_EqSuccOfNeZero
@@ -1087,18 +1064,6 @@ msgstr ""
 #: Game.Levels.AdvMultiplication.L08_MulEqZero
 #: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
 msgid "§0"
-msgstr ""
-
-#. §0: `mul_zero`
-#. §1: `mul_succ`
-#. §2: `1`
-#: Game.Levels.Multiplication.L01_MulOne
-msgid "See the two new axioms in your inventory, §0 and §1.\n"
-"Right now these are the only facts we know about multiplication.\n"
-"Let's prove nine more.\n"
-"\n"
-"Let's start with a warm-up: no induction needed for this one,\n"
-"because we know §2 is a successor."
 msgstr ""
 
 #: Game.Levels.PropositionBonus
@@ -1122,38 +1087,6 @@ msgid "§0, with notation §1, is the usual product of natural numbers. Internal
 "two basic theorems."
 msgstr ""
 
-#. §0: `37 * x`
-#. §1: $x=0$
-#. §2: $x$
-#. §3: `37 * 0`
-#. §4: `0`
-#. §5: `37 * d`
-#. §6: `37 * S d`
-#. §7: $(d+1)$
-#. §8: $37$
-#. §9: `37 * d + 37`
-#. §10: `mul_zero m : m * 0 = 0`
-#. §11: `mul_succ a d : a * S d = a * d + a`
-#. §12: `a * b = b * a`
-#. §13: `a * (b + c) = a * b + a * c`
-#: Game.Levels.Multiplication
-msgid "How should we define §0? Just like addition, we need to give definitions\n"
-"when §1 and when §2 is a successor.\n"
-"\n"
-"The zero case is easy: we define §3 to be §4. Now say we know\n"
-"§5. What should §6 be? Well, that's §7 §8s,\n"
-"so it should be §9.\n"
-"\n"
-"Here are the definitions in Lean.\n"
-"\n"
-"  * §10\n"
-"  * §11\n"
-"\n"
-"In this world, we must not only prove facts about multiplication like §12,\n"
-"we must also prove facts about how multiplication interacts with addition, like §13.\n"
-"Let's get started."
-msgstr ""
-
 #: Game.Levels.PowerBonus
 msgid "A bonus boss. You don't need it to continue."
 msgstr ""
@@ -1170,32 +1103,24 @@ msgstr ""
 msgid "Negation (1)"
 msgstr ""
 
+#: Game.Levels.PowerBonus.L01_FLT
+msgid "Refute Fermat's Last Theorem?"
+msgstr ""
+
 #: Game.Levels.RewriteBonus
 msgid "Bonus puzzles. You don't need them to continue along Rewrite World."
 msgstr ""
 
-#. §0: `≤`
-#. §1: `ℕ`
-#. §2: `≤`
-#. §3: `∨`
-#: Game.Levels.LessOrEqual.L06_LeAntisymm
-msgid "A passing mathematician remarks that with antisymmetry as well,\n"
-"you have proved that §0 is a *partial order* on §1.\n"
-"\n"
-"The boss level of this world is to prove\n"
-"that §2 is a total order. Let's learn about §3 first."
+#. §0: `h`
+#: Game.Levels.LessOrEqual.L05_ExistsHyp
+msgid "In this level, we see an inequality as a *hypothesis*. {pc: Click | mobile: Tap} §0 to\n"
+"take it apart into a number and its equation."
 msgstr ""
 
-#. §0: `x ≤ 0`
-#. §1: `x = 0`
-#. §2: `≤ 1`
-#: Game.Levels.LessOrEqual.L08_SuccLeSucc
-msgid "We've proved that §0 implies §1. The next level\n"
-"will prove which numbers are §2. This lemma will be helpful for it."
-msgstr ""
-
-#: Game.Levels.PowerBonus
-msgid "Power World Bonus"
+#. §0: `add_right_eq_zero`
+#: Game.Levels.InductionJoined.L04_AddRightEqZero
+#: Game.Levels.Multiplication.L08_MulAssoc
+msgid "§0 (Miniboss)"
 msgstr ""
 
 #. §0: `pow_zero a : a ^ 0 = 1`
@@ -1218,21 +1143,13 @@ msgid "§0 says that §1.\n"
 "that this is equal to §5 you need to use induction somewhere."
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L05_LeZero
-msgid "It's \"intuitively obvious\" that there are no numbers less than zero,\n"
-"but to prove it you will need a result which you showed in advanced\n"
-"addition world."
-msgstr ""
-
-#. §0: `add_right_eq_self x y`
-#. §1: $x + y = x\\implies y=0.$
-#: Game.Levels.AdvAddition.L04_AddRightEqSelf
-msgid "§0 is the theorem that §1\n"
-"Two ways to do it spring to mind; I'll mention them when you've solved it."
+#. §0: `≤`
+#: Game.Levels.LessOrEqualBoss
+msgid "The boss of §0 World: any two numbers can be compared."
 msgstr ""
 
 #. §0: `≤`
-#: Game.Levels.LessOrEqual.L10_LeTotal
+#: Game.Levels.LessOrEqualBoss.L01_LeTotal
 msgid "§0 is Total (≤ World Boss)"
 msgstr ""
 
@@ -1240,7 +1157,7 @@ msgstr ""
 #. §1: `S a = S b`
 #. §2: `a = b`
 #. §3: `S`
-#: Game.Levels.Neq.L06_SuccInj
+#: Game.Levels.Neq.L05_SuccInj
 msgid "§0 is a proof that §1 implies §2.\n"
 "Peano had it as an axiom: §3 is an injective function."
 msgstr ""
@@ -1254,7 +1171,14 @@ msgid "§0 is a proof that §1"
 msgstr ""
 
 #: Game.Levels.LessOrEqual
+#: Game.Levels.LessOrEqualJoined
+#: Game.Levels.LessOrEqualBoss
 msgid "≤ World"
+msgstr ""
+
+#: Game.Levels.InductionDouble
+msgid "Some proofs need induction twice, with an inductive hypothesis that holds for every\n"
+"value of the other variable."
 msgstr ""
 
 #: Game.Levels.Proposition
@@ -1262,16 +1186,71 @@ msgstr ""
 msgid "Proposition World"
 msgstr ""
 
+#. §0: `37 * x`
+#. §1: $x=0$
+#. §2: $x$
+#. §3: `37 * 0`
+#. §4: `0`
+#. §5: `37 * d`
+#. §6: `37 * S d`
+#. §7: $(d+1)$
+#. §8: $37$
+#. §9: `37 * d + 37`
+#. §10: `mul_zero m : m * 0 = 0`
+#. §11: `mul_succ a b : a * S b = a * b + a`
+#. §12: `a * b = b * a`
+#. §13: `a * (b + c) = a * b + a * c`
+#: Game.Levels.Multiplication
+msgid "How should we define §0? Just like addition, we need to give definitions\n"
+"when §1 and when §2 is a successor.\n"
+"\n"
+"The zero case is easy: we define §3 to be §4. Now say we know\n"
+"§5. What should §6 be? Well, that's §7 §8s,\n"
+"so it should be §9.\n"
+"\n"
+"Here are the definitions in Lean.\n"
+"\n"
+"  * §10\n"
+"  * §11\n"
+"\n"
+"In this world, we must not only prove facts about multiplication like §12,\n"
+"we must also prove facts about how multiplication interacts with addition, like §13.\n"
+"Then come powers. Let's get started."
+msgstr ""
+
 #: Game.Levels.PropositionRight.L01_Or1
 msgid "Disjunction (0)"
 msgstr ""
 
-#: Game.Levels.Neq.L05_PatternMatching
+#: Game.Levels.Neq.L06_PatternMatching
 msgid "Pattern Matching"
 msgstr ""
 
-#: Game.Levels.Power
-msgid "Power World"
+#: Game.Levels.Power.L07_MulPow
+msgid "The music gets ever more dramatic, as we explore\n"
+"the interplay between exponentiation and multiplication."
+msgstr ""
+
+#. §0: `peano_cases b`
+#. §1: `b`
+#. §2: `S e`
+#. §3: `a * b`
+#. §4: `a * e + a`
+#. §5: `a * b = 0`
+#. §6: `a = 0`
+#: Game.Levels.AdvMultiplication.L08_MulEqZero
+msgid "§0 does all the work. If §1 is a successor §2 then §3 is\n"
+"§4, so §5 forces §6 and the left hand side is the true one."
+msgstr ""
+
+#: Game.Levels.InductionDouble.L01_DoubleInduction
+msgid "Double Induction"
+msgstr ""
+
+#. §0: `add_right_cancel a b n`
+#. §1: $a+n=b+n\\implies a=b$
+#: Game.Levels.InductionJoined.L01_AddRightCancel
+msgid "§0 is the theorem that §1."
 msgstr ""
 
 #: Game.Levels.Rewrite.L06_Boss
@@ -1286,57 +1265,16 @@ msgstr ""
 msgid "Disjunction (1)"
 msgstr ""
 
-#: Game.Levels.NeqJoined.L01_ZeroOrNot
-msgid "Zero or No Zero"
-msgstr ""
-
 #: Game.Levels.Induction.L02_SuccAdd
 msgid "Well done! You now have enough tools to prove that addition is commutative."
-msgstr ""
-
-#: Game.Levels.NeqBoss.L01_Boss
-msgid "Equality in ℕ is Decidable (≠ World Boss)"
 msgstr ""
 
 #: Game.Levels.Induction.L03_AddComm
 msgid "Commutativity of Addition"
 msgstr ""
 
-#. §0: `x * y = 1 → x = 1`
-#. §1: `x + y = 0 → x = 0`
-#. §2: `x ≤ 1`
-#. §3: `le_one`
-#. §4: `≤`
-#: Game.Levels.AdvMultiplication.L06_MulRightEqOne
-msgid "This level proves §0, the multiplicative analogue of Advanced Addition\n"
-"World's §1. The strategy is to prove that §2 and then use the\n"
-"lemma §3 from §4 World."
-msgstr ""
-
 #: Game.Levels.PropositionRight.L07_NegatedAnd
 msgid "Negation (2)"
-msgstr ""
-
-#. §0: `≤`
-#. §1: `a`
-#. §2: `b`
-#. §3: `a ≤ b`
-#. §4: `b ≤ a`
-#. §5: `∨`
-#. §6: `h`
-#: Game.Levels.LessOrEqual.L07_OrSymm
-msgid "Totality of §0 is the boss level of this world, and it's coming up soon. It says that\n"
-"if §1 and §2 are naturals then either §3 or §4.\n"
-"But we haven't talked about \"or\" in this world yet. Here's a run-through.\n"
-"\n"
-"1) The notation for \"or\" is §5.\n"
-"\n"
-"2) If you have an \"or\" statement in the *goal*, {pc: click | mobile: tap} it to\n"
-"choose a side. But don't choose a side unless your\n"
-"hypotheses guarantee that it's the correct one.\n"
-"\n"
-"3) If you have an \"or\" statement as a *hypothesis* §6, then {pc: clicking | mobile: tapping}\n"
-"it will create two goals, one where you went left, and the other where you went right."
 msgstr ""
 
 #: Game.Levels.Proposition.L05_Backwards
@@ -1346,6 +1284,13 @@ msgstr ""
 #: Game
 msgid "The Natural Numbers Video Game is a version of the Natural Number Game made for\n"
 "Visual Lean's drag-and-drop interface."
+msgstr ""
+
+#. §0: `lem_iff_double_elimination`
+#. §1: `(∀ P, P ∨ ¬P) ↔ (∀ P, ¬¬P → P)`
+#: Game.Levels.Logic.L01_DoubleElimination
+msgid "§0 is a proof of §1: the\n"
+"Law of Excluded Middle is equivalent to double negation elimination."
 msgstr ""
 
 #. §0: $a(b+c)=ab+ac$
@@ -1364,11 +1309,6 @@ msgstr ""
 
 #: Game.Levels.Proposition.L04_Chains
 msgid "Implications (2)"
-msgstr ""
-
-#. §0: `add_right_eq_zero`
-#: Game.Levels.AdvAddition.L05_AddRightEqZero
-msgid "§0 (Advanced Addition World Boss)"
 msgstr ""
 
 #. §0: `exact h`
@@ -1390,30 +1330,9 @@ msgid "Mathematicians sometimes argue that §0 is also\n"
 "convention that §1."
 msgstr ""
 
-#. §0: `xyzzy`
-#. §1: `sorry`
-#. §2: `xyzzy`
-#: Game.Levels.PowerBonus.L01_FLT
-msgid "§0 is an ancient magic spell, believed to be the origin of the\n"
-"modern word §1. The game won't complain - or notice - if you\n"
-"prove anything with §2."
-msgstr ""
-
 #: Game.Levels.Multiplication.L06_TwoMul
 msgid "This level is more important than you think; it plays\n"
 "a useful role when battling a big boss later on."
-msgstr ""
-
-#: Game.Levels.Power.L08_PowPow
-msgid "The music dies down. Is that it?\n"
-"\n"
-"Course it isn't, you can\n"
-"clearly see that there are two levels left.\n"
-"\n"
-"A passing mathematician says that mathematicians don't have a name\n"
-"for the structure you just constructed. You feel cheated.\n"
-"\n"
-"Suddenly the music starts up again. This really is the final boss."
 msgstr ""
 
 #: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
@@ -1426,7 +1345,7 @@ msgstr ""
 #. §1: `x ≤ 1`
 #. §2: `x = 0`
 #. §3: `x = 1`
-#: Game.Levels.LessOrEqual.L09_LeOne
+#: Game.Levels.LessOrEqualJoined.L04_LeOne
 #: Game.Levels.AdvMultiplication.L08_MulEqZero
 msgid "§0 is a proof that if §1 then §2 or §3."
 msgstr ""
@@ -1440,12 +1359,34 @@ msgid "§0 is a proof that §1.\n"
 "has to be at most that number."
 msgstr ""
 
-#: Game.Levels.Neq.L09_TwoNeFour
-msgid "2 ≠ 4"
+#. §0: `cases`
+#. §1: `cases`
+#. §2: `n = 0`
+#. §3: `n = S n1`
+#. §4: `n`
+#. §5: `cases`
+#. §6: `n`
+#. §7: `n = 0`
+#. §8: `n = S n1`
+#: Game.Levels.InductionJoined.L03_ZeroOrNot
+msgid "## A new tactic: §0\n"
+"\n"
+"The §1 tactic will split an object or hypothesis up into the possible ways\n"
+"that it could have been created.\n"
+"\n"
+"For example, sometimes you want to deal with the two cases §2 and §3 separately,\n"
+"but don't need the inductive hypothesis that comes with induction on §4.\n"
+"In this situation you can drag §5 onto §6 instead. There are two ways to make\n"
+"a number: it's either zero or a successor. So you will end up with two goals, one\n"
+"with §7 and one with §8."
 msgstr ""
 
 #: Game.Levels.Proposition.L02_Implication
 msgid "Implications (0)"
+msgstr ""
+
+#: Game.Levels.Neq.L09_TwoNeThree
+msgid "2 ≠ 3"
 msgstr ""
 
 #: Game.Levels.PropositionBonus
@@ -1460,7 +1401,6 @@ msgstr ""
 
 #: Game.Levels.Neq
 #: Game.Levels.NeqJoined
-#: Game.Levels.NeqBoss
 msgid "≠ World"
 msgstr ""
 
@@ -1490,16 +1430,16 @@ msgstr ""
 msgid "level completed! 🎉"
 msgstr ""
 
-#. §0: `a * b`
-#. §1: `rw [mul_comm]`
-#. §2: `rw`
-#: Game.Levels.Power.L07_MulPow
-msgid "The music gets ever more dramatic, as we explore\n"
-"the interplay between exponentiation and multiplication.\n"
+#: Game.Levels.Power.L08_PowPow
+msgid "The music dies down. Is that it?\n"
 "\n"
-"If you're having trouble exchanging the right §0\n"
-"because §1 swaps the wrong multiplication,\n"
-"then read the documentation of §2 for tips on how to fix this."
+"Course it isn't, you can\n"
+"clearly see that there is a level left.\n"
+"\n"
+"A passing mathematician says that mathematicians don't have a name\n"
+"for the structure you just constructed. You feel cheated.\n"
+"\n"
+"Suddenly the music starts up again. This really is the final boss."
 msgstr ""
 
 #: Game.Levels.SuccessorJoined.L02_CrossingTheBeams2
@@ -1511,9 +1451,9 @@ msgstr ""
 #. §2: `a ≤ b`
 #. §3: `c`
 #. §4: `h : a ≤ b`
-#. §5: `c`
-#. §6: `b = a + c`
-#: Game.Levels.LessOrEqual.L01_LeRefl
+#. §5: `c1`
+#. §6: `b = a + c1`
+#: Game.Levels.LessOrEqual.L02_LeRefl
 msgid "§0 is *notation* for §1.\n"
 "\n"
 "Because this game doesn't have negative numbers, this definition\n"
@@ -1522,7 +1462,7 @@ msgid "§0 is *notation* for §1.\n"
 "This means that if you have a goal of the form §2 you can\n"
 "make progress by {pc: clicking | mobile: tapping} it and building the number §3, and if\n"
 "you have a hypothesis §4, you can make progress by {pc: clicking | mobile: tapping}\n"
-"it to get the number §5 and the proof that §6."
+"it to get a number §5 and the proof that §6."
 msgstr ""
 
 #: Game.Levels.Outro.L01_ThankYou
@@ -1541,8 +1481,20 @@ msgstr ""
 #. §0: `le_total x y`
 #. §1: `x ≤ y`
 #. §2: `y ≤ x`
-#: Game.Levels.LessOrEqual.L10_LeTotal
+#: Game.Levels.LessOrEqualBoss.L01_LeTotal
 msgid "§0 is a proof that §1 or §2."
+msgstr ""
+
+#. §0: `a ≤ b`
+#. §1: `∃ c, b = a + c`
+#. §2: `a ≤ b`
+#. §3: `c`
+#. §4: `b = a + c`
+#: Game.Levels.LessOrEqual.L02_LeRefl
+msgid "§0 is *notation* for §1. This \"backwards E\"\n"
+"means \"there exists\". So §2 means that there exists\n"
+"a number §3 such that §4. This definition works\n"
+"because there are no negative numbers in this game."
 msgstr ""
 
 #: Game.Levels.PropositionRight.L04_False
@@ -1579,8 +1531,34 @@ msgid "§0 rewrites the goal with the equality §1, replacing its left side by i
 "right side. §2 rewrites from right to left."
 msgstr ""
 
-#: Game.Levels.LessOrEqual.L06_LeAntisymm
+#: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
 msgid "Antisymmetry"
+msgstr ""
+
+#: Game.Levels.Multiplication
+#: Game.Levels.Power
+msgid "Multiplication and Exponentiation World"
+msgstr ""
+
+#. §0: `a + b = 0`
+#. §1: `a = 0`
+#. §2: `b = 0`
+#. §3: `≤`
+#. §4: `cases`
+#. §5: `b`
+#. §6: `b = 0`
+#. §7: `b = S b1`
+#: Game.Levels.InductionJoined.L04_AddRightEqZero
+msgid "If §0 then §1 and §2. Let's prove the first of these facts in this\n"
+"level. §3 World builds on it.\n"
+"\n"
+"Dragging §4 onto §5 deals with §6 and §7 separately."
+msgstr ""
+
+#. §0: `≠`
+#: Game.Levels.InductionJoined
+msgid "More about addition, now that implications and §0 are around: cancellation, and what\n"
+"it takes for a sum to be zero."
 msgstr ""
 
 #. §0: `mul_add a b c`
@@ -1598,19 +1576,8 @@ msgstr ""
 msgid "§0 is the proof of §1."
 msgstr ""
 
-#. §0: `mul_assoc`
-#: Game.Levels.Multiplication.L09_MulAssoc
-msgid "§0 (Multiplication World Boss)"
-msgstr ""
-
 #: Game.Levels.SuccessorJoined.L03_Boss
 msgid "Plug and Chug (Successor World Boss)"
-msgstr ""
-
-#: Game.Levels.PowerBonus.L01_FLT
-msgid "Congratulations! You have proved Fermat's Last Theorem!\n"
-"\n"
-"Either that, or you used magic..."
 msgstr ""
 
 #. §0: `mul_comm`
@@ -1619,6 +1586,13 @@ msgstr ""
 #: Game.Levels.Multiplication.L04_MulComm
 msgid "§0 is the proof that multiplication is commutative. More precisely,\n"
 "§1 is the proof that §2."
+msgstr ""
+
+#. §0: `add_left_eq_self`
+#. §1: `a + b = b`
+#. §2: `a = 0`
+#: Game.Levels.InductionJoined.L02_AddRightEqSelf
+msgid "Its mirror image comes with it: §0, if §1 then §2."
 msgstr ""
 
 #. §0: `zero_ne_succ a`
@@ -1633,14 +1607,14 @@ msgid "Welcome to the Natural Numbers Video Game! It is played in Visual Lean: y
 "proofs by dragging and clicking, and a Lean server checks every move."
 msgstr ""
 
-#. §0: `induction n with d hd`
+#. §0: `induction n with n1 hn1`
 #. §1: `n`
-#. §2: `d`
-#. §3: `hd`
+#. §2: `n1`
+#. §3: `hn1`
 #. §4: `0 + n = n`
 #. §5: `0 + 0 = 0`
-#. §6: `hd : 0 + d = d`
-#. §7: `0 + S d = S d`
+#. §6: `hn1 : 0 + n1 = n1`
+#. §7: `0 + S n1 = S n1`
 #: Game.Metadata
 msgid "§0 attempts to prove the goal by induction on §1, with the\n"
 "inductive variable in the successor case being §2, and the inductive hypothesis\n"

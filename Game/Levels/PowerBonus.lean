@@ -1,9 +1,11 @@
 import Game.Levels.PowerBonus.L01_FLT
 
 World "PowerBonus"
-Title "Power World Bonus"
+Title "Multiplication and Exponentiation World Bonus"
 
--- The second form of the final boss: a branch off `add_sq`, not needed to continue.
+-- The second form of the final boss: a branch off FOILed Again, not needed to
+-- continue. It also waits for ≤ World, which is where `>` comes from, and the map
+-- draws that path too.
 VisualBonusOf Power 9
 VisualHideSwapSides
 

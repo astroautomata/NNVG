@@ -9,11 +9,13 @@ Title "Induction World"
 VisualWorldColor blossom
 VisualMapColumn -1
 
--- Rewrite Mode's swap-sides button is hidden throughout this world.
+-- Rewrite Mode's swap-sides button is hidden in these levels, 0 to 3: it comes back
+-- once the ≠ World has merged in (`InductionJoined`).
 VisualHideSwapSides
 
 -- One induction per branch of a proof: the tactic shows `x1`, then `x0` in the base
--- case, the inductive step and whatever comes from them.
+-- case, the inductive step and whatever comes from them. (`Game.lean` allows none where
+-- a world or level doesn't say.)
 VisualTacticUses induction 1
 
 Introduction

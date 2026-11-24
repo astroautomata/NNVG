@@ -1,11 +1,11 @@
-import Game.Levels.LessOrEqual.L05_LeZero
+import Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
 
-World "LessOrEqual"
-Level 6
+World "LessOrEqualJoined"
+Level 3
 
 Title "Antisymmetry"
 
-VisualLevelNumber "6"
+VisualLevelNumber "8"
 
 namespace MyNat
 
@@ -20,18 +20,14 @@ It's the trickiest one so far. Good luck!
 TheoremDoc MyNat.le_antisymm as "le_antisymm" in "≤"
 
 Statement le_antisymm (x y : ℕ) (hxy : x ≤ y) (hyx : y ≤ x) : x = y := by
-  cases hxy with
-  | intro a ha =>
-    cases hyx with
-    | intro b hb =>
-      rw [ha, add_right_eq_zero a b (add_right_eq_self x (a + b) (by rw [← add_assoc, ← ha]; exact hb.symm)),
-        add_zero]
+  exact (hxy : ∃ c, y = x + c).elim (fun a ha => (hyx : ∃ c, x = y + c).elim (fun b hb => by
+    rw [ha, add_right_eq_zero a b (add_right_eq_self x (a + b) (by rw [← add_assoc, ← ha]; exact hb.symm)),
+      add_zero]))
 
 Conclusion
 "
 A passing mathematician remarks that with antisymmetry as well,
 you have proved that `≤` is a *partial order* on `ℕ`.
 
-The boss level of this world is to prove
-that `≤` is a total order. Let's learn about `∨` first.
+The boss level of this world is to prove that `≤` is a total order.
 "

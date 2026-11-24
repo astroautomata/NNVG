@@ -5,7 +5,7 @@ Level 5
 
 Title "`le_mul_right`"
 
-VisualLevelNumber "5"
+VisualLevelNumber "4"
 VisualBossLevel
 
 namespace MyNat
@@ -30,5 +30,5 @@ has to be at most that number.
 TheoremDoc MyNat.le_mul_right as "le_mul_right" in "≤"
 
 Statement le_mul_right (a b : ℕ) (h : a * b ≠ 0) : a ≤ a * b := by
-  cases mul_le_mul_right 1 b a (one_le_of_ne_zero b (mul_left_ne_zero a b h)) with
-  | intro c hc => exact (⟨c, by rw [one_mul, mul_comm] at hc; exact hc⟩ : ∃ c, a * b = a + c)
+  exact (mul_le_mul_right 1 b (one_le_of_ne_zero b (mul_left_ne_zero a b h)) a : ∃ c, b * a = 1 * a + c).elim
+    (fun c hc => (⟨c, by rw [one_mul, mul_comm] at hc; exact hc⟩ : ∃ c, a * b = a + c))

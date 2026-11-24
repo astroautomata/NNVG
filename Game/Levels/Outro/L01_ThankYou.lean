@@ -1,6 +1,6 @@
 import Game.Levels.Power
 import Game.Levels.AdvMultiplication
-import Game.Levels.NeqBoss
+import Game.Levels.Logic
 
 World "Outro"
 Level 1

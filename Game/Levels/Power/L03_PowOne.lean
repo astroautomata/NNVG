@@ -5,7 +5,7 @@ Level 3
 
 Title "`pow_one`"
 
-VisualLevelNumber "3"
+VisualLevelNumber "10"
 
 namespace MyNat
 
@@ -17,5 +17,5 @@ that this is equal to `a` you need to use induction somewhere.
 -/
 TheoremDoc MyNat.pow_one as "pow_one" in "^"
 
-Statement pow_one (a : ℕ) : a ^ 1 = a := by
-  rw [one_eq_succ_zero, pow_succ, pow_zero, one_mul]
+Statement pow_one : ∀ a : ℕ, a ^ 1 = a := by
+  exact fun a => by rw [one_eq_succ_zero, pow_succ, pow_zero, one_mul]

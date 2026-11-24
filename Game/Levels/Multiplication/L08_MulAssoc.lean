@@ -1,19 +1,18 @@
-import Game.Levels.Multiplication.L08_AddMul
+import Game.Levels.Multiplication.L07_MulAdd
 
 World "Multiplication"
-Level 9
+Level 8
 
-Title "`mul_assoc` (Multiplication World Boss)"
+Title "`mul_assoc` (Miniboss)"
 
-VisualLevelNumber "9"
+VisualLevelNumber "7"
 VisualBossLevel
 
 namespace MyNat
 
 Introduction
 "
-We now have enough to prove that multiplication is associative,
-the boss level of multiplication world. Good luck!
+We now have enough to prove that multiplication is associative. Good luck!
 "
 
 /--
@@ -27,15 +26,19 @@ equal to `6 - (2 - 1)`.
 -/
 TheoremDoc MyNat.mul_assoc as "mul_assoc" in "*"
 
-Statement mul_assoc (a b c : ℕ) : (a * b) * c = a * (b * c) := by
-  induction c with d hd
-  · rw [mul_zero, mul_zero, mul_zero]
-  · rw [mul_succ, mul_succ, hd, mul_add]
+-- Unlocked by completing `mul_add` (the level before).
+NewTheorem MyNat.add_mul
+
+Statement mul_assoc : ∀ a b c : ℕ, (a * b) * c = a * (b * c) := by
+  exact fun a b c => by
+    induction c with d hd
+    · rw [mul_zero, mul_zero, mul_zero]
+    · rw [mul_succ, mul_succ, hd, mul_add]
 
 Conclusion
 "
 A passing mathematician notes that you've proved
 that the natural numbers are a commutative semiring.
 
-If you want to begin your journey to the final boss, head for Power World.
+Powers are next, on the way to the final boss.
 "

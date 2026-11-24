@@ -12,13 +12,16 @@ import Game.Levels.SuccessorJoined
 import Game.Levels.Induction
 import Game.Levels.Neq
 import Game.Levels.NeqJoined
-import Game.Levels.NeqBoss
+import Game.Levels.InductionJoined
+import Game.Levels.InductionDouble
 import Game.Levels.Multiplication
 import Game.Levels.Power
 import Game.Levels.PowerBonus
-import Game.Levels.AdvAddition
 import Game.Levels.LessOrEqual
+import Game.Levels.LessOrEqualJoined
+import Game.Levels.LessOrEqualBoss
 import Game.Levels.AdvMultiplication
+import Game.Levels.Logic
 import Game.Levels.Outro
 
 Title "Natural Numbers Video Game"
@@ -54,35 +57,57 @@ Dependency Proposition → SuccessorJoined
 Dependency Proposition → PropositionRight
 
 -- Successor World leads to Induction World, and with all of Proposition World to the
--- ≠ World, whose last levels also wait for Induction World.
+-- ≠ World, whose boss also waits for Induction World's levels 0 to 3.
 Dependency SuccessorJoined → Induction
 Dependency SuccessorJoined → Neq
 Dependency PropositionRight → Neq
 Dependency Neq → NeqJoined
 Dependency Induction → NeqJoined
 
--- The worlds ported from NNG4. Multiplication World and Power World hang off Induction
--- World on the far left. Advanced Addition World needs Induction World (through the ≠
--- World's level 9) and leads to ≤ World on the right. Advanced Multiplication World
--- carries on below ≤ World and needs only that and Multiplication World, whose path
--- comes across from the far left. (MakeGame drops any edge a path already implies.)
+-- Induction World carries on once the ≠ World is finished (levels 4 to 7, then 8 and 9).
+Dependency Induction → InductionJoined
+Dependency NeqJoined → InductionJoined
+Dependency InductionJoined → InductionDouble
+
+-- Multiplication and Exponentiation World hangs off Induction World's level 3, on the
+-- far left: levels 0 to 7 (`Multiplication`), then the ones about powers (`Power`).
 Dependency Induction → Multiplication
 Dependency Multiplication → Power
-Dependency NeqJoined → AdvAddition
-Dependency AdvAddition → LessOrEqual
-Dependency LessOrEqual → AdvMultiplication
+
+-- ≤ World follows the ≠ World on the right. Its level 6 waits for Induction World's
+-- level 7 and its boss for Induction World's last. Advanced Multiplication World
+-- carries on below it and also needs Multiplication and Exponentiation World's level
+-- 7, whose path comes across from the far left. (MakeGame drops any edge a path
+-- already implies.)
+Dependency NeqJoined → LessOrEqual
+Dependency LessOrEqual → LessOrEqualJoined
+Dependency InductionJoined → LessOrEqualJoined
+Dependency LessOrEqualJoined → LessOrEqualBoss
+Dependency InductionDouble → LessOrEqualBoss
+Dependency LessOrEqualBoss → AdvMultiplication
 Dependency Multiplication → AdvMultiplication
 
+-- The bonus boss off Multiplication and Exponentiation World's last level refutes a
+-- careless Fermat's Last Theorem, stated with `>`, so it waits for ≤ World too.
+Dependency LessOrEqualBoss → PowerBonus
+
+-- Logic World needs both of Proposition World's last bonus branches and the ≠ World.
+Dependency PropositionBonusB → Logic
+Dependency PropositionBonusC → Logic
+Dependency NeqJoined → Logic
+
 -- The End, the closing text at the bottom of the map, follows the final bosses of
--- Power World, Advanced Multiplication World and the ≠ World (its boss off to the side).
+-- Multiplication and Exponentiation World, Advanced Multiplication World and Logic
+-- World.
 Dependency Power → Outro
 Dependency AdvMultiplication → Outro
-Dependency NeqBoss → Outro
+Dependency Logic → Outro
 
 VisualPathMap
 
--- A neutral look, with a few colours for each world (`VisualWorldColor` in the world
--- files, after the spec's reference images). Worlds without one are grey.
+-- One look, with no light mode: a page and a few colours for each world
+-- (`VisualWorldColor` in the world files, after the spec's reference images). The map
+-- and the worlds without one are a blackboard's slate.
 VisualNeutralPalette
 
 -- Variables like `n : ℕ` and `A : Prop` sit in a column of their own.
@@ -94,11 +119,24 @@ VisualFastExfalso
 -- Hints stay up as the proof moves on, until the next one replaces them.
 VisualPersistentHints
 
+-- The numbers that `≤` hypotheses give are named `c1`, `c2`, …, never plain `c`
+-- (`VisualNumberedWitnesses` in `Game/Metadata.lean`, which every level imports).
+
 -- Rewrite Mode on a goal shows the check mark once both sides match, in every level.
 VisualRewriteCheck
 
 -- The successor function is `S`, also in the specialization view's term builder.
 VisualSuccessorName S
+
+-- `cases` and `induction` are only for the levels that say so, as often as they say:
+-- `VisualTacticUses` in a world or level file gives that count, and everywhere else
+-- the cards show `x0`.
+VisualTacticUses induction 0
+VisualTacticUses cases 0
+
+-- Splitting `a` with `cases` or `induction` names the new number `a1`, so the
+-- successor case reads `S(a1)`; splitting `a1` gives `a2`.
+VisualNumberedSplits
 
 -- The inventory's tabs are NNG4's. The axioms sit among the theorems of their tab, in
 -- their own colour.

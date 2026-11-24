@@ -5,7 +5,7 @@ Level 1
 
 Title "`zero_pow_zero`"
 
-VisualLevelNumber "1"
+VisualLevelNumber "8"
 
 namespace MyNat
 

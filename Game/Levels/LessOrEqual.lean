@@ -1,17 +1,15 @@
-import Game.Levels.LessOrEqual.L01_LeRefl
-import Game.Levels.LessOrEqual.L02_ZeroLe
-import Game.Levels.LessOrEqual.L03_LeSuccSelf
-import Game.Levels.LessOrEqual.L04_LeTrans
-import Game.Levels.LessOrEqual.L05_LeZero
-import Game.Levels.LessOrEqual.L06_LeAntisymm
-import Game.Levels.LessOrEqual.L07_OrSymm
-import Game.Levels.LessOrEqual.L08_SuccLeSucc
-import Game.Levels.LessOrEqual.L09_LeOne
-import Game.Levels.LessOrEqual.L10_LeTotal
+import Game.Levels.LessOrEqual.L01_Exists
+import Game.Levels.LessOrEqual.L02_LeRefl
+import Game.Levels.LessOrEqual.L03_ZeroLe
+import Game.Levels.LessOrEqual.L04_LeSuccSelf
+import Game.Levels.LessOrEqual.L05_ExistsHyp
+import Game.Levels.LessOrEqual.L06_LeTrans
 
 World "LessOrEqual"
 Title "≤ World"
 
+-- Levels 0 to 5, after the ≠ World. The rest waits for Induction World (`LessOrEqualJoined`
+-- for its level 7, `LessOrEqualBoss` for its last).
 VisualWorldColor circuit
 VisualMapColumn 1
 

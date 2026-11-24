@@ -5,7 +5,7 @@ Level 7
 
 Title "`mul_add`"
 
-VisualLevelNumber "7"
+VisualLevelNumber "6"
 
 namespace MyNat
 
@@ -28,12 +28,25 @@ over addition on the left.
 -/
 TheoremDoc MyNat.mul_add as "mul_add" in "*"
 
-Statement mul_add (a b c : ℕ) : a * (b + c) = a * b + a * c := by
-  induction c with d hd
-  · rw [add_zero, mul_zero, add_zero]
-  · rw [add_succ, mul_succ, hd, mul_succ, add_assoc]
+Statement mul_add : ∀ a b c : ℕ, a * (b + c) = a * b + a * c := by
+  exact fun a b c => by
+    induction c with d hd
+    · rw [add_zero, mul_zero, add_zero]
+    · rw [add_succ, mul_succ, hd, mul_succ, add_assoc]
+
+/--
+`add_mul a b c` is a proof that $(a+b)c=ac+bc$.
+-/
+TheoremDoc MyNat.add_mul as "add_mul" in "*"
+
+-- The mirror image has no level of its own. Finishing this level unlocks it too
+-- (`NewTheorem` in the next one).
+theorem add_mul (a b c : ℕ) : (a + b) * c = a * c + b * c := by
+  rw [mul_comm, mul_add, mul_comm c a, mul_comm c b]
 
 Conclusion
 "
 Inducting on `a` or `b` also works, but might take longer.
+
+Its mirror image comes with it: `add_mul`, the proof of `(a + b) * c = a * c + b * c`.
 "

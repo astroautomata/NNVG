@@ -5,7 +5,7 @@ Level 1
 
 Title "`mul_one`"
 
-VisualLevelNumber "1"
+VisualLevelNumber "0"
 
 namespace MyNat
 
@@ -13,7 +13,7 @@ Introduction
 "
 See the two new axioms in your inventory, `mul_zero` and `mul_succ`.
 Right now these are the only facts we know about multiplication.
-Let's prove nine more.
+Let's prove eight more.
 
 Let's start with a warm-up: no induction needed for this one,
 because we know `1` is a successor.
@@ -47,5 +47,5 @@ NewTheorem MyNat.mul_zero MyNat.mul_succ
 VisualEmphasize MyNat.mul_zero
 VisualEmphasize MyNat.mul_succ
 
-Statement mul_one (m : ℕ) : m * 1 = m := by
-  rw [one_eq_succ_zero, mul_succ, mul_zero, zero_add]
+Statement mul_one : ∀ m : ℕ, m * 1 = m := by
+  exact fun m => by rw [one_eq_succ_zero, mul_succ, mul_zero, zero_add]

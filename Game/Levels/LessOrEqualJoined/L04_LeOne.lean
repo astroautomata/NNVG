@@ -1,13 +1,13 @@
-import Game.Levels.LessOrEqual.L08_SuccLeSucc
+import Game.Levels.LessOrEqualJoined.L03_LeAntisymm
 
-World "LessOrEqual"
-Level 9
+World "LessOrEqualJoined"
+Level 4
 
 Title "`le_one`"
 
 VisualLevelNumber "9"
 
-VisualGoalInfo below false "Don't forget about the `cases` tactic!"
+VisualTacticUses cases 1
 
 namespace MyNat
 
@@ -21,9 +21,13 @@ Now we'll prove that if `x ≤ 1` then `x = 0` or `x = 1`.
 TheoremDoc MyNat.le_one as "le_one" in "≤"
 
 Statement le_one (x : ℕ) (hx : x ≤ 1) : x = 0 ∨ x = 1 := by
-  cases x with y
+  cases x with d
   · exact .inl (reflection 0)
-  · exact .inr (by rw [le_zero y (succ_le_succ y 0 (by rw [← one_eq_succ_zero]; exact hx)), one_eq_succ_zero])
+  · rw [← add_one_eq_succ] at hx
+    exact (hx : ∃ c, 1 = d + 1 + c).elim (fun c hc => .inr (by
+      rw [add_right_eq_zero d c (succ_inj (d + c) 0 (by
+          rw [add_assoc, add_comm 1 c, ← add_assoc, add_one_eq_succ, one_eq_succ_zero] at hc; exact hc.symm)),
+        one_eq_succ_zero]))
 
 Conclusion
 "

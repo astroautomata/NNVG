@@ -5,7 +5,7 @@ Level 3
 
 Title "Commutativity of Addition"
 
-VisualLevelNumber "3"
+VisualLevelNumber "2"
 
 namespace MyNat
 

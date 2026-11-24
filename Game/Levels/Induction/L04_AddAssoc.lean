@@ -5,7 +5,7 @@ Level 4
 
 Title "Associativity of Addition"
 
-VisualLevelNumber "4"
+VisualLevelNumber "3"
 
 namespace MyNat
 
