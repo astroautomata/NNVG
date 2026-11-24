@@ -5,7 +5,7 @@ Level 2
 
 Title "Fast Reversing"
 
-VisualLevelNumber "A2"
+VisualLevelNumber "A1"
 VisualRewriteOnly
 
 Statement (a b : ℕ) (a_plus_b : a + b = b) (b_plus_a : a = b + a) :

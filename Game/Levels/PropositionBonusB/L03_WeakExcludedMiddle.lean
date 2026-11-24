@@ -1,11 +1,11 @@
 import Game.Metadata
 
-World "PropositionBonusC"
+World "PropositionBonusB"
 Level 3
 
 Title "The Other De Morgan's Law (Rightwards with the Weak Law of Excluded Middle)"
 
-VisualLevelNumber "C3"
+VisualLevelNumber "B2"
 
 Statement (A B : Prop) (hA : ¬A ∨ ¬¬A) (hB : ¬B ∨ ¬¬B) : ¬(A ∧ B) → (¬A ∨ ¬B) := by
   exact fun h => hA.elim .inl

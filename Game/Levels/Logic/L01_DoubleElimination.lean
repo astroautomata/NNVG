@@ -7,7 +7,7 @@ Level 1
 
 Title "Double Elimination is Equivalent To LEM"
 
-VisualLevelNumber "0"
+VisualLevelNumber "A0"
 
 /-- `lem_iff_double_elimination` is a proof of `(∀ P, P ∨ ¬P) ↔ (∀ P, ¬¬P → P)`: the
 Law of Excluded Middle is equivalent to double negation elimination. -/

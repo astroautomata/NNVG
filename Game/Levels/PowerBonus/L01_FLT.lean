@@ -1,12 +1,12 @@
 import Game.Levels.Power
-import Game.Levels.LessOrEqualBoss
+import Game.Levels.LessOrEqualBonus
 
 World "PowerBonus"
 Level 1
 
 Title "Refute Fermat's Last Theorem?"
 
-VisualLevelNumber "A1"
+VisualLevelNumber "A0"
 VisualBossLevel
 
 namespace MyNat
@@ -19,7 +19,7 @@ Its shortest known proof would translate into many millions of lines of Lean cod
 The statement in this level forgot to ask for $x,y,z>0$. That makes all the difference:
 it is false, and a few well-chosen numbers show it.
 
-With `≤` World behind us, `n > 2` means `¬ n ≤ 2`.
+As in `≤` World's bonus levels, `n > 2` means `¬ n ≤ 2`.
 "
 
 Statement : (∀ a b c n : ℕ, n > 2 → a ^ n + b ^ n ≠ c ^ n) → False := by

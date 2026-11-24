@@ -3,7 +3,7 @@ import Game.Levels.LessOrEqual.L05_ExistsHyp
 World "LessOrEqual"
 Level 6
 
-Title "Transitivity"
+Title "Transitivity of `≤`"
 
 VisualLevelNumber "5"
 

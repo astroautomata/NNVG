@@ -5,7 +5,7 @@ Level 3
 
 Title "Counting to Four (Miniboss)"
 
-VisualLevelNumber "3"
+VisualLevelNumber "2"
 VisualRewriteOnly
 VisualNoHypothesesTab
 -- `add_one_eq_succ` is in the `+` tab.

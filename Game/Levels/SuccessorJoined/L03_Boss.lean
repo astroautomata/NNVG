@@ -5,7 +5,7 @@ Level 3
 
 Title "Plug and Chug (Successor World Boss)"
 
-VisualLevelNumber "6"
+VisualLevelNumber "5"
 VisualBossLevel
 
 namespace MyNat

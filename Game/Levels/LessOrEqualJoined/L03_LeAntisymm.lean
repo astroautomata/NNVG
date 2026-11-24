@@ -3,7 +3,7 @@ import Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
 World "LessOrEqualJoined"
 Level 3
 
-Title "Antisymmetry"
+Title "Antisymmetry of `≤`"
 
 VisualLevelNumber "8"
 

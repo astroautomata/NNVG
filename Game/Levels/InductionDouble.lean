@@ -4,8 +4,8 @@ import Game.Levels.InductionDouble.L02_Decidable
 World "InductionDouble"
 Title "Induction World"
 
--- Induction World's last two levels, 8 and 9. They are a Lean world of their own
--- because ≤ World's level 6 waits for level 7 here and its boss for level 9.
+-- Induction World's last two levels, 8 and 9. (A Lean world of their own from when
+-- ≤ World waited for level 7 and again for level 9; it waits for level 9 alone now.)
 VisualContinues InductionJoined
 VisualMapColumn -1
 

@@ -20,6 +20,7 @@ import Game.Levels.PowerBonus
 import Game.Levels.LessOrEqual
 import Game.Levels.LessOrEqualJoined
 import Game.Levels.LessOrEqualBoss
+import Game.Levels.LessOrEqualBonus
 import Game.Levels.AdvMultiplication
 import Game.Levels.Logic
 import Game.Levels.Outro
@@ -74,22 +75,22 @@ Dependency InductionJoined → InductionDouble
 Dependency Induction → Multiplication
 Dependency Multiplication → Power
 
--- ≤ World follows the ≠ World on the right. Its level 6 waits for Induction World's
--- level 7 and its boss for Induction World's last. Advanced Multiplication World
+-- ≤ World follows the ≠ World on the right. Its level 6 waits for all of Induction
+-- World. Advanced Multiplication World
 -- carries on below it and also needs Multiplication and Exponentiation World's level
 -- 7, whose path comes across from the far left. (MakeGame drops any edge a path
 -- already implies.)
 Dependency NeqJoined → LessOrEqual
 Dependency LessOrEqual → LessOrEqualJoined
-Dependency InductionJoined → LessOrEqualJoined
+Dependency InductionDouble → LessOrEqualJoined
 Dependency LessOrEqualJoined → LessOrEqualBoss
-Dependency InductionDouble → LessOrEqualBoss
 Dependency LessOrEqualBoss → AdvMultiplication
 Dependency Multiplication → AdvMultiplication
 
 -- The bonus boss off Multiplication and Exponentiation World's last level refutes a
--- careless Fermat's Last Theorem, stated with `>`, so it waits for ≤ World too.
-Dependency LessOrEqualBoss → PowerBonus
+-- careless Fermat's Last Theorem, stated with `>`, so it waits for ≤ World's bonus
+-- levels about `>` too.
+Dependency LessOrEqualBonus → PowerBonus
 
 -- Logic World needs both of Proposition World's last bonus branches and the ≠ World.
 Dependency PropositionBonusB → Logic
@@ -97,11 +98,9 @@ Dependency PropositionBonusC → Logic
 Dependency NeqJoined → Logic
 
 -- The End, the closing text at the bottom of the map, follows the final bosses of
--- Multiplication and Exponentiation World, Advanced Multiplication World and Logic
--- World.
+-- Multiplication and Exponentiation World and Advanced Multiplication World.
 Dependency Power → Outro
 Dependency AdvMultiplication → Outro
-Dependency Logic → Outro
 
 VisualPathMap
 

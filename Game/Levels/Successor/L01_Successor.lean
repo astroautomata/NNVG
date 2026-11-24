@@ -5,7 +5,7 @@ Level 1
 
 Title "Counting to Two"
 
-VisualLevelNumber "1"
+VisualLevelNumber "0"
 VisualRewriteOnly
 -- No tabs yet: the four rules are in one list.
 VisualNoRewriteTabs

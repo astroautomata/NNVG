@@ -5,7 +5,7 @@ Level 2
 
 Title "Crossing the Beams (1)"
 
-VisualLevelNumber "5"
+VisualLevelNumber "4"
 
 namespace MyNat
 

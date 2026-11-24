@@ -1,11 +1,11 @@
 import Game.Metadata
 
-World "PropositionBonusB"
+World "PropositionBonusC"
 Level 1
 
 Title "¬¬LEM"
 
-VisualLevelNumber "B1"
+VisualLevelNumber "C0"
 
 Statement : ∀ P : Prop, ¬¬(P ∨ ¬P) := by
   exact fun _ h => h (.inr (fun p => h (.inl p)))

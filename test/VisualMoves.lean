@@ -888,6 +888,52 @@ example (x : ℕ) (h : ∃ c, x + c = 0) : x = 0 := by
   drag_rw_hyp_lhs h1 [add_comm]
   exact add_left_eq_zero c x h1
 
+/-! ## ≤ World's bonus levels: `>` -/
+
+-- A0, `S a > a`: `>` is `¬ (… ≤ …)`, so a click assumes `S a ≤ a`, and that gives a
+-- number like any `≤`. The equation turns into `a + S c1 = a`, which no sum allows.
+example : ∀ a : ℕ, S a > a := by
+  click_goal
+  click_goal
+  click_prop h
+  drag_rw_hyp_rhs h1 [succ_add]
+  drag_rw_hyp_rhs h1 [← add_succ]
+  symm at h1
+  drag_apply add_right_eq_self h1
+  symm at thm_add_right_eq_self
+  drag_apply zero_ne_succ thm_add_right_eq_self
+  drag_goal thm_zero_ne_succ
+
+-- A1, irreflexivity: `a ≤ a` dropped on `a > a` proves `False`.
+example : ∀ a : ℕ, ¬ (a > a) := by
+  click_goal
+  click_goal
+  specialize_forall_as thm_r le_refl x a
+  drag_to thm_r h
+  drag_goal thm_r
+
+-- A2, transitivity: assume `a ≤ c` and compare `b` and `c` with `le_total`. `le_trans`
+-- is specialized by hand: dropped on a card it would leave its last number open.
+example : ∀ a b c : ℕ, a > b → b > c → a > c := by
+  click_goal
+  click_goal
+  click_goal
+  click_goal
+  click_goal
+  click_goal
+  specialize_forall_as thm_t le_total x b
+  specialize_forall_as thm_t1 thm_t y c
+  click_prop thm_t1
+  · drag_to thm_left h1
+    drag_goal thm_left
+  · specialize_forall_as thm_x le_trans x a
+    specialize_forall_as thm_y thm_x y c
+    specialize_forall_as thm_z thm_y z b
+    drag_to h2 thm_z
+    drag_to thm_right thm_z
+    drag_to thm_z1 h
+    drag_goal thm_z1
+
 /-! ## Advanced Multiplication World -/
 
 -- Level 0: `h` gives `b = a + c1`, and `c1 * t` is the number for the goal.

@@ -4,9 +4,10 @@ World "PowerBonus"
 Title "Multiplication and Exponentiation World Bonus"
 
 -- The second form of the final boss: a branch off FOILed Again, not needed to
--- continue. It also waits for ≤ World, which is where `>` comes from, and the map
--- draws that path too.
+-- continue. It also waits for ≤ World's bonus levels, which are about `>`, and the
+-- map draws that path too.
 VisualBonusOf Power 9
+VisualBonusSide right
 VisualHideSwapSides
 
 Introduction

@@ -8,8 +8,8 @@ import Game.Levels.LessOrEqual.L06_LeTrans
 World "LessOrEqual"
 Title "≤ World"
 
--- Levels 0 to 5, after the ≠ World. The rest waits for Induction World (`LessOrEqualJoined`
--- for its level 7, `LessOrEqualBoss` for its last).
+-- Levels 0 to 5, after the ≠ World. The rest waits for all of Induction World
+-- (`LessOrEqualJoined`, then the boss in `LessOrEqualBoss`).
 VisualWorldColor circuit
 VisualMapColumn 1
 

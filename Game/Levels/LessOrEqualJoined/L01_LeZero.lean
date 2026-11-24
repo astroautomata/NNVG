@@ -1,5 +1,5 @@
 import Game.Levels.LessOrEqual
-import Game.Levels.InductionJoined
+import Game.Levels.InductionDouble
 
 World "LessOrEqualJoined"
 Level 1

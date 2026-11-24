@@ -5,7 +5,7 @@ Level 1
 
 Title "Crossing the Beams (0)"
 
-VisualLevelNumber "4"
+VisualLevelNumber "3"
 -- Rewrite Mode opens on `hx`.
 VisualStartTab "Hypotheses"
 

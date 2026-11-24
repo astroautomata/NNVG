@@ -5,7 +5,7 @@ Level 1
 
 Title "Many Such Cases"
 
-VisualLevelNumber "A1"
+VisualLevelNumber "A0"
 
 Statement (A B C : Prop) :
     (A ∨ (B → C)) → ((B ∨ (A → C)) → ((A ∧ B) ∨ ((A ∨ B) → C))) := by

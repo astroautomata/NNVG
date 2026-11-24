@@ -26,6 +26,10 @@ msgstr ""
 msgid "intermediate goal solved! 🎉"
 msgstr ""
 
+#: Game.Levels.LessOrEqualBonus
+msgid "≤ World Bonus"
+msgstr ""
+
 #. §0: $x+y+z$
 #. §1: $(x+y)+z$
 #. §2: $x+(y+z)$
@@ -57,6 +61,11 @@ msgid "§0 says that there exists a number §1 with §2.\n"
 "\n"
 "To *prove* an \"exists\" statement, {pc: click | mobile: tap} the goal and build the\n"
 "number that works."
+msgstr ""
+
+#. §0: `≤`
+#: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
+msgid "Antisymmetry of §0"
 msgstr ""
 
 #: Game.Levels.Successor.L03_Boss
@@ -123,6 +132,16 @@ msgstr ""
 msgid "If and Only If (Conjunctions)"
 msgstr ""
 
+#. §0: `a > b`
+#. §1: `b > c`
+#. §2: `a > c`
+#. §3: `≤`
+#. §4: `b`
+#. §5: `c`
+#: Game.Levels.LessOrEqualBonus.L03_GtTrans
+msgid "If §0 and §1 then §2. §3 World's boss says how §4 and §5 compare."
+msgstr ""
+
 #: Game.Levels.Rewrite.L03_Backwards
 msgid "Reverse Rewriting"
 msgstr ""
@@ -170,7 +189,7 @@ msgstr ""
 msgid "Rewrite World Bonus"
 msgstr ""
 
-#: Game.Levels.PropositionBonusC.L01_Leftwards
+#: Game.Levels.PropositionBonusB.L01_Leftwards
 msgid "The Other De Morgan's Law (Leftwards)"
 msgstr ""
 
@@ -184,7 +203,7 @@ msgid "This level asks you to prove *antisymmetry* of §0.\n"
 "It's the trickiest one so far. Good luck!"
 msgstr ""
 
-#: Game.Levels.PropositionBonusC.L02_ExcludedMiddle
+#: Game.Levels.PropositionBonusB.L02_ExcludedMiddle
 msgid "The Other De Morgan's Law (Rightwards with the Law of Excluded Middle)"
 msgstr ""
 
@@ -351,25 +370,12 @@ msgid "A passing mathematician notes that you've proved\n"
 "Powers are next, on the way to the final boss."
 msgstr ""
 
-#: Game.Levels.PowerBonus
-msgid "Multiplication and Exponentiation World Bonus"
+#: Game.Levels.LessOrEqualBonus.L02_GtIrrefl
+msgid "No number is greater than itself."
 msgstr ""
 
-#. §0: $x,y,z>0$
-#. §1: $n > 2$
-#. §2: $x^n+y^n\\not =z^n$
-#. §3: $x,y,z>0$
-#. §4: `≤`
-#. §5: `n > 2`
-#. §6: `¬ n ≤ 2`
-#: Game.Levels.PowerBonus.L01_FLT
-msgid "Fermat's Last Theorem states that if §0 and §1 then §2.\n"
-"Its shortest known proof would translate into many millions of lines of Lean code.\n"
-"\n"
-"The statement in this level forgot to ask for §3. That makes all the difference:\n"
-"it is false, and a few well-chosen numbers show it.\n"
-"\n"
-"With §4 World behind us, §5 means §6."
+#: Game.Levels.PowerBonus
+msgid "Multiplication and Exponentiation World Bonus"
 msgstr ""
 
 #. §0: `a ≠ 0`
@@ -523,6 +529,13 @@ msgstr ""
 #: Game.Levels.Outro.L01_ThankYou
 #: Game.Levels.Outro
 msgid "The End"
+msgstr ""
+
+#. §0: `lt_succ_self a`
+#. §1: `S a > a`
+#. §2: `a < S a`
+#: Game.Levels.LessOrEqualBonus.L01_Gt
+msgid "§0 is a proof of §1, which is the same as §2."
 msgstr ""
 
 #. §0: `mul_zero`
@@ -743,6 +756,12 @@ msgstr ""
 msgid "§0 says that §1."
 msgstr ""
 
+#. §0: `>`
+#. §1: `≤`
+#: Game.Levels.LessOrEqualBonus
+msgid "Bonus levels about §0, which is defined from §1. You don't need them to continue."
+msgstr ""
+
 #. §0: `add_right_cancel a b n`
 #. §1: $a+n=b+n \\implies a=b.$
 #: Game.Levels.InductionJoined.L01_AddRightCancel
@@ -755,10 +774,6 @@ msgstr ""
 
 #: Game.Levels.Rewrite.L05_Fractions
 msgid "General Rewriting (Associativity)"
-msgstr ""
-
-#: Game.Levels.LessOrEqual.L06_LeTrans
-msgid "Transitivity"
 msgstr ""
 
 #. §0: `pow_succ a b : a ^ (S b) = a ^ b * a`
@@ -776,6 +791,12 @@ msgid "It's all over! You have proved a theorem which has tripped up\n"
 "How many rewrites did you use? I can do it in 12.\n"
 "\n"
 "But wait! This boss is stirring...and mutating into a second more powerful form!"
+msgstr ""
+
+#. §0: `≤`
+#: Game.Levels.LessOrEqual.L06_LeTrans
+#: Game.Levels.LessOrEqualBonus.L03_GtTrans
+msgid "Transitivity of §0"
 msgstr ""
 
 #. §0: `one_mul m`
@@ -844,11 +865,11 @@ msgid "## Summary\n"
 "§21."
 msgstr ""
 
-#: Game.Levels.PropositionBonusB.L01_NotNotExcludedMiddle
+#: Game.Levels.PropositionBonusC.L01_NotNotExcludedMiddle
 msgid "¬¬LEM"
 msgstr ""
 
-#: Game.Levels.PropositionBonusC
+#: Game.Levels.PropositionBonusB
 msgid "Bonus puzzles about the other De Morgan's law. You don't need them to continue."
 msgstr ""
 
@@ -857,7 +878,7 @@ msgstr ""
 msgid "Welcome"
 msgstr ""
 
-#: Game.Levels.PropositionBonusC.L03_WeakExcludedMiddle
+#: Game.Levels.PropositionBonusB.L03_WeakExcludedMiddle
 msgid "The Other De Morgan's Law (Rightwards with the Weak Law of Excluded Middle)"
 msgstr ""
 
@@ -879,6 +900,10 @@ msgstr ""
 #. §1: `x = 0 + c`
 #: Game.Levels.LessOrEqual.L03_ZeroLe
 msgid "To solve this level, you need to build a number §0 such that §1."
+msgstr ""
+
+#: Game.Levels.LessOrEqualBonus.L04_Trichotomy
+msgid "Trichotomy"
 msgstr ""
 
 #. §0: `mul_assoc a b c`
@@ -962,6 +987,11 @@ msgstr ""
 msgid "Crossing the Beams (0)"
 msgstr ""
 
+#. §0: `>`
+#: Game.Levels.LessOrEqualBonus.L02_GtIrrefl
+msgid "Irreflexivity of §0"
+msgstr ""
+
 #: Game.Levels.RewriteBonusB.L01_FixedPoint
 msgid "Fixed Point"
 msgstr ""
@@ -981,6 +1011,23 @@ msgstr ""
 #: Game.Levels.Successor
 #: Game.Levels.SuccessorJoined
 msgid "Build the natural numbers from scratch, one successor at a time."
+msgstr ""
+
+#. §0: $x,y,z>0$
+#. §1: $n > 2$
+#. §2: $x^n+y^n\\not =z^n$
+#. §3: $x,y,z>0$
+#. §4: `≤`
+#. §5: `n > 2`
+#. §6: `¬ n ≤ 2`
+#: Game.Levels.PowerBonus.L01_FLT
+msgid "Fermat's Last Theorem states that if §0 and §1 then §2.\n"
+"Its shortest known proof would translate into many millions of lines of Lean code.\n"
+"\n"
+"The statement in this level forgot to ask for §3. That makes all the difference:\n"
+"it is false, and a few well-chosen numbers show it.\n"
+"\n"
+"As in §4 World's bonus levels, §5 means §6."
 msgstr ""
 
 #. §0: `a ≠ b`
@@ -1054,6 +1101,7 @@ msgstr ""
 #: Game.Levels.LessOrEqual.L01_Exists
 #: Game.Levels.LessOrEqual.L02_LeRefl
 #: Game.Levels.LessOrEqualJoined.L04_LeOne
+#: Game.Levels.LessOrEqualBonus.L01_Gt
 #: Game.Levels.AdvMultiplication.L01_MulLeMulRight
 #: Game.Levels.AdvMultiplication.L02_MulLeftNeZero
 #: Game.Levels.AdvMultiplication.L03_EqSuccOfNeZero
@@ -1095,7 +1143,7 @@ msgstr ""
 msgid "The De Morgan's Law That Is Intuitionistically Valid (Proposition World Boss)"
 msgstr ""
 
-#: Game.Levels.PropositionBonusB
+#: Game.Levels.PropositionBonusC
 msgid "A bonus puzzle about the Law of Excluded Middle. You don't need it to continue."
 msgstr ""
 
@@ -1127,6 +1175,15 @@ msgstr ""
 #: Game.Levels.Power.L01_ZeroPowZero
 msgid "§0 is one of the two axioms\n"
 "defining exponentiation in this game."
+msgstr ""
+
+#. §0: `a > b`
+#. §1: `¬ (a ≤ b)`
+#. §2: `a < b`
+#. §3: `b > a`
+#: Game.Levels.LessOrEqualBonus.L01_Gt
+msgid "§0 means §1, and §2 means §3. A number's successor is greater\n"
+"than the number."
 msgstr ""
 
 #. §0: `pow_one a`
@@ -1335,19 +1392,14 @@ msgid "This level is more important than you think; it plays\n"
 "a useful role when battling a big boss later on."
 msgstr ""
 
+#: Game.Levels.LessOrEqualBonus.L04_Trichotomy
+msgid "Two numbers are equal, or one of them is greater than the other."
+msgstr ""
+
 #: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
 msgid "We now have all the tools necessary to set up the basic theory of divisibility of naturals.\n"
 "\n"
 "One boss to go."
-msgstr ""
-
-#. §0: `le_one x`
-#. §1: `x ≤ 1`
-#. §2: `x = 0`
-#. §3: `x = 1`
-#: Game.Levels.LessOrEqualJoined.L04_LeOne
-#: Game.Levels.AdvMultiplication.L08_MulEqZero
-msgid "§0 is a proof that if §1 then §2 or §3."
 msgstr ""
 
 #. §0: `le_mul_right a b`
@@ -1357,6 +1409,15 @@ msgid "§0 is a proof that §1.\n"
 "\n"
 "It's one way of saying that a divisor of a positive number\n"
 "has to be at most that number."
+msgstr ""
+
+#. §0: `le_one x`
+#. §1: `x ≤ 1`
+#. §2: `x = 0`
+#. §3: `x = 1`
+#: Game.Levels.LessOrEqualJoined.L04_LeOne
+#: Game.Levels.AdvMultiplication.L08_MulEqZero
+msgid "§0 is a proof that if §1 then §2 or §3."
 msgstr ""
 
 #. §0: `cases`
@@ -1529,10 +1590,6 @@ msgstr ""
 #: Game.Metadata
 msgid "§0 rewrites the goal with the equality §1, replacing its left side by its\n"
 "right side. §2 rewrites from right to left."
-msgstr ""
-
-#: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
-msgid "Antisymmetry"
 msgstr ""
 
 #: Game.Levels.Multiplication

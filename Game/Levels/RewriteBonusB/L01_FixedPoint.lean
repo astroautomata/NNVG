@@ -5,7 +5,7 @@ Level 1
 
 Title "Fixed Point"
 
-VisualLevelNumber "B1"
+VisualLevelNumber "B0"
 VisualRewriteOnly
 
 Statement (f : ℕ → ℕ) (x a b c : ℕ) (fixed_point : f x = x) (hx : x = a)
