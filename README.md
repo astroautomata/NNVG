@@ -1,8 +1,8 @@
 # Natural Numbers Video Game
 
 A Lean 4 game built for Visual Lean's drag-and-drop interface. It needs a
-lean4game (`../lean4game`) with the level-format features it uses: this branch,
-`v9`, goes with lean4game's `nnvg-v9`. The spec lives in `../../NNVG_plans`.
+lean4game (`../lean4game`) with the level-format features it uses, which its `main`
+has. The spec lives in `../../NNVG_plans`.
 
 ## Layout
 
