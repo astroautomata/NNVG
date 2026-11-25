@@ -15,15 +15,15 @@ If you build the wrong number, you get stuck with a goal you can't prove.
 What number will you build here?
 "
 
-/-- `le_succ_self x` is a proof that `x ≤ S x`. -/
+/-- `le_succ_self n` is a proof that `n ≤ S n`. -/
 TheoremDoc MyNat.le_succ_self as "le_succ_self" in "≤"
 
-Statement le_succ_self : ∀ x : ℕ, x ≤ S x := by
-  exact fun x => by
+Statement le_succ_self : ∀ n : ℕ, n ≤ S n := by
+  exact fun n => by
     rw [← add_one_eq_succ]
-    exact (⟨1, reflection _⟩ : ∃ c, x + 1 = x + c)
+    exact (⟨1, reflection _⟩ : ∃ c, n + 1 = n + c)
 
 Conclusion
 "
-This works because `add_one_eq_succ x` is a proof of `x + 1 = S x`.
+This works because `add_one_eq_succ n` is a proof of `n + 1 = S n`.
 "

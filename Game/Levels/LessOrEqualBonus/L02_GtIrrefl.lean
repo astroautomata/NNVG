@@ -14,5 +14,5 @@ Introduction
 No number is greater than itself.
 "
 
-Statement : ∀ a : ℕ, ¬ (a > a) := by
-  exact fun a h => h (le_refl a)
+Statement : ∀ n : ℕ, ¬ (n > n) := by
+  exact fun n h => h (leq_refl n)

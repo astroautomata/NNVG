@@ -17,11 +17,11 @@ Introduction
 than the number.
 "
 
-/-- `lt_succ_self a` is a proof of `S a > a`, which is the same as `a < S a`. -/
+/-- `lt_succ_self n` is a proof of `S n > n`, which is the same as `n < S n`. -/
 TheoremDoc MyNat.lt_succ_self as "lt_succ_self" in "≤"
 
-Statement lt_succ_self : ∀ a : ℕ, S a > a := by
-  exact fun a => by
+Statement lt_succ_self : ∀ n : ℕ, S n > n := by
+  exact fun n => by
     rw [← add_one_eq_succ]
-    exact fun h => (h : ∃ c, a = a + 1 + c).elim (fun c hc =>
-      one_ne_zero (add_right_eq_zero 1 c (add_right_eq_self a (1 + c) (by rw [← add_assoc]; exact hc.symm))))
+    exact fun h => (h : ∃ c, n = n + 1 + c).elim (fun c hc =>
+      one_ne_zero (add_right_eq_zero 1 c (add_right_eq_self n (1 + c) (by rw [← add_assoc]; exact hc.symm))))

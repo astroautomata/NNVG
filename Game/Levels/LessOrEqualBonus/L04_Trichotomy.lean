@@ -14,10 +14,9 @@ Introduction
 Two numbers are equal, or one of them is greater than the other.
 "
 
--- The spec writes the last case `b < a`, which is `a > b` over again; trichotomy's
--- third case is `a < b`. With no `cases` here, `le_total` compares the two numbers
--- and `le_one` says whether the difference is `0`.
-Statement : ∀ a b : ℕ, a = b ∨ (a > b ∨ a < b) := by
+-- With no `cases` here, `le_total` compares the two numbers and `le_one` says whether
+-- the difference is `0`.
+Statement : ∀ a b : ℕ, a = b ∨ (a > b ∨ b > a) := by
   exact fun a b =>
     (fun (key : ∀ x y d : ℕ, y = x + (1 + d) → ¬ y ≤ x) => (le_total a b).elim
       (fun hab => (hab : ∃ c, b = a + c).elim (fun c hc => (le_total 1 c).elim

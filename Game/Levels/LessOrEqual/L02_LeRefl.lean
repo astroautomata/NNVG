@@ -47,11 +47,24 @@ theorem add_left_eq_zero (a b : ℕ) : a + b = 0 → b = 0 := by
 NewTheorem MyNat.add_left_eq_zero
 
 /--
-`le_refl x` is a proof of `x ≤ x`.
+`leq_refl n` is a proof of `n ≤ n`.
 
 The reason for the name is that this lemma is "reflexivity of $\le$"
 -/
-TheoremDoc MyNat.le_refl as "le_refl" in "≤"
+TheoremDoc MyNat.leq_refl as "leq_refl" in "≤"
 
-Statement le_refl : ∀ x : ℕ, x ≤ x := by
-  exact fun x => (⟨0, by rw [add_zero]⟩ : ∃ c, x = x + c)
+Statement leq_refl : ∀ n : ℕ, n ≤ n := by
+  exact fun n => (⟨0, by rw [add_zero]⟩ : ∃ c, n = n + c)
+
+/-- `eq_implies_leq a b` is a proof that if `a = b` then `a ≤ b`. -/
+TheoremDoc MyNat.eq_implies_leq as "eq_implies_leq" in "≤"
+
+-- Unlocked by finishing this level, with no level of its own (`NewTheorem` in the next).
+theorem eq_implies_leq (a b : ℕ) : a = b → a ≤ b := by
+  exact fun h => by rw [h]; exact leq_refl b
+
+Conclusion
+"
+Equal numbers are a special case: if `a = b` then `a ≤ b`. That is `eq_implies_leq`,
+and you have it from now on.
+"

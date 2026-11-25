@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.28.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-24\n"
+"POT-Creation-Date: 2026-11-25\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -194,9 +194,9 @@ msgid "The Other De Morgan's Law (Leftwards)"
 msgstr ""
 
 #. §0: $\\leq$
-#. §1: $x \\leq y$
-#. §2: $y \\leq x$
-#. §3: $x = y$
+#. §1: $a \\leq b$
+#. §2: $b \\leq a$
+#. §3: $a = b$
 #: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
 msgid "This level asks you to prove *antisymmetry* of §0.\n"
 "In other words, if §1 and §2 then §3.\n"
@@ -276,10 +276,10 @@ msgstr ""
 msgid "Implications (1)"
 msgstr ""
 
-#. §0: `le_antisymm x y`
-#. §1: `x ≤ y`
-#. §2: `y ≤ x`
-#. §3: `x = y`
+#. §0: `le_antisymm a b`
+#. §1: `a ≤ b`
+#. §2: `b ≤ a`
+#. §3: `a = b`
 #: Game.Levels.LessOrEqualJoined.L03_LeAntisymm
 #: Game.Levels.AdvMultiplication.L07_MulNeZero
 #: Game.Levels.AdvMultiplication.L09_MulRightEqSelf
@@ -304,8 +304,8 @@ msgid "If you build the wrong number, you get stuck with a goal you can't prove.
 "What number will you build here?"
 msgstr ""
 
-#. §0: `le_refl x`
-#. §1: `x ≤ x`
+#. §0: `leq_refl n`
+#. §1: `n ≤ n`
 #. §2: $\\le$
 #: Game.Levels.LessOrEqual.L02_LeRefl
 msgid "§0 is a proof of §1.\n"
@@ -433,9 +433,10 @@ msgid "Let's now begin our approach to the final boss,\n"
 "by proving some more subtle facts about powers."
 msgstr ""
 
-#. §0: `leq_add_right_cancel x y n`
-#. §1: `x + n ≤ y + n`
-#. §2: `x ≤ y`
+#. §0: `eq_implies_leq a b`
+#. §1: `a = b`
+#. §2: `a ≤ b`
+#: Game.Levels.LessOrEqual.L02_LeRefl
 #: Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
 msgid "§0 is a proof that if §1 then §2."
 msgstr ""
@@ -445,8 +446,8 @@ msgstr ""
 msgid "Equalities are propositions too. Prove some, and prove that some numbers are different."
 msgstr ""
 
-#. §0: `x + n ≤ y + n`
-#. §1: `x ≤ y`
+#. §0: `a + n ≤ b + n`
+#. §1: `a ≤ b`
 #: Game.Levels.LessOrEqualJoined.L02_LeAddRightCancel
 msgid "Adding the same number to both sides of an inequality changes nothing, so it can be\n"
 "taken away again: if §0 then §1."
@@ -531,9 +532,9 @@ msgstr ""
 msgid "The End"
 msgstr ""
 
-#. §0: `lt_succ_self a`
-#. §1: `S a > a`
-#. §2: `a < S a`
+#. §0: `lt_succ_self n`
+#. §1: `S n > n`
+#. §2: `n < S n`
 #: Game.Levels.LessOrEqualBonus.L01_Gt
 msgid "§0 is a proof of §1, which is the same as §2."
 msgstr ""
@@ -572,19 +573,19 @@ msgid "A passing mathematician remarks that with antisymmetry as well,\n"
 "The boss level of this world is to prove that §2 is a total order."
 msgstr ""
 
-#. §0: `le_trans x y z`
-#. §1: `x ≤ y`
-#. §2: `y ≤ z`
-#. §3: `x ≤ z`
-#. §4: `x ≤ y → (y ≤ z → x ≤ z)`
-#. §5: $x \\le y$
-#. §6: $y \\le z$
-#. §7: $x \\le z$
+#. §0: `le_trans a b c`
+#. §1: `a ≤ b`
+#. §2: `b ≤ c`
+#. §3: `a ≤ c`
+#. §4: `a ≤ b → (b ≤ c → a ≤ c)`
+#. §5: $a \\le b$
+#. §6: $b \\le c$
+#. §7: $a \\le c$
 #. §8: `a + b + c`
 #. §9: `(a + b) + c`
 #. §10: `+`
 #. §11: `→`
-#. §12: `x ≤ y → y ≤ z → x ≤ z`
+#. §12: `a ≤ b → b ≤ c → a ≤ c`
 #. §13: `≤`
 #. §14: $P \\implies Q \\implies R$
 #. §15: $P \\implies Q$
@@ -609,11 +610,11 @@ msgid "More facts about §0, with the cancellation theorems of Induction World."
 msgstr ""
 
 #. §0: `le_zero`
-#. §1: `x ≤ 0`
-#. §2: `x = 0`
-#. §3: `x ≤ 1`
-#. §4: `x = 0`
-#. §5: `x = 1`
+#. §1: `n ≤ 0`
+#. §2: `n = 0`
+#. §3: `n ≤ 1`
+#. §4: `n = 0`
+#. §5: `n = 1`
 #: Game.Levels.LessOrEqualJoined.L04_LeOne
 msgid "We've seen §0, the proof that if §1 then §2.\n"
 "Now we'll prove that if §3 then §4 or §5."
@@ -897,7 +898,7 @@ msgid "Welcome to the Natural Numbers Video Game!\n"
 msgstr ""
 
 #. §0: `c`
-#. §1: `x = 0 + c`
+#. §1: `n = 0 + c`
 #: Game.Levels.LessOrEqual.L03_ZeroLe
 msgid "To solve this level, you need to build a number §0 such that §1."
 msgstr ""
@@ -1068,8 +1069,8 @@ msgid "§0, with notation §1, is the usual exponentiation of natural numbers.\n
 "Note in particular that §4."
 msgstr ""
 
-#. §0: `add_one_eq_succ x`
-#. §1: `x + 1 = S x`
+#. §0: `add_one_eq_succ n`
+#. §1: `n + 1 = S n`
 #: Game.Levels.LessOrEqual.L04_LeSuccSelf
 msgid "This works because §0 is a proof of §1."
 msgstr ""
@@ -1149,6 +1150,14 @@ msgstr ""
 
 #: Game.Levels.PropositionRight.L06_NegatedImplication
 msgid "Negation (1)"
+msgstr ""
+
+#. §0: `a = b`
+#. §1: `a ≤ b`
+#. §2: `eq_implies_leq`
+#: Game.Levels.LessOrEqual.L02_LeRefl
+msgid "Equal numbers are a special case: if §0 then §1. That is §2,\n"
+"and you have it from now on."
 msgstr ""
 
 #: Game.Levels.PowerBonus.L01_FLT
@@ -1411,10 +1420,10 @@ msgid "§0 is a proof that §1.\n"
 "has to be at most that number."
 msgstr ""
 
-#. §0: `le_one x`
-#. §1: `x ≤ 1`
-#. §2: `x = 0`
-#. §3: `x = 1`
+#. §0: `le_one n`
+#. §1: `n ≤ 1`
+#. §2: `n = 0`
+#. §3: `n = 1`
 #: Game.Levels.LessOrEqualJoined.L04_LeOne
 #: Game.Levels.AdvMultiplication.L08_MulEqZero
 msgid "§0 is a proof that if §1 then §2 or §3."
@@ -1539,9 +1548,9 @@ msgid "Although §0 in this game, §1 if §2, i.e., if\n"
 "§3 is a successor."
 msgstr ""
 
-#. §0: `le_total x y`
-#. §1: `x ≤ y`
-#. §2: `y ≤ x`
+#. §0: `le_total a b`
+#. §1: `a ≤ b`
+#. §2: `b ≤ a`
 #: Game.Levels.LessOrEqualBoss.L01_LeTotal
 msgid "§0 is a proof that §1 or §2."
 msgstr ""

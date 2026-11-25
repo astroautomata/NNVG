@@ -836,15 +836,15 @@ example : ∃ n : ℕ, n + n = 0 := by
   drag_rw_lhs [add_zero]
   click_goal
 
--- Level 1: `x ≤ x` is `∃ c, x = x + c`, and `0` is the number.
-example : ∀ x : ℕ, x ≤ x := by
+-- Level 1: `n ≤ n` is `∃ c, n = n + c`, and `0` is the number.
+example : ∀ n : ℕ, n ≤ n := by
   click_goal
   refine Exists.intro (0) ?_
   drag_rw_rhs [add_zero]
   click_goal
 
 -- Level 4: clicking a `≤` hypothesis names its number, `c1`, and its equation.
-example (x y : ℕ) (h : x ≤ y) : x ≤ S y := by
+example (a b : ℕ) (h : a ≤ b) : a ≤ S b := by
   click_prop h
   refine Exists.intro (S c1) ?_
   drag_rw_rhs [add_succ]
@@ -852,7 +852,7 @@ example (x y : ℕ) (h : x ≤ y) : x ≤ S y := by
   click_goal
 
 -- Level 5: the numbers of two `≤` hypotheses are `c1` and `c2`, never plain `c`.
-example (x y z : ℕ) (hxy : x ≤ y) (hyz : y ≤ z) : x ≤ z := by
+example (a b c : ℕ) (hxy : a ≤ b) (hyz : b ≤ c) : a ≤ c := by
   click_prop hxy
   click_prop hyz
   refine Exists.intro (c1 + c2) ?_
@@ -862,14 +862,14 @@ example (x y z : ℕ) (hxy : x ≤ y) (hyz : y ≤ z) : x ≤ z := by
   click_goal
 
 -- Level 6: Induction World's `add_right_eq_zero`, once the equation is turned round.
-example (x : ℕ) (hx : x ≤ 0) : x = 0 := by
-  click_prop hx
+example (n : ℕ) (hn : n ≤ 0) : n = 0 := by
+  click_prop hn
   symm at h
   drag_apply add_right_eq_zero h
   drag_goal thm_add_right_eq_zero
 
 -- Level 7, `≤` Add Right Cancel: move `n` to the end of the sum and cancel it.
-example : ∀ x y n : ℕ, x + n ≤ y + n → x ≤ y := by
+example : ∀ a b n : ℕ, a + n ≤ b + n → a ≤ b := by
   click_goal
   click_goal
   click_goal
@@ -890,9 +890,9 @@ example (x : ℕ) (h : ∃ c, x + c = 0) : x = 0 := by
 
 /-! ## ≤ World's bonus levels: `>` -/
 
--- A0, `S a > a`: `>` is `¬ (… ≤ …)`, so a click assumes `S a ≤ a`, and that gives a
--- number like any `≤`. The equation turns into `a + S c1 = a`, which no sum allows.
-example : ∀ a : ℕ, S a > a := by
+-- A0, `S n > n`: `>` is `¬ (… ≤ …)`, so a click assumes `S n ≤ n`, and that gives a
+-- number like any `≤`. The equation turns into `n + S c1 = n`, which no sum allows.
+example : ∀ n : ℕ, S n > n := by
   click_goal
   click_goal
   click_prop h
@@ -904,11 +904,11 @@ example : ∀ a : ℕ, S a > a := by
   drag_apply zero_ne_succ thm_add_right_eq_self
   drag_goal thm_zero_ne_succ
 
--- A1, irreflexivity: `a ≤ a` dropped on `a > a` proves `False`.
-example : ∀ a : ℕ, ¬ (a > a) := by
+-- A1, irreflexivity: `n ≤ n` dropped on `n > n` proves `False`.
+example : ∀ n : ℕ, ¬ (n > n) := by
   click_goal
   click_goal
-  specialize_forall_as thm_r le_refl x a
+  specialize_forall_as thm_r leq_refl n n
   drag_to thm_r h
   drag_goal thm_r
 
@@ -921,14 +921,14 @@ example : ∀ a b c : ℕ, a > b → b > c → a > c := by
   click_goal
   click_goal
   click_goal
-  specialize_forall_as thm_t le_total x b
-  specialize_forall_as thm_t1 thm_t y c
+  specialize_forall_as thm_t le_total a b
+  specialize_forall_as thm_t1 thm_t b c
   click_prop thm_t1
   · drag_to thm_left h1
     drag_goal thm_left
-  · specialize_forall_as thm_x le_trans x a
-    specialize_forall_as thm_y thm_x y c
-    specialize_forall_as thm_z thm_y z b
+  · specialize_forall_as thm_x le_trans a a
+    specialize_forall_as thm_y thm_x b c
+    specialize_forall_as thm_z thm_y c b
     drag_to h2 thm_z
     drag_to thm_right thm_z
     drag_to thm_z1 h

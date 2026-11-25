@@ -21,21 +21,21 @@ hypothesis. And don't choose a side of an `∨` goal until your hypotheses guara
 you can prove it!
 "
 
-/-- `le_total x y` is a proof that `x ≤ y` or `y ≤ x`. -/
+/-- `le_total a b` is a proof that `a ≤ b` or `b ≤ a`. -/
 TheoremDoc MyNat.le_total as "le_total" in "≤"
 
-Statement le_total : ∀ x y : ℕ, x ≤ y ∨ y ≤ x := by
-  exact fun x y => by
-    induction y with d hd
-    · exact .inr (zero_le x)
-    · exact hd.elim (fun h1 => .inl (le_trans x d _ h1 (le_succ_self d)))
-        (fun h2 => (h2 : ∃ c, x = d + c).elim (fun e he => by
-          induction e with a _ha
+Statement le_total : ∀ a b : ℕ, a ≤ b ∨ b ≤ a := by
+  exact fun a b => by
+    induction b with d hd
+    · exact .inr (zero_leq a)
+    · exact hd.elim (fun h1 => .inl (le_trans a d _ h1 (le_succ_self d)))
+        (fun h2 => (h2 : ∃ c, a = d + c).elim (fun e he => by
+          induction e with f _hf
           · exact .inl (by rw [add_zero] at he; rw [he]; exact le_succ_self d)
           · exact .inr (by
               rw [← add_one_eq_succ]
-              exact (⟨a, by rw [add_assoc, add_comm 1 a, add_one_eq_succ]; exact he⟩ :
-                ∃ c, x = d + 1 + c))))
+              exact (⟨f, by rw [add_assoc, add_comm 1 f, add_one_eq_succ]; exact he⟩ :
+                ∃ c, a = d + 1 + c))))
 
 Conclusion
 "

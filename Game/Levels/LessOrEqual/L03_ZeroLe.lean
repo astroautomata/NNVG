@@ -11,11 +11,13 @@ namespace MyNat
 
 Introduction
 "
-To solve this level, you need to build a number `c` such that `x = 0 + c`.
+To solve this level, you need to build a number `c` such that `n = 0 + c`.
 "
 
-/-- `zero_le x` is a proof that `0 ≤ x`. -/
-TheoremDoc MyNat.zero_le as "zero_le" in "≤"
+NewTheorem MyNat.eq_implies_leq
 
-Statement zero_le : ∀ x : ℕ, 0 ≤ x := by
-  exact fun x => (⟨x, by rw [zero_add]⟩ : ∃ c, x = 0 + c)
+/-- `zero_leq n` is a proof that `0 ≤ n`. -/
+TheoremDoc MyNat.zero_leq as "zero_leq" in "≤"
+
+Statement zero_leq : ∀ n : ℕ, 0 ≤ n := by
+  exact fun n => (⟨n, by rw [zero_add]⟩ : ∃ c, n = 0 + c)

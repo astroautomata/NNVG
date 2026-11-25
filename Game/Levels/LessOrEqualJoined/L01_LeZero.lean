@@ -16,8 +16,8 @@ It's \"intuitively obvious\" that there are no numbers less than zero,
 but to prove it you will need `add_right_eq_zero` from Induction World.
 "
 
-/-- `le_zero x` is a proof of `x ≤ 0 → x = 0`. -/
+/-- `le_zero n` is a proof of `n ≤ 0 → n = 0`. -/
 TheoremDoc MyNat.le_zero as "le_zero" in "≤"
 
-Statement le_zero (x : ℕ) (hx : x ≤ 0) : x = 0 := by
-  exact (hx : ∃ c, 0 = x + c).elim (fun c hc => add_right_eq_zero x c hc.symm)
+Statement le_zero (n : ℕ) (hn : n ≤ 0) : n = 0 := by
+  exact (hn : ∃ c, 0 = n + c).elim (fun c hc => add_right_eq_zero n c hc.symm)

@@ -12,16 +12,17 @@ namespace MyNat
 Introduction
 "
 This level asks you to prove *antisymmetry* of $\\leq$.
-In other words, if $x \\leq y$ and $y \\leq x$ then $x = y$.
+In other words, if $a \\leq b$ and $b \\leq a$ then $a = b$.
 It's the trickiest one so far. Good luck!
 "
 
-/-- `le_antisymm x y` is a proof that if `x ≤ y` and `y ≤ x` then `x = y`. -/
+/-- `le_antisymm a b` is a proof that if `a ≤ b` and `b ≤ a` then `a = b`. -/
 TheoremDoc MyNat.le_antisymm as "le_antisymm" in "≤"
 
-Statement le_antisymm (x y : ℕ) (hxy : x ≤ y) (hyx : y ≤ x) : x = y := by
-  exact (hxy : ∃ c, y = x + c).elim (fun a ha => (hyx : ∃ c, x = y + c).elim (fun b hb => by
-    rw [ha, add_right_eq_zero a b (add_right_eq_self x (a + b) (by rw [← add_assoc, ← ha]; exact hb.symm)),
+-- The spec keeps the hypotheses' names, `hxy` and `hyx`, with the numbers `a` and `b`.
+Statement le_antisymm (a b : ℕ) (hxy : a ≤ b) (hyx : b ≤ a) : a = b := by
+  exact (hxy : ∃ c, b = a + c).elim (fun d hd => (hyx : ∃ c, a = b + c).elim (fun e he => by
+    rw [hd, add_right_eq_zero d e (add_right_eq_self a (d + e) (by rw [← add_assoc, ← hd]; exact he.symm)),
       add_zero]))
 
 Conclusion
