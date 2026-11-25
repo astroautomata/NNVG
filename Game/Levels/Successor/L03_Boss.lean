@@ -6,6 +6,10 @@ Level 3
 Title "Counting to Four (Miniboss)"
 
 VisualLevelNumber "2"
+
+-- Experimental (V13): the screen before the level.
+VisualPreLevel "Successor World Miniboss"
+VisualPreLevelText "Counting to Four"
 VisualRewriteOnly
 VisualNoHypothesesTab
 -- `add_one` is in the `+` tab.

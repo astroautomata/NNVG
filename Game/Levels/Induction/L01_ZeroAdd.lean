@@ -7,6 +7,15 @@ Title "`zero_add`"
 
 VisualLevelNumber "0"
 
+-- Experimental (V13): the screens before and after the level. The spec's text for
+-- `induction` is still "TODO", so the screen shows the tactic alone.
+VisualPreLevel "Tactic Unlocked!"
+VisualPreLevelUnlock induction
+VisualPostLevel "Theorem Unlocked!"
+VisualPostLevelUnlock zero_add "Eliminate added zeroes on the right.
+
+Not to be confused with `add_zero`!"
+
 namespace MyNat
 
 Introduction

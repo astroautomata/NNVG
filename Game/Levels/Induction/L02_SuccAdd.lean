@@ -7,6 +7,12 @@ Title "`succ_add`"
 
 VisualLevelNumber "1"
 
+-- Experimental (V13): the screen after the level.
+VisualPostLevel "Theorem Unlocked!"
+VisualPostLevelUnlock succ_add "Move successor functions out of the left addend.
+
+Not to be confused with `add_succ`!"
+
 namespace MyNat
 
 Introduction

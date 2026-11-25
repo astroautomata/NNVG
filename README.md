@@ -31,6 +31,7 @@ has. The spec lives in `../../NNVG_plans`.
 - `Game/MyNat/Multiplication.lean`, `Power.lean`, `LE.lean`: `*` and `^` as in NNG4 (two axioms each), and `≤`: `a ≤ b` is `∃ c, b = a + c`, as in NNG4, kept semireducible so cards show `≤`; `a > b` is `¬ a ≤ b`. `VisualNumberedWitnesses` in `Game/Metadata.lean` names the numbers that `≤` hypotheses give `c1`, `c2`, ….
 - `Game/Tactic/Cases.lean`: `cases n with n1`, which Visual Lean plays, without Mathlib.
 - `test/VisualMoves.lean`: replays the levels' solutions with Visual Lean's tactics.
+- Experimental (this branch, `v13-interstitials`, with lean4game's branch of the same name): screens between levels. `VisualPreLevel "Axioms Unlocked!"`, `VisualPreLevelUnlock add_zero "…"` and `VisualPreLevelText "…"` in a level file make the screen shown before the level, the `VisualPostLevel…` commands the one after it; Successor World 0, 1, 2 and 5 and Induction World 0 to 3 have the ones the spec tries. What a screen says about a theorem is also its description in the map's Compendium.
 - `tools/list_theorems.py`: writes `THEOREMS.md`, every theorem by the mode it is used in (an equation is a rule of Rewrite Mode, anything else a card of Proposition Mode) and its tab, with the level it comes from. Run it after `lake build` when a theorem is added, renamed or moved.
 
 Each world is a column of levels on the path map (`VisualPathMap` in `Game.lean`).

@@ -6,6 +6,16 @@ Level 1
 Title "Counting to Two"
 
 VisualLevelNumber "0"
+
+-- Experimental (V13): the screen before the level.
+VisualPreLevel "Axioms Unlocked!"
+VisualPreLevelUnlock one_eq_succ_zero
+VisualPreLevelUnlock two_eq_succ_one
+VisualPreLevelUnlock three_eq_succ_two
+VisualPreLevelUnlock four_eq_succ_three
+VisualPreLevelText "From now on, we'll be building up facts about the natural numbers from scratch.
+
+These first axioms tell us how to expand numbers as many nested successor functions."
 VisualRewriteOnly
 -- No tabs yet: the four rules are in one list.
 VisualNoRewriteTabs
