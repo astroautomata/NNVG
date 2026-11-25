@@ -14,7 +14,7 @@ namespace MyNat
 -- The first level to use Rewriting Mode and Proposition Mode together: the goal is
 -- opened in Rewrite Mode, where `hx` is one of the rules.
 Statement (x : ℕ) (hx : x = 1) : x + 1 = 2 := by
-  rw [hx, add_one_eq_succ, ← two_eq_succ_one]
+  rw [hx, add_one, ← two_eq_succ_one]
 
 VisualGoalInfoOnGoal above true "x + 1 = 2" show
   "We will now put Rewriting Mode and Proposition Mode together!

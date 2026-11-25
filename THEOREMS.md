@@ -10,7 +10,7 @@ yours once it is done. “from” a level: handed out there.
 
 | Theorem | Statement | Yours |
 |---|---|---|
-| `add_one_eq_succ` | `a + 1 = S(a)` | after Successor World 1 |
+| `add_one` | `a + 1 = S(a)` | after Successor World 1 |
 | `add_succ` (axiom) | `a + S(b) = S(a + b)` | from Successor World 1 |
 | `add_zero` (axiom) | `n + 0 = n` | from Successor World 1 |
 | `zero_add` | `0 + n = n` | after Induction World 0 |
@@ -96,11 +96,11 @@ yours once it is done. “from” a level: handed out there.
 | `eq_implies_leq` | `a = b → a ≤ b` | from ≤ World 2 |
 | `zero_leq` | `0 ≤ n` | after ≤ World 2 |
 | `le_succ_self` | `n ≤ S(n)` | after ≤ World 3 |
-| `le_trans` | `a ≤ b → b ≤ c → a ≤ c` | after ≤ World 5 |
-| `le_zero` | `n ≤ 0 → n = 0` | after ≤ World 6 |
+| `leq_trans` | `a ≤ b → b ≤ c → a ≤ c` | after ≤ World 5 |
+| `leq_zero` | `n ≤ 0 → n = 0` | after ≤ World 6 |
 | `leq_add_right_cancel` | `a + n ≤ b + n → a ≤ b` | after ≤ World 7 |
-| `le_antisymm` | `a ≤ b → b ≤ a → a = b` | after ≤ World 8 |
-| `le_one` | `n ≤ 1 → n = 0 ∨ n = 1` | after ≤ World 9 |
+| `leq_antisymm` | `a ≤ b → b ≤ a → a = b` | after ≤ World 8 |
+| `leq_one` | `n ≤ 1 → n = 0 ∨ n = 1` | after ≤ World 9 |
 | `le_total` | `a ≤ b ∨ b ≤ a` | after ≤ World 10 |
 | `eq_succ_of_ne_zero` | `a ≠ 0 → ∃ n, a = S(n)` | after Advanced Multiplication World 2 |
 | `one_le_of_ne_zero` | `a ≠ 0 → 1 ≤ a` | after Advanced Multiplication World 3 |

@@ -8,15 +8,15 @@ Title "Counting to Four (Miniboss)"
 VisualLevelNumber "2"
 VisualRewriteOnly
 VisualNoHypothesesTab
--- `add_one_eq_succ` is in the `+` tab.
+-- `add_one` is in the `+` tab.
 VisualStartTab "+"
 VisualBossLevel
-VisualEmphasize MyNat.add_one_eq_succ
+VisualEmphasize MyNat.add_one
 
 namespace MyNat
 
 Statement : (1 : ℕ) + 1 + 1 + 1 = 4 := by
-  rw [add_one_eq_succ, add_one_eq_succ, add_one_eq_succ, four_eq_succ_three, three_eq_succ_two,
+  rw [add_one, add_one, add_one, four_eq_succ_three, three_eq_succ_two,
     two_eq_succ_one]
 
 VisualTransformText "You can use what you proved in ‘theorem’ levels to save time in future levels!"

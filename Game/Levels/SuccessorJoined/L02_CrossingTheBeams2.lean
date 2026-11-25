@@ -12,7 +12,7 @@ namespace MyNat
 -- A hypothesis is opened in Rewrite Mode: `hx` is rewritten into `x = 2`, which is
 -- what `hy` asks for.
 Statement (x y : ℕ) (hx : x = 1 + 1) (hy : x = 2 → y = 0) : y = 0 := by
-  rw [add_one_eq_succ, ← two_eq_succ_one] at hx
+  rw [add_one, ← two_eq_succ_one] at hx
   exact hy hx
 
 VisualHypInfoOnHyp hx "x = 1 + 1" show

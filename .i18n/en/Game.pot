@@ -276,7 +276,7 @@ msgstr ""
 msgid "Implications (1)"
 msgstr ""
 
-#. §0: `le_antisymm a b`
+#. §0: `leq_antisymm a b`
 #. §1: `a ≤ b`
 #. §2: `b ≤ a`
 #. §3: `a = b`
@@ -506,7 +506,7 @@ msgstr ""
 #. §0: `x * y = 1 → x = 1`
 #. §1: `x + y = 0 → x = 0`
 #. §2: `x ≤ 1`
-#. §3: `le_one`
+#. §3: `leq_one`
 #. §4: `≤`
 #: Game.Levels.AdvMultiplication.L06_MulRightEqOne
 msgid "This level proves §0, the multiplicative analogue of Induction\n"
@@ -573,7 +573,7 @@ msgid "A passing mathematician remarks that with antisymmetry as well,\n"
 "The boss level of this world is to prove that §2 is a total order."
 msgstr ""
 
-#. §0: `le_trans a b c`
+#. §0: `leq_trans a b c`
 #. §1: `a ≤ b`
 #. §2: `b ≤ c`
 #. §3: `a ≤ c`
@@ -609,7 +609,7 @@ msgstr ""
 msgid "More facts about §0, with the cancellation theorems of Induction World."
 msgstr ""
 
-#. §0: `le_zero`
+#. §0: `leq_zero`
 #. §1: `n ≤ 0`
 #. §2: `n = 0`
 #. §3: `n ≤ 1`
@@ -1069,13 +1069,13 @@ msgid "§0, with notation §1, is the usual exponentiation of natural numbers.\n
 "Note in particular that §4."
 msgstr ""
 
-#. §0: `add_one_eq_succ n`
+#. §0: `add_one n`
 #. §1: `n + 1 = S n`
 #: Game.Levels.LessOrEqual.L04_LeSuccSelf
 msgid "This works because §0 is a proof of §1."
 msgstr ""
 
-#. §0: `add_succ`
+#. §0: `add_one`
 #: Game.Levels.Successor.L02_AddOne
 #: Game.Levels.Induction.L01_ZeroAdd
 #: Game.Levels.Induction.L02_SuccAdd
@@ -1420,7 +1420,7 @@ msgid "§0 is a proof that §1.\n"
 "has to be at most that number."
 msgstr ""
 
-#. §0: `le_one n`
+#. §0: `leq_one n`
 #. §1: `n ≤ 1`
 #. §2: `n = 0`
 #. §3: `n = 1`

@@ -15,7 +15,7 @@ Statement (a b c : ℕ) (ha : a = 0 + 0 + 0) (hb : S (0 + 0) = b) (hc : c = b + 
   rw [add_zero, add_zero] at ha
   rw [add_zero, ← one_eq_succ_zero] at hb
   rw [add_zero, ha, add_zero, add_zero, ← hb] at hc
-  rw [hc, add_one_eq_succ, add_one_eq_succ, add_one_eq_succ, four_eq_succ_three,
+  rw [hc, add_one, add_one, add_one, four_eq_succ_three,
     three_eq_succ_two, two_eq_succ_one]
 
 VisualGoalInfo above false

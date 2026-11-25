@@ -28,13 +28,13 @@ Statement le_total : ∀ a b : ℕ, a ≤ b ∨ b ≤ a := by
   exact fun a b => by
     induction b with d hd
     · exact .inr (zero_leq a)
-    · exact hd.elim (fun h1 => .inl (le_trans a d _ h1 (le_succ_self d)))
+    · exact hd.elim (fun h1 => .inl (leq_trans a d _ h1 (le_succ_self d)))
         (fun h2 => (h2 : ∃ c, a = d + c).elim (fun e he => by
           induction e with f _hf
           · exact .inl (by rw [add_zero] at he; rw [he]; exact le_succ_self d)
           · exact .inr (by
-              rw [← add_one_eq_succ]
-              exact (⟨f, by rw [add_assoc, add_comm 1 f, add_one_eq_succ]; exact he⟩ :
+              rw [← add_one]
+              exact (⟨f, by rw [add_assoc, add_comm 1 f, add_one]; exact he⟩ :
                 ∃ c, a = d + 1 + c))))
 
 Conclusion

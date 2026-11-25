@@ -7,9 +7,9 @@ Title "Proposition World Bonus"
 
 -- Sprouts off Proposition World's boss, level 15 (Lean level 8). Bonus C
 -- (`PropositionBonusC`) leaves the same level; neither needs the other. Both lead on to
--- Logic World, down one path in its column.
+-- Logic World, down one path under this world's level B1.
 VisualBonusOf PropositionRight 8
-VisualMapColumn 3
+VisualMapUnder PropositionBonusB 2
 VisualHideSwapSides
 
 Introduction

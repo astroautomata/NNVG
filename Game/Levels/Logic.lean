@@ -4,9 +4,9 @@ World "Logic"
 Title "Logic World"
 
 -- After both of Proposition World's last bonus branches (B and C) and the ≠ World. It
--- sits under the one path those two branches join into.
+-- sits under the one path those two branches join into, which comes down under bonus B1.
 VisualWorldColor frost
-VisualMapColumn 3
+VisualMapUnder PropositionBonusB 2
 
 Introduction
 "

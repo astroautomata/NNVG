@@ -3,7 +3,7 @@ import Game.Levels.LessOrEqual.L01_Exists
 World "LessOrEqual"
 Level 2
 
-Title "`le_refl`"
+Title "`leq_refl`"
 
 VisualLevelNumber "1"
 

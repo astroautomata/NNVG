@@ -19,4 +19,4 @@ TheoremDoc MyNat.one_le_of_ne_zero as "one_le_of_ne_zero" in "≤"
 
 Statement one_le_of_ne_zero (a : ℕ) (ha : a ≠ 0) : 1 ≤ a := by
   exact (eq_succ_of_ne_zero a ha).elim (fun n hn =>
-    (⟨n, by rw [hn, ← add_one_eq_succ, add_comm]⟩ : ∃ c, a = 1 + c))
+    (⟨n, by rw [hn, ← add_one, add_comm]⟩ : ∃ c, a = 1 + c))

@@ -15,7 +15,7 @@ Two inequalities as hypotheses. {pc: Click | mobile: Tap} `hxy` to take it apart
 "
 
 /--
-`le_trans a b c` is a proof that if `a ≤ b` and `b ≤ c` then `a ≤ c`.
+`leq_trans a b c` is a proof that if `a ≤ b` and `b ≤ c` then `a ≤ c`.
 More precisely, it is a proof that `a ≤ b → (b ≤ c → a ≤ c)`. In words,
 If $a \le b$ then (pause) if $b \le c$ then $a \le c$.
 
@@ -27,10 +27,10 @@ exactly that `≤` is transitive. This is different to how mathematicians use
 $P \implies Q \implies R$; for them, this usually means that $P \implies Q$
 and $Q \implies R$.
 -/
-TheoremDoc MyNat.le_trans as "le_trans" in "≤"
+TheoremDoc MyNat.leq_trans as "leq_trans" in "≤"
 
 -- The spec keeps the hypotheses' names, `hxy` and `hyz`, with the numbers `a`, `b`, `c`.
-Statement le_trans (a b c : ℕ) (hxy : a ≤ b) (hyz : b ≤ c) : a ≤ c := by
+Statement leq_trans (a b c : ℕ) (hxy : a ≤ b) (hyz : b ≤ c) : a ≤ c := by
   exact (hxy : ∃ d, b = a + d).elim (fun d hd => (hyz : ∃ e, c = b + e).elim (fun e he =>
     (⟨d + e, by rw [he, hd, add_assoc]⟩ : ∃ f, c = a + f)))
 

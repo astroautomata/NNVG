@@ -22,6 +22,6 @@ TheoremDoc MyNat.lt_succ_self as "lt_succ_self" in "≤"
 
 Statement lt_succ_self : ∀ n : ℕ, S n > n := by
   exact fun n => by
-    rw [← add_one_eq_succ]
+    rw [← add_one]
     exact fun h => (h : ∃ c, n = n + 1 + c).elim (fun c hc =>
       one_ne_zero (add_right_eq_zero 1 c (add_right_eq_self n (1 + c) (by rw [← add_assoc]; exact hc.symm))))

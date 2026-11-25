@@ -19,5 +19,5 @@ take it apart into a number and its equation.
 "
 
 Statement (a b : ℕ) (h : a ≤ b) : a ≤ S b := by
-  rw [← add_one_eq_succ]
+  rw [← add_one]
   exact (h : ∃ c, b = a + c).elim (fun c hc => (⟨c + 1, by rw [hc, add_assoc]⟩ : ∃ c', b + 1 = a + c'))

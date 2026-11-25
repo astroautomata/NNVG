@@ -26,5 +26,5 @@ NewTheorem MyNat.succ_inj
 VisualEmphasize MyNat.succ_inj
 
 Statement (x : ℕ) (h : x + 1 = 4) : x = 3 := by
-  rw [four_eq_succ_three, add_one_eq_succ] at h
+  rw [four_eq_succ_three, add_one] at h
   exact succ_inj x 3 h

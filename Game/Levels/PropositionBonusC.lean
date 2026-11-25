@@ -4,9 +4,9 @@ World "PropositionBonusC"
 Title "Proposition World Bonus"
 
 -- A second branch off Proposition World's boss, level 15 (Lean level 8), beside bonus B.
--- Its path onwards joins bonus B's, down Logic World's column.
+-- Its path onwards joins bonus B's, down to Logic World under bonus B1.
 VisualBonusOf PropositionRight 8
-VisualMapColumn 3
+VisualMapUnder PropositionBonusB 2
 VisualHideSwapSides
 
 Introduction

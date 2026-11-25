@@ -404,13 +404,13 @@ example (a : ℕ) : a + 1 = S a := by
   click_goal
 
 -- Level 3, the boss: level 2's theorem saves time.
-theorem add_one_eq_succ' (a : ℕ) : a + 1 = S a := by
+theorem add_one' (a : ℕ) : a + 1 = S a := by
   rw [one_eq_succ_zero, add_succ, add_zero]
 
 example : (1 : ℕ) + 1 + 1 + 1 = 4 := by
-  drag_rw_lhs [add_one_eq_succ']
-  drag_rw_lhs_at [add_one_eq_succ'] [1]
-  drag_rw_lhs_at [add_one_eq_succ'] [1, 1]
+  drag_rw_lhs [add_one']
+  drag_rw_lhs_at [add_one'] [1]
+  drag_rw_lhs_at [add_one'] [1, 1]
   drag_rw_rhs [four_eq_succ_three]
   drag_rw_rhs_at [three_eq_succ_two] [1]
   drag_rw_rhs_at [two_eq_succ_one] [1, 1]
@@ -420,14 +420,14 @@ example : (1 : ℕ) + 1 + 1 + 1 = 4 := by
 -- a rule; the check mark closes it.
 example (x : ℕ) (hx : x = 1) : x + 1 = 2 := by
   drag_rw_lhs_at [hx] [1]
-  drag_rw_lhs [add_one_eq_succ']
+  drag_rw_lhs [add_one']
   drag_rw_lhs [← two_eq_succ_one]
   click_goal
 
 -- Level 5, Crossing the Beams (1): rewrite `hx` into `x = 2` in Rewriting Mode, go back,
 -- and drag it onto `hy`.
 example (x y : ℕ) (hx : x = 1 + 1) (hy : x = 2 → y = 0) : y = 0 := by
-  drag_rw_hyp_rhs hx [add_one_eq_succ']
+  drag_rw_hyp_rhs hx [add_one']
   drag_rw_hyp_rhs hx [← two_eq_succ_one]
   drag_to hx hy
   drag_goal h
@@ -449,9 +449,9 @@ example (a b c : ℕ) (ha : a = 0 + 0 + 0) (hb : S (0 + 0) = b) (hc : c = b + (a
   drag_rw_lhs_at [hc] [1, 1, 2]
   drag_rw_lhs_at [hc] [1, 2]
   drag_rw_lhs_at [hc] [2]
-  drag_rw_lhs [add_one_eq_succ']
-  drag_rw_lhs_at [add_one_eq_succ'] [1]
-  drag_rw_lhs_at [add_one_eq_succ'] [1, 1]
+  drag_rw_lhs [add_one']
+  drag_rw_lhs_at [add_one'] [1]
+  drag_rw_lhs_at [add_one'] [1, 1]
   drag_rw_rhs [four_eq_succ_three]
   drag_rw_rhs_at [three_eq_succ_two] [1]
   drag_rw_rhs_at [two_eq_succ_one] [1, 1]
@@ -561,7 +561,7 @@ example (y : ℕ) (hy : (3 : ℕ) + 3 = 3 + 3 → y = 0) : y = 0 := by
 -- Level 4, `succ_inj`: rewrite `h` into `S x = S 3`, then drag it onto `succ_inj`.
 example (x : ℕ) (h : x + 1 = 4) : x = 3 := by
   drag_rw_hyp_rhs h [four_eq_succ_three]
-  drag_rw_hyp_lhs h [add_one_eq_succ']
+  drag_rw_hyp_lhs h [add_one']
   drag_apply succ_inj h
   drag_goal thm_succ_inj
 
@@ -912,7 +912,7 @@ example : ∀ n : ℕ, ¬ (n > n) := by
   drag_to thm_r h
   drag_goal thm_r
 
--- A2, transitivity: assume `a ≤ c` and compare `b` and `c` with `le_total`. `le_trans`
+-- A2, transitivity: assume `a ≤ c` and compare `b` and `c` with `le_total`. `leq_trans`
 -- is specialized by hand: dropped on a card it would leave its last number open.
 example : ∀ a b c : ℕ, a > b → b > c → a > c := by
   click_goal
@@ -926,7 +926,7 @@ example : ∀ a b c : ℕ, a > b → b > c → a > c := by
   click_prop thm_t1
   · drag_to thm_left h1
     drag_goal thm_left
-  · specialize_forall_as thm_x le_trans a a
+  · specialize_forall_as thm_x leq_trans a a
     specialize_forall_as thm_y thm_x b c
     specialize_forall_as thm_z thm_y c b
     drag_to h2 thm_z
