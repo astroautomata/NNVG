@@ -7,6 +7,10 @@ Title "The Third Mode?"
 
 VisualLevelNumber "3"
 
+-- Experimental (V13.1): the screen before the level.
+VisualPreLevel "Axiom Proposition Unlocked!"
+VisualPreLevelUnlock reflection "The constructor for equality in ℕ."
+
 namespace MyNat
 
 /-- `reflection n` is a proof of `n = n`: every natural number is equal to itself. -/

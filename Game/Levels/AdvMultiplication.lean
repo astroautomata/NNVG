@@ -1,4 +1,4 @@
-import Game.Levels.AdvMultiplication.L01_MulLeMulRight
+import Game.Levels.AdvMultiplication.L01_MulLeqMulRight
 import Game.Levels.AdvMultiplication.L02_MulLeftNeZero
 import Game.Levels.AdvMultiplication.L03_EqSuccOfNeZero
 import Game.Levels.AdvMultiplication.L04_OneLeOfNeZero

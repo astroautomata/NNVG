@@ -7,6 +7,11 @@ Title "`mul_comm`"
 
 VisualLevelNumber "3"
 
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equalities Unlocked!"
+VisualPostLevelUnlock mul_comm "Like with addition, we can swap the order of multiplied terms."
+VisualPostLevelUnlock one_mul "Multiplying on the left by one is also an identity of multiplication."
+
 namespace MyNat
 
 Introduction
@@ -30,3 +35,16 @@ Statement mul_comm : ∀ a b : ℕ, a * b = b * a := by
     induction b with d hd
     · rw [zero_mul, mul_zero]
     · rw [succ_mul, ← hd, mul_succ]
+
+/--  `one_mul m` is the proof `1 * m = m`. -/
+TheoremDoc MyNat.one_mul as "one_mul" in "*"
+
+-- `one_mul` has no level of its own any more. Finishing this level unlocks it too
+-- (`NewTheorem` in the next one).
+theorem one_mul (m : ℕ) : 1 * m = m := by
+  rw [mul_comm, mul_one]
+
+Conclusion
+"
+`one_mul` comes with it: `1 * m = m`, which is `mul_one` with the two numbers swapped.
+"

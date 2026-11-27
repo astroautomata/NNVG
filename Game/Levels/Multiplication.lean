@@ -2,24 +2,23 @@ import Game.Levels.Multiplication.L01_MulOne
 import Game.Levels.Multiplication.L02_ZeroMul
 import Game.Levels.Multiplication.L03_SuccMul
 import Game.Levels.Multiplication.L04_MulComm
-import Game.Levels.Multiplication.L05_OneMul
-import Game.Levels.Multiplication.L06_TwoMul
-import Game.Levels.Multiplication.L07_MulAdd
-import Game.Levels.Multiplication.L08_MulAssoc
+import Game.Levels.Multiplication.L05_TwoMul
+import Game.Levels.Multiplication.L06_MulAdd
+import Game.Levels.Multiplication.L07_MulAssoc
 
 World "Multiplication"
 Title "Multiplication and Exponentiation World"
 
--- Levels 0 to 7, the ones about multiplication. The levels about powers are a Lean
+-- Levels 0 to 6, the ones about multiplication. The levels about powers are a Lean
 -- world of their own (`Power`), because Advanced Multiplication World leaves from
--- level 7.
+-- level 6.
 VisualWorldColor sandstone
 VisualMapColumn -2
 
 -- Rewrite Mode's swap-sides button is hidden throughout this world.
 VisualHideSwapSides
 
--- One induction per branch of a proof, in every level.
+-- One induction per branch of a proof, in every level that doesn't say otherwise.
 VisualTacticUses induction 1
 
 Introduction

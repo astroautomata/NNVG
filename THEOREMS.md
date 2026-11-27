@@ -28,27 +28,27 @@ yours once it is done. “from” a level: handed out there.
 | `zero_mul` | `0 * m = 0` | after Multiplication and Exponentiation World 1 |
 | `succ_mul` | `S(a) * b = a * b + b` | after Multiplication and Exponentiation World 2 |
 | `mul_comm` | `a * b = b * a` | after Multiplication and Exponentiation World 3 |
-| `one_mul` | `1 * m = m` | after Multiplication and Exponentiation World 4 |
-| `two_mul` | `2 * m = m + m` | after Multiplication and Exponentiation World 5 |
-| `mul_add` | `a * (b + c) = a * b + a * c` | after Multiplication and Exponentiation World 6 |
-| `add_mul` | `(a + b) * c = a * c + b * c` | from Multiplication and Exponentiation World 7 |
-| `mul_assoc` | `a * b * c = a * (b * c)` | after Multiplication and Exponentiation World 7 |
+| `one_mul` | `1 * m = m` | from Multiplication and Exponentiation World 4 |
+| `two_mul` | `2 * m = m + m` | after Multiplication and Exponentiation World 4 |
+| `mul_add` | `a * (b + c) = a * b + a * c` | after Multiplication and Exponentiation World 5 |
+| `add_mul` | `(a + b) * c = a * c + b * c` | from Multiplication and Exponentiation World 6 |
+| `mul_assoc` | `a * b * c = a * (b * c)` | after Multiplication and Exponentiation World 6 |
 
 ### Tab `^`
 
 | Theorem | Statement | Yours |
 |---|---|---|
-| `pow_zero` (axiom) | `a ^ 0 = 1` | from Multiplication and Exponentiation World 8 |
-| `zero_pow_zero` | `0 ^ 0 = 1` | after Multiplication and Exponentiation World 8 |
-| `pow_succ` (axiom) | `a ^ S(b) = a ^ b * a` | from Multiplication and Exponentiation World 9 |
-| `zero_pow_succ` | `0 ^ S(m) = 0` | after Multiplication and Exponentiation World 9 |
-| `pow_one` | `a ^ 1 = a` | after Multiplication and Exponentiation World 10 |
-| `one_pow` | `1 ^ m = 1` | after Multiplication and Exponentiation World 11 |
-| `pow_two` | `a ^ 2 = a * a` | after Multiplication and Exponentiation World 12 |
-| `pow_add` | `a ^ (m + n) = a ^ m * a ^ n` | after Multiplication and Exponentiation World 13 |
-| `mul_pow` | `(a * b) ^ n = a ^ n * b ^ n` | after Multiplication and Exponentiation World 14 |
-| `pow_pow` | `(a ^ m) ^ n = a ^ (m * n)` | after Multiplication and Exponentiation World 15 |
-| `add_sq` | `(a + b) ^ 2 = a ^ 2 + b ^ 2 + 2 * a * b` | after Multiplication and Exponentiation World 16 |
+| `pow_zero` (axiom) | `a ^ 0 = 1` | from Multiplication and Exponentiation World 7 |
+| `zero_pow_zero` | `0 ^ 0 = 1` | after Multiplication and Exponentiation World 7 |
+| `pow_succ` (axiom) | `a ^ S(b) = a ^ b * a` | from Multiplication and Exponentiation World 8 |
+| `zero_pow_succ` | `0 ^ S(n) = 0` | after Multiplication and Exponentiation World 8 |
+| `pow_one` | `a ^ 1 = a` | after Multiplication and Exponentiation World 9 |
+| `one_pow` | `1 ^ m = 1` | after Multiplication and Exponentiation World 10 |
+| `pow_two` | `a ^ 2 = a * a` | after Multiplication and Exponentiation World 11 |
+| `pow_add` | `a ^ (m + n) = a ^ m * a ^ n` | after Multiplication and Exponentiation World 12 |
+| `mul_pow` | `(a * b) ^ n = a ^ n * b ^ n` | after Multiplication and Exponentiation World 13 |
+| `pow_pow` | `(a ^ m) ^ n = a ^ (m * n)` | after Multiplication and Exponentiation World 14 |
+| `add_pow_two` | `(a + b) ^ 2 = a ^ 2 + b ^ 2 + 2 * a * b` | after Multiplication and Exponentiation World 15 |
 
 ### Tab `012`
 
@@ -59,20 +59,20 @@ yours once it is done. “from” a level: handed out there.
 | `three_eq_succ_two` (axiom) | `3 = S(2)` | from Successor World 0 |
 | `two_eq_succ_one` (axiom) | `2 = S(1)` | from Successor World 0 |
 
-## Proposition Mode (34 cards)
+## Proposition Mode (39 cards)
 
 ### Tab `Peano`
 
 | Theorem | Statement | Yours |
 |---|---|---|
 | `reflection` (axiom) | `n = n` | from ≠ World 3 |
+| `succ_inj` (axiom) | `S(a) = S(b) → a = b` | from ≠ World 4 |
 | `peano_cases` (axiom) | `a = 0 ∨ ∃ b, a = S(b)` | from Advanced Multiplication World 1 |
 
 ### Tab `+`
 
 | Theorem | Statement | Yours |
 |---|---|---|
-| `succ_inj` (axiom) | `S(a) = S(b) → a = b` | from ≠ World 4 |
 | `add_right_cancel` | `a + n = b + n → a = b` | after Induction World 4 |
 | `add_left_cancel` | `n + a = n + b → a = b` | from Induction World 5 |
 | `add_right_eq_self` | `a + b = a → b = 0` | after Induction World 5 |
@@ -95,22 +95,32 @@ yours once it is done. “from” a level: handed out there.
 | `leq_refl` | `n ≤ n` | after ≤ World 1 |
 | `eq_implies_leq` | `a = b → a ≤ b` | from ≤ World 2 |
 | `zero_leq` | `0 ≤ n` | after ≤ World 2 |
-| `le_succ_self` | `n ≤ S(n)` | after ≤ World 3 |
+| `leq_right_add_self` | `a ≤ a + n` | after ≤ World 3 |
 | `leq_trans` | `a ≤ b → b ≤ c → a ≤ c` | after ≤ World 5 |
-| `leq_zero` | `n ≤ 0 → n = 0` | after ≤ World 6 |
-| `leq_add_right_cancel` | `a + n ≤ b + n → a ≤ b` | after ≤ World 7 |
-| `leq_antisymm` | `a ≤ b → b ≤ a → a = b` | after ≤ World 8 |
-| `leq_one` | `n ≤ 1 → n = 0 ∨ n = 1` | after ≤ World 9 |
-| `le_total` | `a ≤ b ∨ b ≤ a` | after ≤ World 10 |
+| `right_add_leq` | `a + n ≤ b → a ≤ b` | after ≤ World 6 |
+| `leq_zero` | `n ≤ 0 → n = 0` | after ≤ World 7 |
+| `leq_add_right_cancel` | `a + n ≤ b + n → a ≤ b` | after ≤ World 8 |
+| `leq_antisymm` | `a ≤ b → b ≤ a → a = b` | after ≤ World 9 |
+| `leq_one` | `n ≤ 1 → n = 0 ∨ n = 1` | after ≤ World 10 |
+| `leq_total` | `a ≤ b ∨ b ≤ a` | after ≤ World 11 |
 | `eq_succ_of_ne_zero` | `a ≠ 0 → ∃ n, a = S(n)` | after Advanced Multiplication World 2 |
 | `one_le_of_ne_zero` | `a ≠ 0 → 1 ≤ a` | after Advanced Multiplication World 3 |
+
+### Tab `>`
+
+| Theorem | Statement | Yours |
+|---|---|---|
 | `lt_succ_self` | `S(n) > n` | after ≤ World Bonus A0 |
+| `lt_not_refl` | `¬n > n` | after ≤ World Bonus A1 |
+| `lt_trans` | `a > b → b > c → a > c` | after ≤ World Bonus A2 |
+| `leq_le` | `a ≤ b → a = b ∨ b > a` | after ≤ World Bonus A3 |
+| `trichotomy` | `a = b ∨ a > b ∨ b > a` | after ≤ World Bonus A4 |
 
 ### Tab `*`
 
 | Theorem | Statement | Yours |
 |---|---|---|
-| `mul_le_mul_right` | `a ≤ b → a * t ≤ b * t` | after Advanced Multiplication World 0 |
+| `mul_leq_mul_right` | `a ≤ b → a * t ≤ b * t` | after Advanced Multiplication World 0 |
 | `mul_left_ne_zero` | `a * b ≠ 0 → b ≠ 0` | after Advanced Multiplication World 1 |
 | `le_mul_right` | `a * b ≠ 0 → a ≤ a * b` | after Advanced Multiplication World 4 |
 | `mul_right_eq_one` | `x * y = 1 → x = 1` | after Advanced Multiplication World 5 |
@@ -119,7 +129,7 @@ yours once it is done. “from” a level: handed out there.
 | `mul_right_eq_self` | `a ≠ 0 → a * b = a → b = 1` | after Advanced Multiplication World 8 |
 | `mul_left_cancel` | `a ≠ 0 → a * b = a * c → b = c` | after Advanced Multiplication World 9 |
 
-### Under `All` only
+### The tab for the rest (named after what the game files them under)
 
 | Theorem | Statement | Yours |
 |---|---|---|

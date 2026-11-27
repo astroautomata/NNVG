@@ -8,7 +8,7 @@ Title "Associativity of Addition"
 VisualLevelNumber "3"
 
 -- Experimental (V13): the screen after the level.
-VisualPostLevel "Theorem Unlocked!"
+VisualPostLevel "Equality Unlocked!"
 VisualPostLevelUnlock add_assoc "Allows you to switch the order in which three terms are added together.
 
 We say a binary operation is *associative* if the order in which you put terms together does not matter."

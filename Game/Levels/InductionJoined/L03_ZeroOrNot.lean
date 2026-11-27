@@ -10,9 +10,11 @@ VisualLevelNumber "6"
 -- The ≠ World's boss again, this time with the new card, and with that card alone.
 VisualTacticUses cases 1
 
-VisualGoalInfo above false "`cases` is like `induction`’s weaker cousin.
-(Some day we’ll meet `induction`’s stronger cousin too!)
-`cases` is more general, but it does not give you an inductive hypothesis."
+-- Experimental (V13.1): the screen before the level, which says what the level's hint did.
+VisualPreLevel "Tactic Unlocked!"
+VisualPreLevelUnlock cases "Unlike `cases`’ stronger cousin `induction`, `cases` does not give you an inductive hypothesis. This limitation makes it more general.
+
+(Stay tuned for `induction`’s even stronger cousin!)"
 
 namespace MyNat
 

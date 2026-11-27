@@ -5,7 +5,11 @@ Level 7
 
 Title "`mul_pow`"
 
-VisualLevelNumber "14"
+VisualLevelNumber "13"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock mul_pow "Exponentiation distributes into multiplication in the base."
 
 namespace MyNat
 

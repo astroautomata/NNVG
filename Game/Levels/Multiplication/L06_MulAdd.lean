@@ -1,11 +1,16 @@
-import Game.Levels.Multiplication.L06_TwoMul
+import Game.Levels.Multiplication.L05_TwoMul
 
 World "Multiplication"
-Level 7
+Level 6
 
-Title "`mul_add`"
+Title "Distributivity"
 
-VisualLevelNumber "6"
+VisualLevelNumber "5"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equalities Unlocked!"
+VisualPostLevelUnlock mul_add "Also known as left distributivity."
+VisualPostLevelUnlock add_mul "Also known as right distributivity."
 
 namespace MyNat
 

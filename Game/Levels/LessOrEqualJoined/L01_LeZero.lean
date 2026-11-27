@@ -6,7 +6,11 @@ Level 1
 
 Title "Nothing Smaller than Zero"
 
-VisualLevelNumber "6"
+VisualLevelNumber "7"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Proposition Unlocked!"
+VisualPostLevelUnlock leq_zero "Zero is the greatest lower bound for the natural numbers."
 
 namespace MyNat
 

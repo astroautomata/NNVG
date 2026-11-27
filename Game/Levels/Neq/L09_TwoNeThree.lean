@@ -7,6 +7,15 @@ Title "2 ≠ 3"
 
 VisualLevelNumber "8"
 
+-- Experimental (V13.1): the screen the spec puts between level 7 and this one, as a
+-- pre-level with this title, for the two theorems level 7 leaves the player with.
+VisualPreLevel "Axiom Proposition Unlocked!"
+VisualPreLevelUnlock one_ne_zero
+VisualPreLevelUnlock zero_ne_one
+VisualPreLevelText "You heard it here first, folks!
+
+Zero does *not* equal one!"
+
 namespace MyNat
 
 -- Unlocked by completing `one_ne_zero` (the level before).

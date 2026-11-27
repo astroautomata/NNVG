@@ -16,7 +16,9 @@ import re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, '.lake', 'gamedata')
 REWRITE_TABS = ['+', '*', '^', '≤', '012', 'Peano']
-PROPOSITION_TABS = [('peano', 'Peano'), ('add', '+'), ('ne', '≠'), ('le', '≤'), ('mul', '*'), ('other', 'All only')]
+# The theorems the game keeps on the Peano tab (`VisualPeanoTab`), read from game.json.
+PEANO_TAB = set()
+PROPOSITION_TABS = [('peano', 'Peano'), ('add', '+'), ('ne', '≠'), ('le', '≤'), ('gt', '>'), ('mul', '*'), ('other', 'Other')]
 
 
 def load(name):
@@ -79,7 +81,7 @@ def bucket(name, category, proposition):
     base = name.split('.')[-1]
     searchable = f'{name} {base} {proposition}'
     token = lambda words: re.search(rf'(?:^|[._\s])(?:{words})(?:[._\s]|$)', searchable)
-    if category == 'Peano' and base in ('reflection', 'peano_cases'):
+    if base in PEANO_TAB or (category == 'Peano' and base in ('reflection', 'peano_cases')):
         return 'peano'
     if category == '*' or token('mul') or '*' in searchable:
         return 'mul'
@@ -87,6 +89,8 @@ def bucket(name, category, proposition):
         return 'add'
     if category == '≤':
         return 'le'
+    if category == '>':
+        return 'gt'
     if category == '≠':
         return 'ne'
     if token('reflection|succ_inj') or token('add') or '+' in searchable:
@@ -100,6 +104,7 @@ def bucket(name, category, proposition):
 
 def main():
     game = load('game.json')
+    PEANO_TAB.update(name.split('.')[-1] for name in game.get('visualPeanoTab', []))
     worlds = game['worlds']['nodes']
     axioms = {name.split('.')[-1] for name in game.get('visualAxioms', [])}
     order = world_order(game)
@@ -156,7 +161,7 @@ def main():
         table(f'Tab `{tab}`' if tab else 'No tab', [row for row in rewrite if row['category'] == tab])
     lines.extend([f'## Proposition Mode ({len(proposition)} cards)', ''])
     for key, label in PROPOSITION_TABS:
-        table(f'Tab `{label}`' if key != 'other' else 'Under `All` only',
+        table(f'Tab `{label}`' if key != 'other' else 'The tab for the rest (named after what the game files them under)',
               [row for row in proposition if row['bucket'] == key])
     with io.open(os.path.join(ROOT, 'THEOREMS.md'), 'w', encoding='utf-8', newline='\n') as handle:
         handle.write('\n'.join(lines))

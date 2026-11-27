@@ -6,7 +6,7 @@ Level 1
 
 Title "Refute Fermat's Last Theorem?"
 
-VisualLevelNumber "A0"
+VisualLevelNumber "B0"
 VisualBossLevel
 
 namespace MyNat

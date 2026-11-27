@@ -1,6 +1,8 @@
 import Game.Metadata
 -- The closing level imports every world, so the ported worlds' theorems are in scope.
 import Game.Levels.Outro
+-- `leq_le`, which no world on the way to the closing level needs.
+import Game.Levels.LessOrEqualBonus
 
 /-!
 Replays the moves a player makes in the game's levels with Visual Lean's own tactics, to
@@ -771,7 +773,7 @@ example : ∀ m : ℕ, m * 1 = m := by
   drag_rw_lhs [zero_add]
   click_goal
 
--- Level 7, the miniboss: induction on `c`.
+-- Level 6, the miniboss: induction on `c`.
 example : ∀ a b c : ℕ, (a * b) * c = a * (b * c) := by
   click_goal
   click_goal
@@ -787,7 +789,7 @@ example : ∀ a b c : ℕ, (a * b) * c = a * (b * c) := by
     drag_rw_lhs_at [hc1] [1]
     click_goal
 
--- Level 12: `2` is `S 1`, then the axiom and `pow_one`.
+-- Level 11: `2` is `S 1`, then the axiom and `pow_one`.
 example : ∀ a : ℕ, a ^ 2 = a * a := by
   click_goal
   drag_rw_lhs_at [two_eq_succ_one] [2]
@@ -795,7 +797,31 @@ example : ∀ a : ℕ, a ^ 2 = a * a := by
   drag_rw_lhs_at [pow_one] [1]
   click_goal
 
--- Bonus A1, Refute Fermat's Last Theorem?: without positive numbers the statement fails
+-- Bonus A0, Exponentiation is Not Commutative: if it were, `0 ^ 1 = 1 ^ 0`, which
+-- rewrites to `0 = 1`.
+example : (∀ a b : ℕ, a ^ b = b ^ a) → False := by
+  click_goal
+  specialize_forall_as thm_a h a (0)
+  specialize_forall_as thm_b thm_a b (1)
+  drag_rw_hyp_lhs thm_b [pow_one]
+  drag_rw_hyp_rhs thm_b [pow_zero]
+  drag_apply zero_ne_one thm_b
+  drag_goal thm_zero_ne_one
+
+-- Bonus A1, Exponentiation is Not Associative: `(0 ^ 0) ^ 0 = 0 ^ (0 ^ 0)` rewrites to
+-- `1 = 0`.
+example : (∀ a b c : ℕ, (a ^ b) ^ c = a ^ (b ^ c)) → False := by
+  click_goal
+  specialize_forall_as thm_a h a (0)
+  specialize_forall_as thm_b thm_a b (0)
+  specialize_forall_as thm_c thm_b c (0)
+  drag_rw_hyp_lhs thm_c [pow_zero]
+  drag_rw_hyp_rhs_at thm_c [zero_pow_zero] [2]
+  drag_rw_hyp_rhs thm_c [pow_one]
+  drag_apply one_ne_zero thm_c
+  drag_goal thm_one_ne_zero
+
+-- Bonus B0, Refute Fermat's Last Theorem?: without positive numbers the statement fails
 -- at `0 ^ 3 + 0 ^ 3 = 0 ^ 3`. Specialized there it proves `False` backwards, leaving
 -- `3 > 2`, which is `¬ 3 ≤ 2` and introduces like any `¬`, and the equation.
 example : (∀ a b c n : ℕ, n > 2 → a ^ n + b ^ n ≠ c ^ n) → False := by
@@ -843,6 +869,13 @@ example : ∀ n : ℕ, n ≤ n := by
   drag_rw_rhs [add_zero]
   click_goal
 
+-- Level 3, Addition is Increasing: `n` is the number.
+example : ∀ a n : ℕ, a ≤ a + n := by
+  click_goal
+  click_goal
+  refine Exists.intro (n) ?_
+  click_goal
+
 -- Level 4: clicking a `≤` hypothesis names its number, `c1`, and its equation.
 example (a b : ℕ) (h : a ≤ b) : a ≤ S b := by
   click_prop h
@@ -861,14 +894,25 @@ example (a b c : ℕ) (hxy : a ≤ b) (hyz : b ≤ c) : a ≤ c := by
   drag_rw_rhs [← add_assoc]
   click_goal
 
--- Level 6: Induction World's `add_right_eq_zero`, once the equation is turned round.
+-- Level 6, Eliminating Addition is Decreasing: the number is `n` plus the hypothesis's.
+example : ∀ a b n : ℕ, a + n ≤ b → a ≤ b := by
+  click_goal
+  click_goal
+  click_goal
+  click_goal
+  click_prop h
+  refine Exists.intro (n + c1) ?_
+  drag_rw_rhs [← add_assoc]
+  drag_goal h1
+
+-- Level 7: Induction World's `add_right_eq_zero`, once the equation is turned round.
 example (n : ℕ) (hn : n ≤ 0) : n = 0 := by
   click_prop hn
   symm at h
   drag_apply add_right_eq_zero h
   drag_goal thm_add_right_eq_zero
 
--- Level 7, `≤` Add Right Cancel: move `n` to the end of the sum and cancel it.
+-- Level 8, `≤` Add Right Cancel: move `n` to the end of the sum and cancel it.
 example : ∀ a b n : ℕ, a + n ≤ b + n → a ≤ b := by
   click_goal
   click_goal
@@ -912,7 +956,7 @@ example : ∀ n : ℕ, ¬ (n > n) := by
   drag_to thm_r h
   drag_goal thm_r
 
--- A2, transitivity: assume `a ≤ c` and compare `b` and `c` with `le_total`. `leq_trans`
+-- A2, transitivity: assume `a ≤ c` and compare `b` and `c` with `leq_total`. `leq_trans`
 -- is specialized by hand: dropped on a card it would leave its last number open.
 example : ∀ a b c : ℕ, a > b → b > c → a > c := by
   click_goal
@@ -921,7 +965,7 @@ example : ∀ a b c : ℕ, a > b → b > c → a > c := by
   click_goal
   click_goal
   click_goal
-  specialize_forall_as thm_t le_total a b
+  specialize_forall_as thm_t leq_total a b
   specialize_forall_as thm_t1 thm_t b c
   click_prop thm_t1
   · drag_to thm_left h1
@@ -933,6 +977,55 @@ example : ∀ a b c : ℕ, a > b → b > c → a > c := by
     drag_to thm_right thm_z
     drag_to thm_z1 h
     drag_goal thm_z1
+
+-- A3, `≤` to `>`: the number `a ≤ b` gives is zero or a successor (`cases`, which names
+-- it `c2`). With zero the two are equal; with a successor, `b ≤ a` gives a second
+-- number and the sum `a = a + S(c2 + c1)`, which no sum allows.
+example : ∀ a b : ℕ, a ≤ b → a = b ∨ b > a := by
+  click_goal
+  click_goal
+  click_goal
+  click_prop h
+  cases c1 with c2
+  · click_goal_left
+    drag_rw_hyp_rhs h1 [add_zero]
+    drag_rw_rhs [h1]
+    click_goal
+  · click_goal_right
+    click_goal
+    click_prop h
+    drag_rw_hyp_rhs_at h2 [h1] [1]
+    drag_rw_hyp_rhs h2 [add_assoc]
+    drag_rw_hyp_rhs_at h2 [succ_add] [2]
+    symm at h2
+    drag_apply add_right_eq_self h2
+    symm at thm_add_right_eq_self
+    drag_apply zero_ne_succ thm_add_right_eq_self
+    drag_goal thm_zero_ne_succ
+
+-- A4, trichotomy: `leq_total` compares the two numbers and `leq_le` says what either
+-- answer means.
+example : ∀ a b : ℕ, a = b ∨ (a > b ∨ b > a) := by
+  click_goal
+  click_goal
+  specialize_forall_as thm_t leq_total a a
+  specialize_forall_as thm_t1 thm_t b b
+  click_prop thm_t1
+  · drag_apply leq_le thm_left
+    click_prop thm_leq_le
+    · click_goal_left
+      drag_goal thm_left1
+    · click_goal_right
+      click_goal_right
+      drag_goal thm_right
+  · drag_apply leq_le thm_right
+    click_prop thm_leq_le
+    · click_goal_left
+      symm at thm_left
+      drag_goal thm_left
+    · click_goal_right
+      click_goal_left
+      drag_goal thm_right1
 
 /-! ## Advanced Multiplication World -/
 

@@ -16,6 +16,7 @@ import Game.Levels.InductionJoined
 import Game.Levels.InductionDouble
 import Game.Levels.Multiplication
 import Game.Levels.Power
+import Game.Levels.PowerBonusA
 import Game.Levels.PowerBonus
 import Game.Levels.LessOrEqual
 import Game.Levels.LessOrEqualJoined
@@ -71,14 +72,15 @@ Dependency NeqJoined → InductionJoined
 Dependency InductionJoined → InductionDouble
 
 -- Multiplication and Exponentiation World hangs off Induction World's level 3, on the
--- far left: levels 0 to 7 (`Multiplication`), then the ones about powers (`Power`).
+-- far left: levels 0 to 6 (`Multiplication`), then the ones about powers (`Power`, 7
+-- to 15).
 Dependency Induction → Multiplication
 Dependency Multiplication → Power
 
--- ≤ World follows the ≠ World on the right. Its level 6 waits for all of Induction
+-- ≤ World follows the ≠ World on the right. Its level 7 waits for all of Induction
 -- World. Advanced Multiplication World
 -- carries on below it and also needs Multiplication and Exponentiation World's level
--- 7, whose path comes across from the far left. (MakeGame drops any edge a path
+-- 6, whose path comes across from the far left. (MakeGame drops any edge a path
 -- already implies.)
 Dependency NeqJoined → LessOrEqual
 Dependency LessOrEqual → LessOrEqualJoined
@@ -87,10 +89,15 @@ Dependency LessOrEqualJoined → LessOrEqualBoss
 Dependency LessOrEqualBoss → AdvMultiplication
 Dependency Multiplication → AdvMultiplication
 
--- The bonus boss off Multiplication and Exponentiation World's last level refutes a
--- careless Fermat's Last Theorem, stated with `>`, so it waits for ≤ World's bonus
--- levels about `>` too.
+-- Bonus B off Multiplication and Exponentiation World's last level refutes a careless
+-- Fermat's Last Theorem, stated with `>`, so it waits for ≤ World's bonus levels about
+-- `>` too. (Bonus A, off level 14, ends at `0 = 1`, so its proofs use the ≠ World's
+-- `zero_ne_one` and `one_ne_zero`, and MakeGame adds that edge itself.)
 Dependency LessOrEqualBonus → PowerBonus
+
+-- Bonus A waits for all of the ≠ World, its boss included (the spec says so; its proofs
+-- only need `zero_ne_one` and `one_ne_zero`).
+Dependency NeqJoined → PowerBonusA
 
 -- Logic World needs both of Proposition World's last bonus branches and the ≠ World.
 Dependency PropositionBonusB → Logic
@@ -111,6 +118,9 @@ VisualNeutralPalette
 
 -- Variables like `n : ℕ` and `A : Prop` sit in a column of their own.
 VisualTypeColumn
+
+-- The lower menus have no tab that lists everything ("All", "Everything").
+VisualNoAllTab
 
 -- In this game, a proof of `False` closes any goal, with no `exfalso` step.
 VisualFastExfalso
@@ -143,5 +153,9 @@ VisualAxioms MyNat.one_eq_succ_zero MyNat.two_eq_succ_one MyNat.three_eq_succ_tw
   MyNat.four_eq_succ_three MyNat.add_zero MyNat.add_succ MyNat.mul_zero MyNat.mul_succ
   MyNat.pow_zero MyNat.pow_succ MyNat.reflection MyNat.succ_inj MyNat.zero_ne_succ
   MyNat.peano_cases
+
+-- The spec files `succ_inj` under Peano; by itself Proposition Mode's lower menu would
+-- put it among the `+` theorems, as it does in NNG4.
+VisualPeanoTab MyNat.succ_inj
 
 MakeGame

@@ -1,12 +1,17 @@
-import Game.Levels.Multiplication.L07_MulAdd
+import Game.Levels.Multiplication.L06_MulAdd
 
 World "Multiplication"
-Level 8
+Level 7
 
 Title "`mul_assoc` (Miniboss)"
 
-VisualLevelNumber "7"
+VisualLevelNumber "6"
 VisualBossLevel
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock mul_assoc "Like addition, multiplication is associative."
+VisualPostLevelText "Now having established multiplication, we can move on to exponentiation!"
 
 namespace MyNat
 
@@ -26,7 +31,7 @@ equal to `6 - (2 - 1)`.
 -/
 TheoremDoc MyNat.mul_assoc as "mul_assoc" in "*"
 
--- Unlocked by completing `mul_add` (the level before).
+-- Unlocked by completing Distributivity (the level before).
 NewTheorem MyNat.add_mul
 
 Statement mul_assoc : ∀ a b c : ℕ, (a * b) * c = a * (b * c) := by

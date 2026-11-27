@@ -5,7 +5,11 @@ Level 4
 
 Title "`one_pow`"
 
-VisualLevelNumber "11"
+VisualLevelNumber "10"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock one_pow "No matter how many ones you multiply together, you’ll only ever get more ones."
 
 namespace MyNat
 

@@ -5,7 +5,14 @@ Level 2
 
 Title "`zero_pow_succ`"
 
-VisualLevelNumber "9"
+VisualLevelNumber "8"
+
+-- Experimental (V13.2): the screens before and after the level. (The first one's text is
+-- the spec's, word for word.)
+VisualPreLevel "Axiom Equality Unlocked!"
+VisualPreLevelUnlock pow_succ "Exponentiation is repeated multiplication!"
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock zero_pow_succ "In the natural numbers, zero to any power besides zero is zero."
 
 namespace MyNat
 
@@ -26,8 +33,8 @@ $n$ is a successor.
 -/
 TheoremDoc MyNat.zero_pow_succ as "zero_pow_succ" in "^"
 
+-- The axiom is introduced on the screen before the level, with no glow here.
 NewTheorem MyNat.pow_succ
-VisualEmphasize MyNat.pow_succ
 
-Statement zero_pow_succ : ∀ m : ℕ, (0 : ℕ) ^ S m = 0 := by
-  exact fun m => by rw [pow_succ, mul_zero]
+Statement zero_pow_succ : ∀ n : ℕ, (0 : ℕ) ^ S n = 0 := by
+  exact fun n => by rw [pow_succ, mul_zero]

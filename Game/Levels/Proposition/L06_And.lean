@@ -7,12 +7,16 @@ Title "Conjunction (0)"
 
 VisualLevelNumber "5"
 
+-- Experimental (V13.2): the screen before the level.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "∧" "Conjunction (And)" "`A ∧ B` means A and B are true."
+
 Statement (A B : Prop) (hA : A) (hB : B) : A ∧ B := by
   exact ⟨hA, hB⟩
 
 -- Before splitting only: after the split, the hint below the proof graph takes over.
 VisualGoalInfoOnGoal above true "A ∧ B" while
-  "The symbol $∧$ represents ‘and’. In order to prove an ‘and’ goal, we must prove both sides.
+  "In order to prove an ‘and’ goal, we must prove both sides.
 {pc: Click | mobile: Tap} the goal here to split into two proof branches."
 
 VisualProofGraphInfoBelow

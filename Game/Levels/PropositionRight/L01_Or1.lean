@@ -7,6 +7,12 @@ Title "Disjunction (0)"
 
 VisualLevelNumber "8"
 
+-- Experimental (V13.2): the screen before the level.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "∨" "Disjunction (Or)" "`A ∨ B` means that either `A` or `B` is true (or both).
+
+Note that in intuitionistic logic, we have to specify which side is true on construction!"
+
 Statement (A B C : Prop) (hB : B) : A ∨ (B ∨ C) := by
   exact .inr (.inl hB)
 

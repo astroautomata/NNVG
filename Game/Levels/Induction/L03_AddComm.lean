@@ -8,7 +8,7 @@ Title "Commutativity of Addition"
 VisualLevelNumber "2"
 
 -- Experimental (V13): the screen after the level.
-VisualPostLevel "Theorem Unlocked!"
+VisualPostLevel "Equality Unlocked!"
 VisualPostLevelUnlock add_comm "Allows you to swap added terms.
 
 We say a binary operation is *commutative* if its terms can be freely swapped without changing the result."

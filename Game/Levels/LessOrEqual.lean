@@ -1,14 +1,15 @@
 import Game.Levels.LessOrEqual.L01_Exists
 import Game.Levels.LessOrEqual.L02_LeRefl
 import Game.Levels.LessOrEqual.L03_ZeroLe
-import Game.Levels.LessOrEqual.L04_LeSuccSelf
+import Game.Levels.LessOrEqual.L04_LeRightAddSelf
 import Game.Levels.LessOrEqual.L05_ExistsHyp
 import Game.Levels.LessOrEqual.L06_LeTrans
+import Game.Levels.LessOrEqual.L07_RightAddLe
 
 World "LessOrEqual"
 Title "≤ World"
 
--- Levels 0 to 5, after the ≠ World. The rest waits for all of Induction World
+-- Levels 0 to 6, after the ≠ World. The rest waits for all of Induction World
 -- (`LessOrEqualJoined`, then the boss in `LessOrEqualBoss`).
 VisualWorldColor circuit
 VisualMapColumn 1

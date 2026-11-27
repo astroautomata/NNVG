@@ -5,7 +5,12 @@ Level 3
 
 Title "Antisymmetry of `≤`"
 
-VisualLevelNumber "8"
+VisualLevelNumber "9"
+
+-- Experimental (V13.2): the screen after the level. (The spec's block
+-- writes `leq_antisym`; the theorem keeps its name.)
+VisualPostLevel "Proposition Unlocked!"
+VisualPostLevelUnlock leq_antisymm "We say a binary operation `·` is *antisymmetric* if `a · b` and `b · a` implies `a = b`."
 
 namespace MyNat
 

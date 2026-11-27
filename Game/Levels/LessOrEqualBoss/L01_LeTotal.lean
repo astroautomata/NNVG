@@ -6,8 +6,12 @@ Level 1
 
 Title "`≤` is Total (≤ World Boss)"
 
-VisualLevelNumber "10"
+VisualLevelNumber "11"
 VisualBossLevel
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Proposition Unlocked!"
+VisualPostLevelUnlock leq_total "We say a binary operation `·` is *total* if, for any `a, b` on its domain, `a · b` or `b · a`."
 
 VisualTacticUses induction 2
 
@@ -21,21 +25,20 @@ hypothesis. And don't choose a side of an `∨` goal until your hypotheses guara
 you can prove it!
 "
 
-/-- `le_total a b` is a proof that `a ≤ b` or `b ≤ a`. -/
-TheoremDoc MyNat.le_total as "le_total" in "≤"
+/-- `leq_total a b` is a proof that `a ≤ b` or `b ≤ a`. -/
+TheoremDoc MyNat.leq_total as "leq_total" in "≤"
 
-Statement le_total : ∀ a b : ℕ, a ≤ b ∨ b ≤ a := by
+Statement leq_total : ∀ a b : ℕ, a ≤ b ∨ b ≤ a := by
   exact fun a b => by
     induction b with d hd
     · exact .inr (zero_leq a)
-    · exact hd.elim (fun h1 => .inl (leq_trans a d _ h1 (le_succ_self d)))
+    · rw [← add_one]
+      exact hd.elim (fun h1 => .inl (leq_trans a d _ h1 (leq_right_add_self d 1)))
         (fun h2 => (h2 : ∃ c, a = d + c).elim (fun e he => by
           induction e with f _hf
-          · exact .inl (by rw [add_zero] at he; rw [he]; exact le_succ_self d)
-          · exact .inr (by
-              rw [← add_one]
-              exact (⟨f, by rw [add_assoc, add_comm 1 f, add_one]; exact he⟩ :
-                ∃ c, a = d + 1 + c))))
+          · exact .inl (by rw [add_zero] at he; rw [he]; exact leq_right_add_self d 1)
+          · exact .inr (⟨f, by rw [add_assoc, add_comm 1 f, add_one]; exact he⟩ :
+              ∃ c, a = d + 1 + c)))
 
 Conclusion
 "

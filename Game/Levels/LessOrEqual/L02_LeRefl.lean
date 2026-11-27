@@ -7,6 +7,13 @@ Title "`leq_refl`"
 
 VisualLevelNumber "1"
 
+-- Experimental (V13.2): the screens before and after the level.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "≤" "Less Than or Equal To" "`a ≤ b` just means that `b` is the same as or larger than `a`. We represent this by defining `a ≤ b` to mean there exists some `c` such that `b = a + c`."
+VisualPostLevel "Propositions Unlocked!"
+VisualPostLevelUnlock leq_refl "A binary relation `·` is *reflexive* if `a · a` always holds."
+VisualPostLevelUnlock eq_implies_leq "Equality is sufficient for being ‘less than or equal’."
+
 VisualGoalInfo below false "We define `x ≤ y` to mean `∃ c, y = x + c`."
 
 namespace MyNat

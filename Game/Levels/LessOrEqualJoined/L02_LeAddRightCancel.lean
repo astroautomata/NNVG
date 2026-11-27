@@ -5,7 +5,11 @@ Level 2
 
 Title "`≤` Add Right Cancel"
 
-VisualLevelNumber "7"
+VisualLevelNumber "8"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Proposition Unlocked!"
+VisualPostLevelUnlock leq_add_right_cancel "Cancel additions from two sides of an inequality."
 
 namespace MyNat
 

@@ -7,6 +7,16 @@ Title "`mul_one`"
 
 VisualLevelNumber "0"
 
+-- Experimental (V13.2): the screen before the level, in two pages (the symbol, then the
+-- axioms), and the one after it.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "*" "Multiplication" "We use the star `*` to denote the times symbol `×`. This is because `×` usually denotes the Cartesian product in higher math."
+VisualPreLevel "Axiom Equalities Unlocked!"
+VisualPreLevelUnlock mul_zero "Multiplying by zero on the right destroys any natural number."
+VisualPreLevelUnlock mul_succ "Multiplication is repeated addition!"
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock mul_one "One is the identity for multiplication."
+
 namespace MyNat
 
 Introduction
@@ -43,9 +53,8 @@ TheoremDoc MyNat.mul_succ as "mul_succ" in "*"
 /-- `mul_one m` is the proof that `m * 1 = m`. -/
 TheoremDoc MyNat.mul_one as "mul_one" in "*"
 
+-- The two axioms are introduced on the screen before the level, with no glow here.
 NewTheorem MyNat.mul_zero MyNat.mul_succ
-VisualEmphasize MyNat.mul_zero
-VisualEmphasize MyNat.mul_succ
 
 Statement mul_one : ∀ m : ℕ, m * 1 = m := by
   exact fun m => by rw [one_eq_succ_zero, mul_succ, mul_zero, zero_add]

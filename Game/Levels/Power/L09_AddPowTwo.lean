@@ -5,8 +5,12 @@ Level 9
 
 Title "FOILed Again (Multiplication and Exponentiation World Boss)"
 
-VisualLevelNumber "16"
+VisualLevelNumber "15"
 VisualBossLevel
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock add_pow_two "Squared sums support significant simplifications!"
 
 namespace MyNat
 
@@ -15,10 +19,10 @@ Introduction
 [final boss music]
 "
 
-/-- `add_sq a b` is the statement that $(a+b)^2=a^2+b^2+2ab.$ -/
-TheoremDoc MyNat.add_sq as "add_sq" in "^"
+/-- `add_pow_two a b` is the statement that $(a+b)^2=a^2+b^2+2ab.$ -/
+TheoremDoc MyNat.add_pow_two as "add_pow_two" in "^"
 
-Statement add_sq : ∀ a b : ℕ, (a + b) ^ 2 = a ^ 2 + b ^ 2 + 2 * a * b := by
+Statement add_pow_two : ∀ a b : ℕ, (a + b) ^ 2 = a ^ 2 + b ^ 2 + 2 * a * b := by
   exact fun a b => by
     rw [pow_two, pow_two, pow_two, mul_add, add_mul, add_mul, two_mul, add_mul, mul_comm b a,
       add_assoc, add_assoc, ← add_assoc (a * b) (a * b) (b * b), add_comm (a * b + a * b) (b * b)]

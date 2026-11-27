@@ -7,6 +7,10 @@ Title "`succ_mul`"
 
 VisualLevelNumber "2"
 
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock succ_mul "Multiplication is repeated addition, even when we collapse from the left!"
+
 namespace MyNat
 
 Introduction

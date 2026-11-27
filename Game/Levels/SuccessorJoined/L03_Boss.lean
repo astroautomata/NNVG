@@ -7,9 +7,6 @@ Title "Plug and Chug (Successor World Boss)"
 
 VisualLevelNumber "5"
 
--- Experimental (V13): the screen before the level.
-VisualPreLevel "Successor World Boss"
-VisualPreLevelText "Plug and Chug"
 VisualBossLevel
 
 namespace MyNat

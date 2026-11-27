@@ -5,7 +5,14 @@ Level 5
 
 Title "`pow_two`"
 
-VisualLevelNumber "12"
+VisualLevelNumber "11"
+
+-- No induction in this level.
+VisualTacticUses induction 0
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock pow_two "Squaring is just multiplying something by itself."
 
 namespace MyNat
 

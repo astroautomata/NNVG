@@ -21,7 +21,7 @@ way one of the two numbers is the other plus some `d`, and then `a * d = 0`.
 TheoremDoc MyNat.mul_left_cancel as "mul_left_cancel" in "*"
 
 Statement mul_left_cancel : ∀ a b c : ℕ, a ≠ 0 → a * b = a * c → b = c := by
-  exact fun a b c ha h => (le_total b c).elim
+  exact fun a b c ha h => (leq_total b c).elim
     (fun hbc => (hbc : ∃ d, c = b + d).elim (fun d hd => by
       rw [hd, ((mul_eq_zero a d (add_right_eq_self (a * b) (a * d) (by rw [hd, mul_add] at h; exact h.symm))).elim
         (fun h0 => (ha h0).elim) (fun h0 => h0) : d = 0), add_zero]))

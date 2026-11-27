@@ -5,7 +5,7 @@ Level 4
 
 Title "`leq_one`"
 
-VisualLevelNumber "9"
+VisualLevelNumber "10"
 
 VisualTacticUses cases 1
 

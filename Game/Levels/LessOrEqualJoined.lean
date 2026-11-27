@@ -6,7 +6,7 @@ import Game.Levels.LessOrEqualJoined.L04_LeOne
 World "LessOrEqualJoined"
 Title "≤ World"
 
--- ≤ World past its barrier, levels 6 to 9: it also needs all of Induction World
+-- ≤ World past its barrier, levels 7 to 10: it also needs all of Induction World
 -- (`InductionDouble`).
 VisualContinues LessOrEqual
 VisualMapColumn 1

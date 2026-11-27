@@ -1,4 +1,4 @@
-import Game.Levels.LessOrEqual.L04_LeSuccSelf
+import Game.Levels.LessOrEqual.L04_LeRightAddSelf
 
 World "LessOrEqual"
 Level 5

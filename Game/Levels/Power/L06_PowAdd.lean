@@ -5,7 +5,11 @@ Level 6
 
 Title "`pow_add`"
 
-VisualLevelNumber "13"
+VisualLevelNumber "12"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock pow_add "Addition in an exponent becomes multiplication when we distribute."
 
 namespace MyNat
 

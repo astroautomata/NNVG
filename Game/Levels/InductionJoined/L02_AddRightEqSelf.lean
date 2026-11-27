@@ -9,6 +9,12 @@ VisualLevelNumber "5"
 
 VisualTacticUses induction 1
 
+-- Experimental (V13.1): the screen after the level.
+VisualPostLevel "Propositions Unlocked!"
+VisualPostLevelUnlock add_right_eq_self
+VisualPostLevelUnlock add_left_eq_self
+VisualPostLevelText "If adding some `b` to a number does not change it, `b` must be zero."
+
 namespace MyNat
 
 Introduction

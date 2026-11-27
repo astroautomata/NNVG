@@ -5,7 +5,11 @@ Level 3
 
 Title "`pow_one`"
 
-VisualLevelNumber "10"
+VisualLevelNumber "9"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock pow_one "Exponentiation by one is the identity function."
 
 namespace MyNat
 

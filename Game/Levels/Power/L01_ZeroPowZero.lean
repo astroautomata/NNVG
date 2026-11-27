@@ -5,7 +5,19 @@ Level 1
 
 Title "`zero_pow_zero`"
 
-VisualLevelNumber "8"
+VisualLevelNumber "7"
+
+-- No induction in this level.
+VisualTacticUses induction 0
+
+-- Experimental (V13.2): the screen before the level, in two pages (the symbol, then the
+-- axiom), and the one after it.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "^" "Exponentiation" "`a ^ b` means raising `a` to the power of `b`. The caret stands in for a proper superscript."
+VisualPreLevel "Axiom Equality Unlocked!"
+VisualPreLevelUnlock pow_zero "Any number to the zeroth power is one."
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock zero_pow_zero "Counter-intuitively, zero to the zeroth power is one."
 
 namespace MyNat
 
@@ -46,8 +58,8 @@ convention that `0 ^ 0 = 1`.
 -/
 TheoremDoc MyNat.zero_pow_zero as "zero_pow_zero" in "^"
 
+-- The axiom is introduced on the screen before the level, with no glow here.
 NewTheorem MyNat.pow_zero
-VisualEmphasize MyNat.pow_zero
 
 Statement zero_pow_zero : (0 : ℕ) ^ 0 = 1 := by
   rw [pow_zero]

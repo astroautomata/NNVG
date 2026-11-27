@@ -11,7 +11,7 @@ VisualLevelNumber "0"
 -- `induction` is still "TODO", so the screen shows the tactic alone.
 VisualPreLevel "Tactic Unlocked!"
 VisualPreLevelUnlock induction
-VisualPostLevel "Theorem Unlocked!"
+VisualPostLevel "Equality Unlocked!"
 VisualPostLevelUnlock zero_add "Eliminate added zeroes on the right.
 
 Not to be confused with `add_zero`!"

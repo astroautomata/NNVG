@@ -8,14 +8,12 @@ Title "`add_one`"
 VisualLevelNumber "1"
 
 -- Experimental (V13): the screens before and after the level.
-VisualPreLevel "Axioms Unlocked!"
+VisualPreLevel "Axiom Equalities Unlocked!"
 VisualPreLevelUnlock add_zero "Eliminate added zeroes, but only on the right."
 VisualPreLevelUnlock add_succ "Move successor functions out to the right addend."
-VisualPostLevel "Theorem Unlocked!"
+VisualPostLevel "Equality Unlocked!"
 VisualPostLevelUnlock add_one "Quickly collapse added ones."
-VisualPostLevelText "Many proofs you complete will be available to you as theorems that you can use in all future levels.
-
-This will allow us to prove increasingly sophisticated results!"
+VisualPostLevelText "Many proofs you complete will be available to you as theorems that you can use in all future levels. This will allow us to prove increasingly sophisticated results!"
 VisualRewriteOnly
 -- There are no hypotheses before level 3.
 VisualNoHypothesesTab

@@ -7,15 +7,20 @@ Title "Counting to Two"
 
 VisualLevelNumber "0"
 
--- Experimental (V13): the screen before the level.
-VisualPreLevel "Axioms Unlocked!"
+-- Experimental (V13, V13.2): the screen before the level, in two pages: the symbols,
+-- then the axioms.
+VisualPreLevel "Symbols Unlocked!"
+VisualPreLevelSymbol "0" "Zero" "The first natural number.
+
+(And, yes: here, zero *is* a natural number.)"
+VisualPreLevelSymbol "S(n)" "The Successor Function" "Sometimes called `succ(n)` or increment, `S(n)` is the function that sends any natural number `n` to the natural number one larger. Zero to one, one to two, and onwards forever."
+VisualPreLevelSymbol "+" "Addition" "`a + b`. It’s elementary."
+VisualPreLevel "Axiom Equalities Unlocked!"
 VisualPreLevelUnlock one_eq_succ_zero
 VisualPreLevelUnlock two_eq_succ_one
 VisualPreLevelUnlock three_eq_succ_two
 VisualPreLevelUnlock four_eq_succ_three
-VisualPreLevelText "From now on, we'll be building up facts about the natural numbers from scratch.
-
-These first axioms tell us how to expand numbers as many nested successor functions."
+VisualPreLevelText "From now on, we'll be building up facts about the natural numbers from scratch. These first axioms tell us how to expand numbers as many nested successor functions."
 VisualRewriteOnly
 -- No tabs yet: the four rules are in one list.
 VisualNoRewriteTabs

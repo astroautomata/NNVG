@@ -1,4 +1,4 @@
-import Game.Levels.AdvMultiplication.L01_MulLeMulRight
+import Game.Levels.AdvMultiplication.L01_MulLeqMulRight
 
 World "AdvMultiplication"
 Level 2

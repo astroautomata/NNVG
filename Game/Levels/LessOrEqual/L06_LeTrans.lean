@@ -7,6 +7,12 @@ Title "Transitivity of `≤`"
 
 VisualLevelNumber "5"
 
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Proposition Unlocked!"
+VisualPostLevelUnlock leq_trans "A binary operation `·` is *transitive* if `a · b` and `b · c` implies `a · c`.
+
+In other words, they can be chained together."
+
 namespace MyNat
 
 Introduction

@@ -10,6 +10,12 @@ VisualLevelNumber "4"
 
 VisualTacticUses induction 1
 
+-- Experimental (V13.1): the screen after the level.
+VisualPostLevel "Propositions Unlocked!"
+VisualPostLevelUnlock add_right_cancel
+VisualPostLevelUnlock add_left_cancel
+VisualPostLevelText "Cancel two added terms from either side of an equality."
+
 namespace MyNat
 
 Introduction

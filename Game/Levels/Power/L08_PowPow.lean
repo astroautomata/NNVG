@@ -5,7 +5,11 @@ Level 8
 
 Title "`pow_pow`"
 
-VisualLevelNumber "15"
+VisualLevelNumber "14"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock pow_pow "Exponentiation of a power becomes multiplication."
 
 namespace MyNat
 

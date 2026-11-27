@@ -7,6 +7,10 @@ Title "`∃`"
 
 VisualLevelNumber "0"
 
+-- Experimental (V13.2): the screen before the level.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "∃" "There Exists" "When we say `∃ n : ℕ, P(n)`, we just mean that we can pick some natural number `n` for which the condition `P(n)` is true. We call the specific `n` that works the *witness*."
+
 -- The witness is built in Construction Mode. `0` is the one that works, and the hint
 -- for it stays up while the goal is rewritten; with any other, no hint here matches the
 -- goal, which is when the last one shows.

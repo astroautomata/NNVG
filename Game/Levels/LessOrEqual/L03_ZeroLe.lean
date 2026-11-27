@@ -3,9 +3,13 @@ import Game.Levels.LessOrEqual.L02_LeRefl
 World "LessOrEqual"
 Level 3
 
-Title "Positivity"
+Title "Non-negativity of ℕ"
 
 VisualLevelNumber "2"
+
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Proposition Unlocked!"
+VisualPostLevelUnlock zero_leq "Zero is a lower bound for the natural numbers."
 
 namespace MyNat
 

@@ -6,6 +6,10 @@ Level 4
 Title "General Rewriting (Commutativity)"
 
 VisualLevelNumber "3"
+
+-- Experimental (V13.2): the screen before the level.
+VisualPreLevel "Symbol Unlocked!"
+VisualPreLevelSymbol "∀" "For All" "`∀ n : ℕ, …` just means that for any natural number `n` you pick, the subsequent condition involving `n` is always true. We can use this to express equalities that work for any natural numbers!"
 VisualRewriteOnly
 VisualEmphasizeForall add_comm
 

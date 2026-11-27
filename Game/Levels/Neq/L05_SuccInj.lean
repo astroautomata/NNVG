@@ -7,6 +7,10 @@ Title "`succ_inj`"
 
 VisualLevelNumber "4"
 
+-- Experimental (V13.1): the screen before the level.
+VisualPreLevel "Axiom Proposition Unlocked!"
+VisualPreLevelUnlock succ_inj "We say a function is ‘injective’ if it never maps two different inputs to the same output. Thus, if the outputs of an injective function are the same, the inputs must have been the same."
+
 namespace MyNat
 
 Introduction

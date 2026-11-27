@@ -7,6 +7,10 @@ Title "`zero_mul`"
 
 VisualLevelNumber "1"
 
+-- Experimental (V13.2): the screen after the level.
+VisualPostLevel "Equality Unlocked!"
+VisualPostLevelUnlock zero_mul "Multiplying by zero on the left *also* destroys any natural number."
+
 namespace MyNat
 
 Introduction
